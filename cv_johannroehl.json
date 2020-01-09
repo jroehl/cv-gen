@@ -1,0 +1,355 @@
+{
+  "config": {
+    "font": {
+      "family": "Roboto",
+      "src": "http://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf"
+    },
+    "colors": {
+      "darkest": "#263239",
+      "dark": "#36474F",
+      "mid": "#546E7B",
+      "light": "#EFEEEE",
+      "lightest": "#FFF"
+    }
+  },
+  "contact": {
+    "name": "Johann Röhl",
+    "birthday": "03/19/1987",
+    "birthplace": "Eutin",
+    "nationality": "German",
+    "phone": "+49 (0)176 470 496 05",
+    "mail": "mail@johannroehl.de",
+    "website": "https://johannroehl.de",
+    "address": {
+      "street": "Richardstraße 98",
+      "city": "12043 Berlin",
+      "country": "Germany"
+    },
+    "portals": [
+      {
+        "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAApVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+4/eNVAAAANnRSTlMAAQIDBQYHCQsSExQVHiAjJygtMzg/QEdJX2FkaHh+g4WGiJWXm6OvtLzFys7a4ubo9ff5+/2JyqqEAAAAuUlEQVQ4y9XS2Q6CMBQE0CLgjrjgvituaF1Q7v9/mtJpjKStvmmcp2k5Ib1NGSstj/uRzYzxKM3BMoKtABQYwQVgYAQ7gLYR1MV3/uaUjYjiRZ59O44ftLwceh9TFB8VLWTOXJRk4upBgZPMqZwFiWibiJ45OxlwIyUzA+CxLImrAz2LWR3ZmxrQFdONsRi+gisOhvEr2J+qf1gD2NhfqSCUt0mSK/fwW0D/C6qBSPpC0WoSYOV/fOB3aV1kKMnUK6QAAAAASUVORK5CYII=",
+        "url": "www.linkedin.com/in/johannroehl"
+      },
+      {
+        "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABUFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9GqXNDAAAAb3RSTlMAAQIDBAUGBwgJCgsMDxASExQVFhccHh8jJSYnKisvMTM0OENFRkdKS0xQUVdZXF1eYWJjZGhpbG1vcHFzd3h5fH6Cg4WGi4yOj5GUlZiam52io6Wmqq2yusHDx8jMztXZ2tze4uTm6evz9ff5+/2KM+TrAAABbElEQVQYGY3B+0NLYRzH8c9zLDsZK8wwiZBbud9yl+SSZS6RzKSV0sre//9vnu9zVrZz9oPXS/+44zcWljd/N6oTJfWRv7fJrtVxp15u8g891kfULV4i47nTrgNr9PElUke8Rl8flXDfgPk7K3RZnGwA9xVcwytKlR/Uq89mak3eF6XzeEfkxW08J8lFCnLyynh1eQ8xkVKOYkYkt4UZUsoFzAfpBGZBaXs3MAO6jRlWxkXMMX3GW1FWAXNZP/FqynKYB2rhVdUHZlYbeIvKijDTquO1lHUQc0vzmJIyJjDndAnzRmluFXNYJYIxpUxjtp20THDFqUv8juCppHEYjV7B+s1KQcHQqRdtEsOSoibbJ/Ov8c4qmGPHW5kKbA3kvkI7UlCmo5VX8ASmXG5/vEeJAh2n1fGJ9qjk1DFI4qp2RDVozEw9VmKQ4Lq63MVrKrEPr3VGPQ4twS8lCkA1r7Ty3Eslou+PivpvfwGDLLKBb3fNFAAAAABJRU5ErkJggg==",
+        "url": "www.github.com/jroehl"
+      },
+      {
+        "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAA/FBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9Y9aUVAAAAU3RSTlMAAQIDBAUGBwgJCgsODxARExcZGhscIyQmKCorLzI5Oz9AQUNKUVJbXV5jZGdvc3V4e4+RlZeaoqOlqKqvsLm6wMfMztXX3uLk6Onr7/Hz9fn7/VZtdq8AAAECSURBVBgZdcEJNwJhGAXgO42QlL2yZyeVJZSyjmxFMvf//xdzdXKa73ifB/9b+2DkCJZkj7IEywnlApYMJUzD0qCUYclRuj6GkvVWq9U8wFBA2cIfr03ZwECREmDEMuU9AfE7lBxGNSklyDGljpgMJUwDmAopGcRVKZcAapQqHFn+SmGe8jkGxymlBtxTduHIUr5TWKe0PTiuKSV4L5QVOPKUjo99yg1cT5Qixr8os3BsUwKgQqnB4XcpOWCV8ppAXJnSQOSOsoe4h37kcRKRRUovCdMVpQLTNCVMw3RGOYdpok+Zg+mQcgtTokspwLRDCWDynimbMBUob7DN5CMLGPgBX81eBFs3DNsAAAAASUVORK5CYII=",
+        "url": "www.xing.com/profile/johann_roehl"
+      }
+    ]
+  },
+  "parts": {
+    "columnLeft": [
+      {
+        "name": "Personal",
+        "type": "TABLE",
+        "values": [
+          [
+            {
+              "name": "Name",
+              "value": "Johann Röhl"
+            },
+            {
+              "name": "Birthday",
+              "value": "03/19/1987"
+            },
+            {
+              "name": "Birthplace",
+              "value": "Eutin"
+            },
+            {
+              "name": "Nationality",
+              "value": "German"
+            }
+          ]
+        ]
+      },
+      {
+        "name": "Skills",
+        "type": "BAR",
+        "values": [
+          [
+            {
+              "name": "Go",
+              "value": 75
+            },
+            {
+              "name": "JavaScript / TypeScript",
+              "value": 90
+            },
+            {
+              "name": "Python",
+              "value": 60
+            },
+            {
+              "name": "HTML5 / CSS3",
+              "value": 80
+            }
+          ],
+          [
+            {
+              "name": "Gatsby.Js",
+              "value": 85
+            },
+            {
+              "name": "React.Js",
+              "value": 90
+            },
+            {
+              "name": "Node.Js",
+              "value": 90
+            },
+            {
+              "name": "SASS",
+              "value": 70
+            }
+          ],
+          [
+            {
+              "name": "Amazon Web Services",
+              "value": 80
+            },
+            {
+              "name": "NoSQL DB",
+              "value": 75
+            },
+            {
+              "name": "SQL DB",
+              "value": 70
+            }
+          ]
+        ]
+      },
+      {
+        "name": "Languages",
+        "type": "CIRCLE",
+        "props": {
+          "break": true
+        },
+        "values": [
+          {
+            "name": "german",
+            "value": 100,
+            "color": "#42C0EB"
+          },
+          {
+            "name": "english",
+            "value": 85,
+            "color": "#E9478B"
+          },
+          {
+            "name": "spanish",
+            "value": 35,
+            "color": "#F07F26"
+          }
+        ]
+      },
+      {
+        "name": "Tools, methods, frameworks",
+        "type": "TEXT",
+        "values": [
+          {
+            "value": [
+              "Agile",
+              "Apache",
+              "Bash",
+              "Bitbucket",
+              "Chrome developer tools",
+              "CiCd",
+              "Circleci",
+              "Csv",
+              "Docker",
+              "Git",
+              "Github",
+              "GoogleCloud",
+              "Gsuite",
+              "Holacracy",
+              "JIRA",
+              "Json",
+              "Jsx",
+              "Kanban",
+              "Kubernetes",
+              "Linux",
+              "Mac",
+              "MongoDB",
+              "OKRs",
+              "PostgreSQL",
+              "Sass",
+              "Scrum",
+              "Scss",
+              "Slack",
+              "VSCode",
+              "XML",
+              "Yaml"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "About me",
+        "type": "TEXT",
+        "values": [
+          {
+            "value": "From workflow diagrams to user interfaces I am passionate about crafting simple, clear and functional designed experiences. If I'm not sitting in front of the Mac - coding or pushing pixels, you'll find me in the mountains, behind the camera or at the wok."
+          }
+        ]
+      }
+    ],
+    "columnRight": [
+      {
+        "name": "Education",
+        "type": "TIMELINE",
+        "values": [
+          {
+            "name": "Studies of media informatics - BA",
+            "fromTo": "10/2014 - 10/2017",
+            "location": "Beuth University of Applied Sciences, Berlin"
+          },
+          {
+            "name": "Education photographer - Journeyman",
+            "fromTo": "08/2011 - 01/2014",
+            "location": "adP Photostudios GmbH, Hamburg"
+          },
+          {
+            "name": "Training rescue paramedic",
+            "fromTo": "08/2010 - 01/2011",
+            "location": "ASB Hamburg, Hamburg"
+          },
+          {
+            "name": "Abitur (equivalent to A-levels)",
+            "fromTo": "08/1997 - 08/2008",
+            "location": "Baltic Gesamtschule / Johanneum zu Lübeck, Lübeck"
+          }
+        ]
+      },
+      {
+        "name": "Certificates and qualifications",
+        "type": "TIMELINE",
+        "values": [
+          {
+            "name": "AWS Certified Solutions Architect - Associate",
+            "fromTo": "11/2018",
+            "location": "Amazon Web Services"
+          },
+          {
+            "name": "Machine Learning",
+            "fromTo": "02/2018",
+            "location": "Coursera / Andrew Ng"
+          }
+        ]
+      },
+      {
+        "name": "Experience abroad",
+        "type": "TIMELINE",
+        "values": [
+          {
+            "name": "Canada",
+            "fromTo": "09/2018 - 05/2009",
+            "location": "Work and Travel YMP"
+          },
+          {
+            "name": "Venezuela - Caracas",
+            "fromTo": "06/2006 - 08/2006",
+            "location": "Student exchange Colegio Humboldt"
+          }
+        ]
+      },
+      {
+        "name": "Work",
+        "type": "TIMELINE",
+        "props": {
+          "break": true
+        },
+        "values": [
+          {
+            "name": "Software developer & Web designer | Freelance",
+            "fromTo": "03/2014 - today",
+            "location": "Berlin",
+            "website": "www.johannroehl.de"
+          },
+          {
+            "name": "FullStack JS developer | Contentful GmbH",
+            "fromTo": "01/2018 - today",
+            "location": "Berlin",
+            "website": "www.contentful.com"
+          },
+          {
+            "name": "Software developer | MYCS GmbH",
+            "fromTo": "01/2018 - 05/2019",
+            "location": "Berlin",
+            "website": "www.mycs.com"
+          },
+          {
+            "name": "Working student | MYCS GmbH",
+            "fromTo": "01/2017 - 01/2018",
+            "location": "Berlin",
+            "website": "www.mycs.com"
+          },
+          {
+            "name": "Working student | GIGA",
+            "fromTo": "08/2015 - 01/2018",
+            "location": "Hamburg",
+            "website": "www.giga-hamburg.de"
+          },
+          {
+            "name": "Photographer | adP Photostudios GmbH",
+            "fromTo": "02/2014 - 04/2014",
+            "location": "Hamburg",
+            "website": "www.adp-photostudios.de"
+          },
+          {
+            "name": "Employee IT administration | ZVS GmbH",
+            "fromTo": "06/2009 - 05/2010",
+            "location": "Hamburg"
+          }
+        ]
+      },
+      {
+        "name": "Selected projects - employed",
+        "type": "CARDS",
+        "props": {
+          "break": true
+        },
+        "values": [
+          [
+            {
+              "name": "CiCd process Netsuite",
+              "techs": ["Bash", "CircleCi", "Go", "Netsuite", "NodeJs", "SuiteTalk"],
+              "value": "Conception and implementation of a CiCd workflow to allow adopting modern development practices in Netsuite. Implementation of an open source cli for useful file handling features in Netsuite."
+            },
+            {
+              "name": "ECS, EKS setup and integration",
+              "techs": ["AWS", "Bash", "Docker", "Kubernetes"],
+              "value": "Setup of a cloud container orchestration service (EKS and ECS) and migration of existing APIs."
+            },
+            {
+              "name": "Warehouse API",
+              "techs": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
+              "value": "Design and implementation of an API automating the label prints in the warehouse."
+            }
+          ]
+        ]
+      },
+      {
+        "name": "Selected projects - freelance",
+        "type": "CARDS",
+        "values": [
+          [
+            {
+              "name": "Multilingual company website",
+              "techs": ["AWS Gateway", "AWS Lambda", "FlowFact API", "GatsbyJs", "IS24 API", "Netlify", "NodeJS", "ReactJs"],
+              "value": "Design and implementation of a multilingual website, with a serverless contact form and an individual solution for the display and synchronization of company real estate."
+            },
+            {
+              "name": "Twitter Project",
+              "techs": ["AngularJS", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
+              "value": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}
