@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Canvas } from '@react-pdf/renderer';
 
-import DefaultRenderer from './Default';
+import Default from './Default';
 
 export const ProgressCircles = props => {
   const {
@@ -13,7 +13,7 @@ export const ProgressCircles = props => {
   const lineWidth = 3;
 
   return (
-    <DefaultRenderer
+    <Default
       {...props}
       row
       render={({ skill, proficiency, color }) => (

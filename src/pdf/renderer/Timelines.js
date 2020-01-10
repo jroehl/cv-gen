@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, Link } from '@react-pdf/renderer';
 
-import DefaultRenderer from './Default';
+import Default from './Default';
 
 const TimelineItem = ({ circleSize = 20, colors }) => {
   const innerCircleSize = circleSize * 0.5;
@@ -11,7 +11,6 @@ const TimelineItem = ({ circleSize = 20, colors }) => {
       style={{
         paddingRight: 6,
         display: 'flex',
-        display: 'column',
         justifyContent: 'center',
         alignItems: 'center',
       }}
@@ -63,7 +62,7 @@ export const Timelines = props => {
   };
 
   return (
-    <DefaultRenderer
+    <Default
       {...props}
       render={({ heading, fromTo, location, website }) => (
         <View

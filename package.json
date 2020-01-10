@@ -1,12 +1,16 @@
 {
   "name": "cv-gen",
   "version": "1.0.0",
-  "description": "A CLI to dynamically generate a CV PDF based on values stored in a JSON",
-  "main": "server.js",
+  "description": "A CLI and web interface to dynamically generate a CV PDF based on values stored in JSON format",
+  "main": "index.js",
   "bin": "bin/cv-gen",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon bin/cv-gen ./cv_johannroehl.json"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev:cli": "nodemon bin/cv-gen ./cv_johannroehl.json",
+    "dev:web": "npm start"
   },
   "keywords": [
     "cli",
@@ -25,10 +29,32 @@
     "@babel/preset-react": "^7.7.4",
     "@babel/register": "^7.7.7",
     "@react-pdf/renderer": "^1.6.8",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^8.0.3",
     "gravatar": "^1.8.0",
-    "react": "^16.12.0"
+    "jsoneditor-react": "^3.0.0",
+    "jsoneditor": "^8.1.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

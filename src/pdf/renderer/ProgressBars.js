@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from '@react-pdf/renderer';
 
-import DefaultRenderer from './Default';
+import Default from './Default';
 
 export const ProgressBars = props => {
   const {
@@ -10,7 +10,7 @@ export const ProgressBars = props => {
     config: { colors },
   } = props;
   return (
-    <DefaultRenderer
+    <Default
       {...props}
       render={({ skill, proficiency, color }) => (
         <View key={skill} style={{ paddingBottom: 6 }}>

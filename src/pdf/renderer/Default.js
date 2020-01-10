@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from '@react-pdf/renderer';
 
-const DefaultRenderer = ({ heading, type, values, row, styles, render, reactPdfProps = {}, ...rest }) => {
+const Default = ({ heading, type, values, row, styles, render, reactPdfProps = {}, ...rest }) => {
   return (
     <View
       wrap={false}
@@ -35,4 +35,4 @@ const DefaultRenderer = ({ heading, type, values, row, styles, render, reactPdfP
   );
 };
 
-export default DefaultRenderer;
+export default Default;

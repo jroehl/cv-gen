@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from '@react-pdf/renderer';
 
-import DefaultRenderer from './Default';
+import Default from './Default';
 
 export const Cards = props => {
   const {
@@ -11,7 +11,7 @@ export const Cards = props => {
   } = props;
 
   return (
-    <DefaultRenderer
+    <Default
       {...props}
       render={({ heading, text, subHeading }) => {
         return (

@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, View } from '@react-pdf/renderer';
 
-import DefaultRenderer from './Default';
+import Default from './Default';
 
 const Texts = props => {
   const { styles } = props;
   return (
-    <DefaultRenderer
+    <Default
       {...props}
       render={({ value }) => (
         <View key={value} style={{ paddingBottom: 6 }}>
