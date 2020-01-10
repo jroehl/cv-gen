@@ -1,34 +1,49 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link, View, Text, Image } from '@react-pdf/renderer';
 
-const icons = {
-  // custom
-  linkedin: 'fab fa-linkedin-in',
-  github: 'fab fa-github',
-  angel: 'fab fa-angellist',
-  xing: 'fab fa-xing',
-  // websites
-  blog: 'fas fa-blog',
-  personal: 'fas fa-user',
-  rss: 'fas fa-rss',
-  company: 'far fa-building',
-  portfolio: 'fas fa-user-edit',
-  // IM
-  skype: 'fab fa-skype',
-  aim: 'fas fa-crosshairs',
-  yahoo: 'fab fa-yahoo',
-  icq: 'fab fa-intercom',
-  hangouts: 'fab fa-google',
-  google: 'fab fa-google',
-  qq: 'fab fa-qq',
-  wechat: 'fab fa-weixin',
-  industry: 'fas fa-industry',
-  other: 'fas fa-globe',
-  fallback: 'fas fa-globe',
+const Portal = ({ circleSize = 24, url, icon, colors }) => {
+  return (
+    <View
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <View
+        style={{
+          height: circleSize,
+          width: circleSize,
+          borderRadius: circleSize,
+          marginBottom: 4,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: colors.darkest,
+        }}
+      >
+        <Image
+          style={{
+            height: circleSize / 2,
+            width: circleSize / 2,
+          }}
+          src={icon}
+        ></Image>
+      </View>
+
+      <Link
+        style={{
+          color: colors.lightest,
+          fontSize: 8,
+        }}
+        href={url}
+      >
+        {url}
+      </Link>
+    </View>
+  );
 };
 
-const Footer = ({ contact, colors }) => {
+const Footer = ({ config: { colors }, contact }) => {
   const styles = {
     footer: {
       position: 'absolute',
@@ -42,17 +57,18 @@ const Footer = ({ contact, colors }) => {
     },
     top: {
       display: 'flex',
-      padding: '12pt 48pt',
       flexDirection: 'row',
+      flexWrap: 'wrap',
       justifyContent: 'space-around',
+      padding: '12 48',
       backgroundColor: colors.dark,
     },
     bottom: {
       display: 'flex',
       flexDirection: 'row',
-      padding: '6pt 24pt',
-      backgroundColor: colors.darkest,
       justifyContent: 'space-between',
+      padding: '6 24',
+      backgroundColor: colors.darkest,
     },
   };
 
@@ -65,50 +81,16 @@ const Footer = ({ contact, colors }) => {
     address: { street, city, country },
   } = contact;
 
-  const contactString = `${name}, ${street}, ${city}, ${country}`;
+  const contactString = [name, street, city, country].join(', ');
 
   return (
     <View fixed style={styles.footer}>
-      <View fixed style={styles.top}>
-        {portals.map(({ icon, url }) => {
-          const circleSize = 24;
-          return (
-            <View key={url} style={{ display: 'flex', alignItems: 'center' }}>
-              <View
-                style={{
-                  height: circleSize,
-                  width: circleSize,
-                  borderRadius: circleSize,
-                  marginBottom: '4pt',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: colors.darkest,
-                }}
-              >
-                <Image
-                  style={{
-                    height: circleSize / 2,
-                    width: circleSize / 2,
-                  }}
-                  src={icon}
-                ></Image>
-              </View>
-
-              <Link
-                style={{
-                  color: colors.lightest,
-                  fontSize: 8,
-                }}
-                href={url}
-              >
-                {url}
-              </Link>
-            </View>
-          );
-        })}
+      <View style={styles.top}>
+        {portals.map(portal => (
+          <Portal {...portal} key={portal.url} colors={colors} />
+        ))}
       </View>
-      <View fixed style={styles.bottom}>
+      <View style={styles.bottom}>
         <Text style={styles.links}>{contactString}</Text>
         <Text style={styles.links}>|</Text>
         <Link href={`tel:${phone.replace(/( |\(0\))/g, '')}`} style={styles.links}>
@@ -126,13 +108,5 @@ const Footer = ({ contact, colors }) => {
     </View>
   );
 };
-
-Footer.propTypes = {
-  contact: PropTypes.shape({
-    name: PropTypes.string,
-  }),
-};
-
-Footer.defaultProps = {};
 
 export default Footer;

@@ -1,35 +1,25 @@
 import React from 'react';
 import { Text, View } from '@react-pdf/renderer';
-export default ({ name, styles, values, props = {}, row, style = {} }, render) => {
+
+const DefaultRenderer = ({ heading, type, values, row, styles, render, reactPdfProps = {}, ...rest }) => {
   return (
-    <View
-      {...props}
-      wrap={false}
-      key={name}
-      style={{
-        paddingTop: '14pt',
-      }}
-    >
-      <Text style={styles.heading}>{name}</Text>
+    <View {...reactPdfProps} wrap={false} key={heading} style={{ paddingTop: 14 }}>
+      <Text style={styles.heading}>{heading}</Text>
       <View
         style={{
-          ...style,
-          display: 'flex',
           flexDirection: row ? 'row' : 'column',
-          paddingLeft: '12pt',
+          display: 'flex',
           flexWrap: 'wrap',
+          paddingLeft: 12,
         }}
       >
-        {values.map((blocks, i) => {
-          if (!Array.isArray(blocks)) return render(blocks);
+        {values.map((b, i) => {
+          const isArray = Array.isArray(b);
+          const blocks = isArray ? b : [b];
+          const key = `block_${i}_${heading.replace(/ /g, '').toLowerCase()}`;
           return (
-            <View
-              key={`block_${i}_${name}`}
-              style={{
-                paddingBottom: '12pt',
-              }}
-            >
-              {blocks.map(render)}
+            <View key={key} style={{ paddingBottom: isArray ? 12 : 0 }}>
+              {blocks.map(block => render({ styles, ...block, ...rest }))}
             </View>
           );
         })}
@@ -37,3 +27,5 @@ export default ({ name, styles, values, props = {}, row, style = {} }, render) =
     </View>
   );
 };
+
+export default DefaultRenderer;

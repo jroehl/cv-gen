@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { View, Text, Image } from '@react-pdf/renderer';
 import gravatar from 'gravatar';
 
@@ -44,33 +43,31 @@ function romanize(num) {
   return Array(+digits.join('') + 1).join('M') + roman;
 }
 
-const Header = ({ linkText, contact, colors }) => {
-  const imageSize = '60pt';
-  // Create styles
+const Header = ({ config: { pageText = 'RESUME', colors }, contact }) => {
+  const imageSize = 60;
   const styles = {
     image: {
       height: imageSize,
       width: imageSize,
       borderRadius: imageSize,
     },
-    links: {
+    pageNumbers: {
       color: colors.light,
-      marginRight: '6pt',
+      marginRight: 6,
       fontSize: 10,
-      textDecoration: 'none',
     },
     top: {
       display: 'flex',
-      padding: '6pt 24pt',
       flexDirection: 'row',
+      padding: '6 24',
       backgroundColor: colors.darkest,
     },
     bottom: {
       display: 'flex',
-      padding: '18pt 24pt',
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      padding: '18 24',
       backgroundColor: colors.dark,
     },
     title: {
@@ -79,35 +76,17 @@ const Header = ({ linkText, contact, colors }) => {
     },
   };
 
-  const imageUrl = gravatar.url(contact.mail, { s: '400', d: 'retro', r: 'g' }, true);
   return (
     <View fixed style={styles.header}>
       <View style={styles.top}>
-        <Text
-          fixed
-          style={styles.links}
-          render={({ pageNumber, totalPages }) => {
-            return `${linkText} ${romanize(pageNumber)} / ${romanize(totalPages)}`;
-          }}
-        />
+        <Text fixed style={styles.pageNumbers} render={({ pageNumber, totalPages }) => `${pageText} ${romanize(pageNumber)} / ${romanize(totalPages)}`} />
       </View>
       <View style={styles.bottom}>
         <Text style={styles.title}>{contact.name}</Text>
-        <Image style={styles.image} src={imageUrl}></Image>
+        <Image style={styles.image} src={gravatar.url(contact.mail, { s: '400', d: 'retro', r: 'g' }, true)}></Image>
       </View>
     </View>
   );
-};
-
-Header.propTypes = {
-  linkText: PropTypes.string,
-  contact: PropTypes.shape({
-    name: PropTypes.string,
-  }),
-};
-
-Header.defaultProps = {
-  linkText: 'RESUME',
 };
 
 export default Header;

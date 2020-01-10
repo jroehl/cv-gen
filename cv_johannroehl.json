@@ -1,5 +1,6 @@
 {
   "config": {
+    "columnLeftWidth": 40,
     "font": {
       "family": "Roboto",
       "src": "http://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf"
@@ -43,111 +44,109 @@
   "parts": {
     "columnLeft": [
       {
-        "name": "Personal",
+        "heading": "Personal",
         "type": "TABLE",
         "values": [
-          [
-            {
-              "name": "Name",
-              "value": "Johann Röhl"
-            },
-            {
-              "name": "Birthday",
-              "value": "03/19/1987"
-            },
-            {
-              "name": "Birthplace",
-              "value": "Eutin"
-            },
-            {
-              "name": "Nationality",
-              "value": "German"
-            }
-          ]
+          {
+            "key": "Name",
+            "value": "Johann Röhl"
+          },
+          {
+            "key": "Birthday",
+            "value": "03/19/1987"
+          },
+          {
+            "key": "Birthplace",
+            "value": "Eutin"
+          },
+          {
+            "key": "Nationality",
+            "value": "German"
+          }
         ]
       },
       {
-        "name": "Skills",
+        "heading": "Skills",
         "type": "BAR",
         "values": [
           [
             {
-              "name": "Go",
-              "value": 75
+              "skill": "Go",
+              "proficiency": 75
             },
             {
-              "name": "JavaScript / TypeScript",
-              "value": 90
+              "skill": "JavaScript / TypeScript",
+              "proficiency": 90
             },
             {
-              "name": "Python",
-              "value": 60
+              "skill": "Python",
+              "proficiency": 60
             },
             {
-              "name": "HTML5 / CSS3",
-              "value": 80
+              "skill": "HTML5 / CSS3",
+              "proficiency": 80
             }
           ],
           [
             {
-              "name": "Gatsby.Js",
-              "value": 85
+              "skill": "Gatsby.Js",
+              "proficiency": 85
             },
             {
-              "name": "React.Js",
-              "value": 90
+              "skill": "React.Js",
+              "proficiency": 90
             },
             {
-              "name": "Node.Js",
-              "value": 90
+              "skill": "Node.Js",
+              "proficiency": 90
             },
             {
-              "name": "SASS",
-              "value": 70
+              "skill": "SASS",
+              "proficiency": 70
             }
           ],
           [
             {
-              "name": "Amazon Web Services",
-              "value": 80
+              "skill": "Amazon Web Services",
+              "proficiency": 80
             },
             {
-              "name": "NoSQL DB",
-              "value": 75
+              "skill": "NoSQL DB",
+              "proficiency": 75
             },
             {
-              "name": "SQL DB",
-              "value": 70
+              "skill": "SQL DB",
+              "proficiency": 70
             }
           ]
         ]
       },
       {
-        "name": "Languages",
+        "heading": "Languages",
         "type": "CIRCLE",
-        "props": {
+        "reactPdfProps": {
           "break": true
         },
         "values": [
           {
-            "name": "german",
-            "value": 100,
+            "skill": "german",
+            "proficiency": 100,
             "color": "#42C0EB"
           },
           {
-            "name": "english",
-            "value": 85,
+            "skill": "english",
+            "proficiency": 85,
             "color": "#E9478B"
           },
           {
-            "name": "spanish",
-            "value": 35,
+            "skill": "spanish",
+            "proficiency": 35,
             "color": "#F07F26"
           }
         ]
       },
       {
-        "name": "Tools, methods, frameworks",
+        "heading": "Tools, methods, frameworks",
         "type": "TEXT",
         "values": [
           {
@@ -188,7 +187,7 @@
         ]
       },
       {
-        "name": "About me",
+        "heading": "About me",
         "type": "TEXT",
         "values": [
           {
@@ -199,153 +198,153 @@
     ],
     "columnRight": [
       {
-        "name": "Education",
+        "heading": "Education",
         "type": "TIMELINE",
         "values": [
           {
-            "name": "Studies of media informatics - BA",
+            "heading": "Studies of media informatics - BA",
             "fromTo": "10/2014 - 10/2017",
             "location": "Beuth University of Applied Sciences, Berlin"
           },
           {
-            "name": "Education photographer - Journeyman",
+            "heading": "Education photographer - Journeyman",
             "fromTo": "08/2011 - 01/2014",
             "location": "adP Photostudios GmbH, Hamburg"
           },
           {
-            "name": "Training rescue paramedic",
+            "heading": "Training rescue paramedic",
             "fromTo": "08/2010 - 01/2011",
             "location": "ASB Hamburg, Hamburg"
           },
           {
-            "name": "Abitur (equivalent to A-levels)",
+            "heading": "Abitur (equivalent to A-levels)",
             "fromTo": "08/1997 - 08/2008",
             "location": "Baltic Gesamtschule / Johanneum zu Lübeck, Lübeck"
           }
         ]
       },
       {
-        "name": "Certificates and qualifications",
+        "heading": "Certificates and qualifications",
         "type": "TIMELINE",
         "values": [
           {
-            "name": "AWS Certified Solutions Architect - Associate",
+            "heading": "AWS Certified Solutions Architect - Associate",
             "fromTo": "11/2018",
             "location": "Amazon Web Services"
           },
           {
-            "name": "Machine Learning",
+            "heading": "Machine Learning",
             "fromTo": "02/2018",
             "location": "Coursera / Andrew Ng"
           }
         ]
       },
       {
-        "name": "Experience abroad",
+        "heading": "Experience abroad",
         "type": "TIMELINE",
         "values": [
           {
-            "name": "Canada",
+            "heading": "Canada",
             "fromTo": "09/2018 - 05/2009",
             "location": "Work and Travel YMP"
           },
           {
-            "name": "Venezuela - Caracas",
+            "heading": "Venezuela - Caracas",
             "fromTo": "06/2006 - 08/2006",
             "location": "Student exchange Colegio Humboldt"
           }
         ]
       },
       {
-        "name": "Work",
+        "heading": "Work",
         "type": "TIMELINE",
-        "props": {
+        "reactPdfProps": {
           "break": true
         },
         "values": [
           {
-            "name": "Software developer & Web designer | Freelance",
+            "heading": "Software developer & Web designer | Freelance",
             "fromTo": "03/2014 - today",
             "location": "Berlin",
             "website": "www.johannroehl.de"
           },
           {
-            "name": "FullStack JS developer | Contentful GmbH",
+            "heading": "FullStack JS developer | Contentful GmbH",
             "fromTo": "01/2018 - today",
             "location": "Berlin",
             "website": "www.contentful.com"
           },
           {
-            "name": "Software developer | MYCS GmbH",
+            "heading": "Software developer | MYCS GmbH",
             "fromTo": "01/2018 - 05/2019",
             "location": "Berlin",
             "website": "www.mycs.com"
           },
           {
-            "name": "Working student | MYCS GmbH",
+            "heading": "Working student | MYCS GmbH",
             "fromTo": "01/2017 - 01/2018",
             "location": "Berlin",
             "website": "www.mycs.com"
           },
           {
-            "name": "Working student | GIGA",
+            "heading": "Working student | GIGA",
             "fromTo": "08/2015 - 01/2018",
             "location": "Hamburg",
             "website": "www.giga-hamburg.de"
           },
           {
-            "name": "Photographer | adP Photostudios GmbH",
+            "heading": "Photographer | adP Photostudios GmbH",
             "fromTo": "02/2014 - 04/2014",
             "location": "Hamburg",
             "website": "www.adp-photostudios.de"
           },
           {
-            "name": "Employee IT administration | ZVS GmbH",
+            "heading": "Employee IT administration | ZVS GmbH",
             "fromTo": "06/2009 - 05/2010",
             "location": "Hamburg"
           }
         ]
       },
       {
-        "name": "Selected projects - employed",
+        "heading": "Selected projects - employed",
         "type": "CARDS",
-        "props": {
+        "reactPdfProps": {
           "break": true
         },
         "values": [
           [
             {
-              "name": "CiCd process Netsuite",
-              "techs": ["Bash", "CircleCi", "Go", "Netsuite", "NodeJs", "SuiteTalk"],
-              "value": "Conception and implementation of a CiCd workflow to allow adopting modern development practices in Netsuite. Implementation of an open source cli for useful file handling features in Netsuite."
+              "heading": "CiCd process Netsuite",
+              "subHeading": ["Bash", "CircleCi", "Go", "Netsuite", "NodeJs", "SuiteTalk"],
+              "text": "Conception and implementation of a CiCd workflow to allow adopting modern development practices in Netsuite. Implementation of an open source cli for useful file handling features in Netsuite."
             },
             {
-              "name": "ECS, EKS setup and integration",
-              "techs": ["AWS", "Bash", "Docker", "Kubernetes"],
-              "value": "Setup of a cloud container orchestration service (EKS and ECS) and migration of existing APIs."
+              "heading": "ECS, EKS setup and integration",
+              "subHeading": ["AWS", "Bash", "Docker", "Kubernetes"],
+              "text": "Setup of a cloud container orchestration service (EKS and ECS) and migration of existing APIs."
             },
             {
-              "name": "Warehouse API",
-              "techs": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
-              "value": "Design and implementation of an API automating the label prints in the warehouse."
+              "heading": "Warehouse API",
+              "subHeading": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
+              "text": "Design and implementation of an API automating the label prints in the warehouse."
             }
           ]
         ]
       },
       {
-        "name": "Selected projects - freelance",
+        "heading": "Selected projects - freelance",
         "type": "CARDS",
         "values": [
           [
             {
-              "name": "Multilingual company website",
-              "techs": ["AWS Gateway", "AWS Lambda", "FlowFact API", "GatsbyJs", "IS24 API", "Netlify", "NodeJS", "ReactJs"],
-              "value": "Design and implementation of a multilingual website, with a serverless contact form and an individual solution for the display and synchronization of company real estate."
+              "heading": "Multilingual company website",
+              "subHeading": ["AWS Gateway", "AWS Lambda", "FlowFact API", "GatsbyJs", "IS24 API", "Netlify", "NodeJS", "ReactJs"],
+              "text": "Design and implementation of a multilingual website, with a serverless contact form and an individual solution for the display and synchronization of company real estate."
             },
             {
-              "name": "Twitter Project",
-              "techs": ["AngularJS", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
-              "value": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
+              "heading": "Twitter Project",
+              "subHeading": ["AngularJS", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
+              "text": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
             }
           ]
         ]
