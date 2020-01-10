@@ -1,6 +1,8 @@
 {
   "config": {
-    "columnLeftWidth": 40,
+    "leftColumnWidth": 40,
+    "pageNumberText": "RESUME",
+    "romanizedPageNumbers": true,
     "font": {
       "family": "Roboto",
       "src": "http://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf"
@@ -15,9 +17,6 @@
   },
   "contact": {
     "name": "Johann Röhl",
-    "birthday": "03/19/1987",
-    "birthplace": "Eutin",
-    "nationality": "German",
     "phone": "+49 (0)176 470 496 05",
     "mail": "mail@johannroehl.de",
     "website": "https://johannroehl.de",
@@ -41,8 +40,8 @@
       }
     ]
   },
-  "parts": {
-    "columnLeft": [
+  "columns": {
+    "left": [
       {
         "heading": "Personal",
         "type": "TABLE",
@@ -204,7 +203,7 @@
         ]
       }
     ],
-    "columnRight": [
+    "right": [
       {
         "heading": "Education",
         "type": "TIMELINE",

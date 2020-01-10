@@ -43,7 +43,7 @@ function romanize(num) {
   return Array(+digits.join('') + 1).join('M') + roman;
 }
 
-const Header = ({ config: { pageText = 'RESUME', colors }, contact }) => {
+const Header = ({ config: { pageNumberText = 'RESUME', colors, romanizedPageNumbers }, contact }) => {
   const imageSize = 60;
   const styles = {
     image: {
@@ -79,7 +79,14 @@ const Header = ({ config: { pageText = 'RESUME', colors }, contact }) => {
   return (
     <View fixed style={styles.header}>
       <View style={styles.top}>
-        <Text fixed style={styles.pageNumbers} render={({ pageNumber, totalPages }) => `${pageText} ${romanize(pageNumber)} / ${romanize(totalPages)}`} />
+        <Text
+          fixed
+          style={styles.pageNumbers}
+          render={({ pageNumber, totalPages }) => {
+            if (romanizedPageNumbers) return `${pageNumberText} ${romanize(pageNumber)} / ${romanize(totalPages)}`;
+            return `${pageNumberText} ${pageNumber} / ${totalPages}`;
+          }}
+        />
       </View>
       <View style={styles.bottom}>
         <Text style={styles.title}>{contact.name}</Text>

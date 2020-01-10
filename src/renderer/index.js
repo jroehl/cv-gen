@@ -16,7 +16,7 @@ export const TYPES = {
   CARDS: 'CARDS',
 };
 
-export const renderers = {
+export const Renderers = {
   [TYPES.BAR]: ProgressBars,
   [TYPES.CARDS]: Cards,
   [TYPES.CIRCLE]: ProgressCircles,

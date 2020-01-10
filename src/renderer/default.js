@@ -3,7 +3,14 @@ import { Text, View } from '@react-pdf/renderer';
 
 const DefaultRenderer = ({ heading, type, values, row, styles, render, reactPdfProps = {}, ...rest }) => {
   return (
-    <View {...reactPdfProps} wrap={false} key={heading} style={{ paddingTop: 14 }}>
+    <View
+      wrap={false}
+      {...reactPdfProps}
+      key={heading}
+      style={{
+        padding: '14 30 0 24',
+      }}
+    >
       <Text style={styles.heading}>{heading}</Text>
       <View
         style={{
