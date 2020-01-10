@@ -1,8 +1,8 @@
 {
   "name": "cv-gen",
   "version": "1.0.0",
-  "description": "A cli to dynamically generate a CV PDF based on values stored in a JSON",
-  "main": "src/index.js",
+  "description": "A CLI to dynamically generate a CV PDF based on values stored in a JSON",
+  "main": "server.js",
   "bin": "bin/cv-gen",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

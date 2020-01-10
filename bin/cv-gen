@@ -17,7 +17,7 @@ const run = async () => {
     console.log(`Generating CV based on "${absolutePath}"`);
     if (!existsSync(absolutePath)) throw new Error(`File "${absolutePath}" not found`);
     const pdfName = resolve(cwd(), `${basename(absolutePath).replace('.json', '')}.pdf`);
-    await require(resolve(__dirname, '..', 'src', 'index')).run(require(absolutePath), pdfName);
+    await require(resolve(__dirname, '..', 'server')).run(require(absolutePath), pdfName);
     console.log(`Stored CV "${pdfName}"`);
   } catch (err) {
     logError(err);
