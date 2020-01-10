@@ -71,23 +71,23 @@
         "values": [
           [
             {
+              "skill": "Node.Js",
+              "proficiency": 90
+            },
+            {
               "skill": "Go",
               "proficiency": 75
             },
             {
-              "skill": "JavaScript / TypeScript",
-              "proficiency": 90
-            },
-            {
               "skill": "Python",
               "proficiency": 60
-            },
-            {
-              "skill": "HTML5 / CSS3",
-              "proficiency": 80
             }
           ],
           [
+            {
+              "skill": "JavaScript / TypeScript",
+              "proficiency": 90
+            },
             {
               "skill": "Gatsby.Js",
               "proficiency": 85
@@ -97,8 +97,8 @@
               "proficiency": 90
             },
             {
-              "skill": "Node.Js",
-              "proficiency": 90
+              "skill": "HTML5 / CSS3",
+              "proficiency": 80
             },
             {
               "skill": "SASS",
@@ -153,31 +153,39 @@
             "value": [
               "Agile",
               "Apache",
+              "AWS Lambda",
+              "AWS DynamoDB",
+              "AWS Cloudformation",
+              "AWS RDS",
+              "AWS Route53",
               "Bash",
               "Bitbucket",
               "Chrome developer tools",
               "CiCd",
-              "Circleci",
-              "Csv",
+              "CircleCi",
+              "CMS",
+              "Contentful",
+              "CSV",
               "Docker",
-              "Git",
-              "Github",
+              "GIT",
+              "GitHub",
               "GoogleCloud",
               "Gsuite",
               "Holacracy",
               "JIRA",
-              "Json",
-              "Jsx",
+              "JSON",
+              "JSX",
               "Kanban",
               "Kubernetes",
               "Linux",
               "Mac",
               "MongoDB",
+              "Netlify",
               "OKRs",
               "PostgreSQL",
-              "Sass",
+              "SASS",
               "Scrum",
-              "Scss",
+              "SCSS",
               "Slack",
               "VSCode",
               "XML",
@@ -228,6 +236,11 @@
         "type": "TIMELINE",
         "values": [
           {
+            "heading": "Grundlagen des Onlinemarketings",
+            "fromTo": "11/2019",
+            "location": "Google"
+          },
+          {
             "heading": "AWS Certified Solutions Architect - Associate",
             "fromTo": "11/2018",
             "location": "Amazon Web Services"
@@ -236,22 +249,6 @@
             "heading": "Machine Learning",
             "fromTo": "02/2018",
             "location": "Coursera / Andrew Ng"
-          }
-        ]
-      },
-      {
-        "heading": "Experience abroad",
-        "type": "TIMELINE",
-        "values": [
-          {
-            "heading": "Canada",
-            "fromTo": "09/2018 - 05/2009",
-            "location": "Work and Travel YMP"
-          },
-          {
-            "heading": "Venezuela - Caracas",
-            "fromTo": "06/2006 - 08/2006",
-            "location": "Student exchange Colegio Humboldt"
           }
         ]
       },
@@ -270,13 +267,13 @@
           },
           {
             "heading": "FullStack JS developer | Contentful GmbH",
-            "fromTo": "01/2018 - today",
+            "fromTo": "06/2019 - today",
             "location": "Berlin",
             "website": "www.contentful.com"
           },
           {
             "heading": "Software developer | MYCS GmbH",
-            "fromTo": "01/2018 - 05/2019",
+            "fromTo": "01/2018 - 06/2019",
             "location": "Berlin",
             "website": "www.mycs.com"
           },
@@ -302,6 +299,22 @@
             "heading": "Employee IT administration | ZVS GmbH",
             "fromTo": "06/2009 - 05/2010",
             "location": "Hamburg"
+          }
+        ]
+      },
+      {
+        "heading": "Experience abroad",
+        "type": "TIMELINE",
+        "values": [
+          {
+            "heading": "Canada",
+            "fromTo": "09/2018 - 05/2009",
+            "location": "Work and Travel YMP"
+          },
+          {
+            "heading": "Venezuela - Caracas",
+            "fromTo": "06/2006 - 08/2006",
+            "location": "Student exchange Colegio Humboldt"
           }
         ]
       },
