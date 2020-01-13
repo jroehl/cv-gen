@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import styles from './App.module.css';
+import debounce from 'lodash.debounce';
+import Ajv from 'ajv';
 
 import { JsonEditor as Editor } from 'jsoneditor-react';
 
-import { PDFViewer, PDFDownloadLink } from './PDFClient';
+import { PDFViewer } from './PDFClient';
 import Loader from './Loader';
 
 import getDefaultJSON from './pdf/initial-json';
+import cvSchema from './cv.schema.json';
 
 const randomRGB = brightness => {
   // Six levels of brightness from 0 to 5, 0 being the darkest
@@ -19,10 +22,21 @@ const randomRGB = brightness => {
 const fetchColors = async seedColor => {
   const res = await fetch(`https://www.thecolorapi.com/scheme?rgb=${seedColor}&mode=monochrome&count=3`);
   const { colors } = await res.json();
+  const [
+    {
+      hex: { value: darkest },
+    },
+    {
+      hex: { value: dark },
+    },
+    {
+      hex: { value: mid },
+    },
+  ] = colors;
   return {
-    darkest: colors[0].hex.value,
-    dark: colors[1].hex.value,
-    mid: colors[2].hex.value,
+    darkest,
+    dark,
+    mid,
     light: '#EFEEEE',
     lightest: '#FFF',
   };
@@ -31,35 +45,60 @@ const fetchColors = async seedColor => {
 const fetchCircleColors = async seedColor => {
   const res = await fetch(`https://www.thecolorapi.com/scheme?rgb=${seedColor}&mode=analogic-complement&count=3`);
   const { colors } = await res.json();
-  return [colors[0].hex.value, colors[1].hex.value, colors[2].hex.value];
+  const [
+    {
+      hex: { value: first },
+    },
+    {
+      hex: { value: second },
+    },
+    {
+      hex: { value: third },
+    },
+  ] = colors;
+  return [first, second, third];
 };
 
-function App() {
-  const [json, setJSON] = useState();
-
-  useEffect(() => {
-    const seedColor = randomRGB(1);
-    Promise.all([fetchColors(seedColor), fetchCircleColors(seedColor)]).then(([colors, circleColors]) => {
-      setJSON(getDefaultJSON(colors, circleColors));
-    });
-  }, []);
-
-  const hasJSON = json && json.config.colors.mid;
-
-  if (!hasJSON) return <Loader></Loader>;
+const renderError = error => {
+  const errors = Array.isArray(error) ? error : [error];
   return (
-    <div className="App">
-      <header className="App-header">
-        <PDFDownloadLink fileName="somename.pdf" cv={json}>
-          {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
-        </PDFDownloadLink>
-      </header>
-      <div className={styles.body}>
-        <section>{<Editor className={styles.editor} value={json} onChange={setJSON} />}</section>
-        <section>{<PDFViewer className={styles.viewer} cv={json}></PDFViewer>}</section>
-      </div>
+    <div className={styles.errors}>
+      <h3>Rendering failed:</h3>
+      {errors.map(({ dataPath, message }) => (
+        <p key={dataPath}>{`"${dataPath}" - ${message}`}</p>
+      ))}
     </div>
   );
+};
+
+const ajv = new Ajv({ allErrors: true, verbose: true });
+
+class App extends Component {
+  state = {};
+
+  async componentDidMount() {
+    const seedColor = randomRGB(1);
+    const [colors, circleColors] = await Promise.all([fetchColors(seedColor), fetchCircleColors(seedColor)]);
+    this.setValidatedJSON(getDefaultJSON(colors, circleColors));
+  }
+
+  setValidatedJSON = json => {
+    ajv.validate(cvSchema, json);
+    this.setState({ json, error: ajv.errors });
+  };
+
+  render() {
+    const { json, error } = this.state;
+    if (!json && !error) return <Loader></Loader>;
+    return (
+      <div className={styles.body}>
+        <section className={styles.editor}>
+          <Editor ajv={ajv} value={json} onChange={debounce(json => this.setValidatedJSON(json), 1000)} schema={cvSchema} />
+        </section>
+        <section className={styles.viewer}>{!error ? <PDFViewer cv={json}></PDFViewer> : renderError(error)}</section>
+      </div>
+    );
+  }
 }
 
 export default App;

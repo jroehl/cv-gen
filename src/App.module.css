@@ -3,22 +3,21 @@
   flex-direction: row;
 }
 
-.body > section:first-child {
-  width: 50%;
-  height: 100vh;
+.errors p {
+  padding: 0.25rem 3rem;
+}
+.errors > h3 {
+  text-align: center;
 }
 
-.editor {
-  width: 100%;
-  height: 100%;
-}
-
+.editor,
 .viewer {
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  min-height: 100%;
 }
 
-.body > section:last-child {
-  width: 50%;
-  height: 100vh;
+.editor > div,
+.viewer > * {
+  width: 100%;
+  min-height: 100vh;
 }

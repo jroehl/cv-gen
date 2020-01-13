@@ -15,7 +15,6 @@ export default (colors, circleColors) => ({
     mail: 'mail@johannroehl.de',
     website: 'https://johannroehl.de',
     address: {
-      street: 'Richardstraße 98',
       city: '12043 Berlin',
       country: 'Germany',
     },
@@ -30,11 +29,6 @@ export default (colors, circleColors) => ({
           'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABUFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9GqXNDAAAAb3RSTlMAAQIDBAUGBwgJCgsMDxASExQVFhccHh8jJSYnKisvMTM0OENFRkdKS0xQUVdZXF1eYWJjZGhpbG1vcHFzd3h5fH6Cg4WGi4yOj5GUlZiam52io6Wmqq2yusHDx8jMztXZ2tze4uTm6evz9ff5+/2KM+TrAAABbElEQVQYGY3B+0NLYRzH8c9zLDsZK8wwiZBbud9yl+SSZS6RzKSV0sre//9vnu9zVrZz9oPXS/+44zcWljd/N6oTJfWRv7fJrtVxp15u8g891kfULV4i47nTrgNr9PElUke8Rl8flXDfgPk7K3RZnGwA9xVcwytKlR/Uq89mak3eF6XzeEfkxW08J8lFCnLyynh1eQ8xkVKOYkYkt4UZUsoFzAfpBGZBaXs3MAO6jRlWxkXMMX3GW1FWAXNZP/FqynKYB2rhVdUHZlYbeIvKijDTquO1lHUQc0vzmJIyJjDndAnzRmluFXNYJYIxpUxjtp20THDFqUv8juCppHEYjV7B+s1KQcHQqRdtEsOSoibbJ/Ov8c4qmGPHW5kKbA3kvkI7UlCmo5VX8ASmXG5/vEeJAh2n1fGJ9qjk1DFI4qp2RDVozEw9VmKQ4Lq63MVrKrEPr3VGPQ4twS8lCkA1r7Ty3Eslou+PivpvfwGDLLKBb3fNFAAAAABJRU5ErkJggg==',
         url: 'www.github.com/jroehl',
       },
-      {
-        icon:
-          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAA/FBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9Y9aUVAAAAU3RSTlMAAQIDBAUGBwgJCgsODxARExcZGhscIyQmKCorLzI5Oz9AQUNKUVJbXV5jZGdvc3V4e4+RlZeaoqOlqKqvsLm6wMfMztXX3uLk6Onr7/Hz9fn7/VZtdq8AAAECSURBVBgZdcEJNwJhGAXgO42QlL2yZyeVJZSyjmxFMvf//xdzdXKa73ifB/9b+2DkCJZkj7IEywnlApYMJUzD0qCUYclRuj6GkvVWq9U8wFBA2cIfr03ZwECREmDEMuU9AfE7lBxGNSklyDGljpgMJUwDmAopGcRVKZcAapQqHFn+SmGe8jkGxymlBtxTduHIUr5TWKe0PTiuKSV4L5QVOPKUjo99yg1cT5Qixr8os3BsUwKgQqnB4XcpOWCV8ppAXJnSQOSOsoe4h37kcRKRRUovCdMVpQLTNCVMw3RGOYdpok+Zg+mQcgtTokspwLRDCWDynimbMBUob7DN5CMLGPgBX81eBFs3DNsAAAAASUVORK5CYII=',
-        url: 'www.xing.com/profile/johann_roehl',
-      },
     ],
   },
   columns: {
@@ -48,14 +42,6 @@ export default (colors, circleColors) => ({
             value: 'Johann Röhl',
           },
           {
-            key: 'Birthday',
-            value: '03/19/1987',
-          },
-          {
-            key: 'Birthplace',
-            value: 'Eutin',
-          },
-          {
             key: 'Nationality',
             value: 'German',
           },
@@ -63,7 +49,7 @@ export default (colors, circleColors) => ({
       },
       {
         heading: 'Skills',
-        type: 'BAR',
+        type: 'PROGRESS_BAR',
         values: [
           [
             {
@@ -119,7 +105,7 @@ export default (colors, circleColors) => ({
       },
       {
         heading: 'Languages',
-        type: 'CIRCLE',
+        type: 'PROGRESS_CIRCLE',
         reactPdfProps: {
           break: true,
         },
@@ -187,16 +173,6 @@ export default (colors, circleColors) => ({
               'XML',
               'Yaml',
             ],
-          },
-        ],
-      },
-      {
-        heading: 'About me',
-        type: 'TEXT',
-        values: [
-          {
-            value:
-              "From workflow diagrams to user interfaces I am passionate about crafting simple, clear and functional designed experiences. If I'm not sitting in front of the Mac - coding or pushing pixels, you'll find me in the mountains, behind the camera or at the wok.",
           },
         ],
       },
@@ -317,7 +293,7 @@ export default (colors, circleColors) => ({
       },
       {
         heading: 'Selected projects - employed',
-        type: 'CARDS',
+        type: 'CARD',
         reactPdfProps: {
           break: true,
         },
@@ -344,7 +320,7 @@ export default (colors, circleColors) => ({
       },
       {
         heading: 'Selected projects - freelance',
-        type: 'CARDS',
+        type: 'CARD',
         values: [
           [
             {

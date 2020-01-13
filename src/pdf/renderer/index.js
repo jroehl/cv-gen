@@ -8,18 +8,18 @@ import Texts, { shape as textShape } from './Texts';
 import Timelines, { shape as timelineShape } from './Timelines';
 
 export const TYPES = {
-  BAR: 'BAR',
-  CIRCLE: 'CIRCLE',
+  CARD: 'CARD',
+  PROGRESS_BAR: 'PROGRESS_BAR',
+  PROGRESS_CIRCLE: 'PROGRESS_CIRCLE',
   TABLE: 'TABLE',
   TEXT: 'TEXT',
   TIMELINE: 'TIMELINE',
-  CARDS: 'CARDS',
 };
 
 export const Renderers = {
-  [TYPES.BAR]: ProgressBars,
-  [TYPES.CARDS]: Cards,
-  [TYPES.CIRCLE]: ProgressCircles,
+  [TYPES.CARD]: Cards,
+  [TYPES.PROGRESS_BAR]: ProgressBars,
+  [TYPES.PROGRESS_CIRCLE]: ProgressCircles,
   [TYPES.TABLE]: Tables,
   [TYPES.TEXT]: Texts,
   [TYPES.TIMELINE]: Timelines,

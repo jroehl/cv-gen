@@ -66,7 +66,7 @@
       },
       {
         "heading": "Skills",
-        "type": "BAR",
+        "type": "PROGRESS_BAR",
         "values": [
           [
             {
@@ -122,7 +122,7 @@
       },
       {
         "heading": "Languages",
-        "type": "CIRCLE",
+        "type": "PROGRESS_CIRCLE",
         "reactPdfProps": {
           "break": true
         },
@@ -319,7 +319,7 @@
       },
       {
         "heading": "Selected projects - employed",
-        "type": "CARDS",
+        "type": "CARD",
         "reactPdfProps": {
           "break": true
         },
@@ -345,7 +345,7 @@
       },
       {
         "heading": "Selected projects - freelance",
-        "type": "CARDS",
+        "type": "CARD",
         "values": [
           [
             {

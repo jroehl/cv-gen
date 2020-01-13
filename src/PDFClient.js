@@ -1,5 +1,5 @@
 import React from 'react';
-import { PDFViewer as ReactPDFViewer } from '@react-pdf/renderer';
+import { PDFViewer as ReactPDFViewer, PDFDownloadLink as ReactPDFDownloadLink } from '@react-pdf/renderer';
 
 import PDF from './pdf/Document';
 
@@ -15,8 +15,8 @@ export const PDFViewer = ({ cv, ...props }) => {
 export const PDFDownloadLink = ({ cv, children, ...props }) => {
   if (!cv) return null;
   return (
-    <PDFDownloadLink {...props} document={<PDF {...cv} />}>
+    <ReactPDFDownloadLink {...props} document={<PDF {...cv} />}>
       {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
-    </PDFDownloadLink>
+    </ReactPDFDownloadLink>
   );
 };

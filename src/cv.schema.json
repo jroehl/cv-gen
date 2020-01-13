@@ -1,0 +1,419 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/cv.schema.json",
+  "title": "The CV Schema",
+  "description": "The json schema for the CV",
+  "required": ["config", "contact", "columns"],
+  "type": "object",
+  "definitions": {
+    "text": {
+      "type": "array",
+      "title": "The Text Schema",
+      "items": {
+        "type": "object",
+        "title": "The Items Schema",
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "anyOf": [
+              {
+                "type": ["string"],
+                "title": "The Value Schema",
+                "examples": ["Johann Röhl"],
+                "pattern": "^(.*)$"
+              },
+              {
+                "type": ["array"],
+                "title": "The Value Schema",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "progress": {
+      "type": "array",
+      "title": "The Progress Schema",
+      "items": {
+        "type": "object",
+        "title": "The Items Schema",
+        "required": ["skill", "proficiency"],
+        "properties": {
+          "skill": {
+            "type": "string",
+            "title": "The Skill Schema",
+            "examples": ["English"],
+            "pattern": "^(.*)$"
+          },
+          "proficiency": {
+            "type": "number",
+            "title": "The Proficiency Schema",
+            "examples": [85],
+            "minimum": 0,
+            "maximum": 100
+          },
+          "color": {
+            "type": "string",
+            "title": "The Color Schema",
+            "examples": ["#42C0EB"],
+            "pattern": "^#[0-9a-fA-F]{3,6}$"
+          }
+        }
+      }
+    },
+    "table": {
+      "type": "array",
+      "title": "The Table Schema",
+      "items": {
+        "type": "object",
+        "title": "The Items Schema",
+        "required": ["key", "value"],
+        "properties": {
+          "key": {
+            "type": "string",
+            "title": "The Key Schema",
+            "examples": ["Name"],
+            "pattern": "^(.*)$"
+          },
+          "value": {
+            "type": "string",
+            "title": "The Value Schema",
+            "examples": ["Johann Röhl"],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    },
+    "card": {
+      "type": "array",
+      "title": "The Card Schema",
+      "items": {
+        "type": "object",
+        "title": "The Items Schema",
+        "required": ["heading", "subHeading", "text"],
+        "properties": {
+          "heading": {
+            "type": "string",
+            "title": "The Heading Schema",
+            "examples": ["Heading"],
+            "pattern": "^(.*)$"
+          },
+          "subHeading": {
+            "anyOf": [
+              {
+                "type": ["string"],
+                "title": "The Subheading Schema",
+                "examples": ["Subheading line"],
+                "pattern": "^(.*)$"
+              },
+              {
+                "type": ["array"],
+                "title": "The Subheading Schema",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "text": {
+            "type": "string",
+            "title": "The Text Schema",
+            "examples": ["Nisi tempor cillum non commodo deserunt commodo excepteur qui eu consequat culpa eu fugiat ex."],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "title": "The Timeline Schema",
+      "items": {
+        "type": "object",
+        "title": "The Items Schema",
+        "required": ["heading", "fromTo", "location"],
+        "properties": {
+          "heading": {
+            "type": "string",
+            "title": "The Heading Schema",
+            "examples": ["Software developer & Web designer | Freelance"],
+            "pattern": "^(.*)$"
+          },
+          "fromTo": {
+            "type": "string",
+            "title": "The FromTo Schema",
+            "examples": ["03/2014 - today"],
+            "pattern": "^(.*)$"
+          },
+          "location": {
+            "type": "string",
+            "title": "The Location Schema",
+            "examples": ["Berlin"],
+            "pattern": "^(.*)$"
+          },
+          "website": {
+            "type": "string",
+            "title": "The Website Schema",
+            "examples": ["www.johannroehl.de"],
+            "pattern": "^(.*)$"
+          }
+        }
+      }
+    },
+    "column": {
+      "required": ["heading", "type", "values"],
+      "properties": {
+        "heading": {
+          "type": "string",
+          "title": "The Heading Schema",
+          "examples": ["Work"],
+          "pattern": "^(.*)$"
+        },
+        "reactPdfProps": {
+          "type": "object",
+          "title": "The Reactpdfprops Schema",
+          "properties": {
+            "wrap": {
+              "type": "boolean",
+              "title": "The Wrap Schema",
+              "examples": [true]
+            },
+            "break": {
+              "type": "boolean",
+              "title": "The Break Schema",
+              "examples": [true]
+            },
+            "fixed": {
+              "type": "boolean",
+              "title": "The Fixed Schema",
+              "examples": [true]
+            },
+            "debug": {
+              "type": "boolean",
+              "title": "The Debug Schema",
+              "examples": [true]
+            }
+          }
+        },
+        "type": {
+          "type": "string",
+          "title": "The Type Schema",
+          "examples": ["TIMELINE"],
+          "enum": ["CARD", "PROGRESS_BAR", "PROGRESS_CIRCLE", "TABLE", "TEXT", "TIMELINE"]
+        },
+        "values": {
+          "title": "The Values Schema",
+          "anyOf": [
+            {
+              "anyOf": [
+                { "$ref": "#/definitions/text" },
+                { "$ref": "#/definitions/table" },
+                { "$ref": "#/definitions/card" },
+                { "$ref": "#/definitions/progress" },
+                { "$ref": "#/definitions/timeline" }
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  { "$ref": "#/definitions/text" },
+                  { "$ref": "#/definitions/table" },
+                  { "$ref": "#/definitions/card" },
+                  { "$ref": "#/definitions/progress" },
+                  { "$ref": "#/definitions/timeline" }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "properties": {
+    "config": {
+      "type": "object",
+      "title": "The Config Schema",
+      "required": ["font", "colors"],
+      "properties": {
+        "leftColumnWidth": {
+          "type": "integer",
+          "title": "The Leftcolumnwidth Schema",
+          "examples": [40],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "pageNumberText": {
+          "type": "string",
+          "title": "The Pagenumbertext Schema",
+          "examples": ["RESUME"],
+          "pattern": "^(.*)$"
+        },
+        "romanizedPageNumbers": {
+          "type": "boolean",
+          "title": "The Romanizedpagenumbers Schema",
+          "examples": [true]
+        },
+        "font": {
+          "type": "object",
+          "title": "The Font Schema",
+          "required": ["family", "src"],
+          "properties": {
+            "family": {
+              "type": "string",
+              "title": "The Family Schema",
+              "examples": ["Roboto"],
+              "pattern": "^(.*)$"
+            },
+            "src": {
+              "type": "string",
+              "title": "The Src Schema",
+              "examples": ["http://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf"],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "colors": {
+          "type": "object",
+          "title": "The Colors Schema",
+          "required": ["darkest", "dark", "mid", "light", "lightest"],
+          "properties": {
+            "darkest": {
+              "type": "string",
+              "title": "The Darkest Color Schema",
+              "examples": ["#263239"],
+              "pattern": "^#[0-9a-fA-F]{3,6}$"
+            },
+            "dark": {
+              "type": "string",
+              "title": "The Dark Color Schema",
+              "examples": ["#36474F"],
+              "pattern": "^#[0-9a-fA-F]{3,6}$"
+            },
+            "mid": {
+              "type": "string",
+              "title": "The Mid Color Schema",
+              "examples": ["#546E7B"],
+              "pattern": "^#[0-9a-fA-F]{3,6}$"
+            },
+            "light": {
+              "type": "string",
+              "title": "The Light Color Schema",
+              "examples": ["#EFEEEE"],
+              "pattern": "^#[0-9a-fA-F]{3,6}$"
+            },
+            "lightest": {
+              "type": "string",
+              "title": "The Lightest Color Schema",
+              "examples": ["#FFF"],
+              "pattern": "^#[0-9a-fA-F]{3,6}$"
+            }
+          }
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "title": "The Contact Schema",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "The Contact Name Schema",
+          "examples": ["Johann Röhl"],
+          "pattern": "^(.*)$"
+        },
+        "phone": {
+          "type": "string",
+          "title": "The Contact Phone Schema",
+          "examples": ["+(0)123 456 789"],
+          "pattern": "^(.*)$"
+        },
+        "mail": {
+          "type": "string",
+          "title": "The Contact Mail Schema",
+          "examples": ["mail@johannroehl.de"],
+          "pattern": "^(.*)$"
+        },
+        "website": {
+          "type": "string",
+          "title": "The Contact Website Schema",
+          "examples": ["https://johannroehl.de"],
+          "pattern": "^(.*)$"
+        },
+        "address": {
+          "type": "object",
+          "title": "The Contact Address Schema",
+          "properties": {
+            "street": {
+              "type": "string",
+              "title": "The Street Schema",
+              "examples": ["Street 13"],
+              "pattern": "^(.*)$"
+            },
+            "city": {
+              "type": "string",
+              "title": "The City Schema",
+              "examples": ["12345 Berlin"],
+              "pattern": "^(.*)$"
+            },
+            "country": {
+              "type": "string",
+              "title": "The Country Schema",
+              "examples": ["Germany"],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "portals": {
+          "type": "array",
+          "title": "The Portals Schema",
+          "items": {
+            "type": "object",
+            "title": "The Items Schema",
+            "required": ["icon", "url"],
+            "properties": {
+              "icon": {
+                "type": "string",
+                "title": "The Base64 Icon Schema",
+                "examples": [
+                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAApVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+4/eNVAAAANnRSTlMAAQIDBQYHCQsSExQVHiAjJygtMzg/QEdJX2FkaHh+g4WGiJWXm6OvtLzFys7a4ubo9ff5+/2JyqqEAAAAuUlEQVQ4y9XS2Q6CMBQE0CLgjrjgvituaF1Q7v9/mtJpjKStvmmcp2k5Ib1NGSstj/uRzYzxKM3BMoKtABQYwQVgYAQ7gLYR1MV3/uaUjYjiRZ59O44ftLwceh9TFB8VLWTOXJRk4upBgZPMqZwFiWibiJ45OxlwIyUzA+CxLImrAz2LWR3ZmxrQFdONsRi+gisOhvEr2J+qf1gD2NhfqSCUt0mSK/fwW0D/C6qBSPpC0WoSYOV/fOB3aV1kKMnUK6QAAAAASUVORK5CYII="
+                ],
+                "pattern": "^(.*)$"
+              },
+              "url": {
+                "type": "string",
+                "title": "The Url Schema",
+                "examples": ["www.linkedin.com/in/johannroehl"],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "columns": {
+      "type": "object",
+      "title": "The Columns Schema",
+      "required": ["left", "right"],
+      "properties": {
+        "left": {
+          "type": "array",
+          "title": "The Right Column Schema",
+          "items": {
+            "$ref": "#/definitions/column"
+          }
+        },
+        "right": {
+          "type": "array",
+          "title": "The Right Column Schema",
+          "items": {
+            "$ref": "#/definitions/column"
+          }
+        }
+      }
+    }
+  }
+}
