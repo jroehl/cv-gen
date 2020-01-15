@@ -270,7 +270,7 @@
             "src": {
               "type": "string",
               "title": "The Src Schema",
-              "examples": ["http://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf"],
+              "examples": ["https://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf"],
               "pattern": "^(.*)$"
             }
           }

@@ -5,7 +5,7 @@ export default (colors, circleColors) => ({
     romanizedPageNumbers: true,
     font: {
       family: 'Roboto',
-      src: 'http://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf',
+      src: 'https://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf',
     },
     colors,
   },
