@@ -6,10 +6,12 @@
   "bin": "bin/cv-gen",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "cp": "cp cv-johannroehl.pdf public/",
+    "build": "npm run build:pdf; npm run cp; react-scripts build",
+    "build:pdf": "node bin/cv-gen ./cv-johannroehl.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev:cli": "nodemon bin/cv-gen ./cv_johannroehl.json",
+    "dev:cli": "nodemon bin/cv-gen ./cv-johannroehl.json",
     "dev:web": "npm start"
   },
   "keywords": [
