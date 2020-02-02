@@ -11,7 +11,7 @@ export default (colors, circleColors) => ({
   },
   contact: {
     name: 'Johann Röhl',
-    phone: '+49 (0)176 470 496 05',
+    phone: '+49 (0)30 62937411',
     mail: 'mail@johannroehl.de',
     website: 'https://johannroehl.de',
     address: {
