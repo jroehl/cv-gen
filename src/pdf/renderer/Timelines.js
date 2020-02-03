@@ -4,7 +4,7 @@ import { Text, View, Link } from '@react-pdf/renderer';
 
 import Default from './Default';
 
-const TimelineItem = ({ circleSize = 20, colors }) => {
+const TimelineItem = ({ circleSize = 20, colors, printFriendly }) => {
   const innerCircleSize = circleSize * 0.5;
   return (
     <View
@@ -19,7 +19,7 @@ const TimelineItem = ({ circleSize = 20, colors }) => {
         style={{
           width: circleSize,
           height: circleSize,
-          border: `2 solid ${colors.mid}`,
+          border: `${printFriendly ? '1pt' : '2pt'} solid ${colors.mid}`,
           borderRadius: circleSize,
           marginTop: -(circleSize * 0.1),
           display: 'flex',
@@ -31,7 +31,8 @@ const TimelineItem = ({ circleSize = 20, colors }) => {
           style={{
             width: innerCircleSize,
             height: innerCircleSize,
-            backgroundColor: colors.mid,
+            backgroundColor: printFriendly ? '#FFF' : colors.mid,
+            border: printFriendly ? `1pt solid ${colors.mid}` : 'none',
             borderRadius: innerCircleSize,
           }}
         ></View>
@@ -41,7 +42,7 @@ const TimelineItem = ({ circleSize = 20, colors }) => {
           marginTop: -(circleSize / 2),
           paddingBottom: circleSize,
           flexGrow: 1,
-          width: 2,
+          width: printFriendly ? 1 : 2,
           backgroundColor: colors.mid,
         }}
       ></View>
@@ -52,7 +53,7 @@ const TimelineItem = ({ circleSize = 20, colors }) => {
 export const Timelines = props => {
   const {
     styles,
-    config: { colors },
+    config: { colors, printFriendly },
   } = props;
 
   const smallParagraph = {
@@ -73,7 +74,7 @@ export const Timelines = props => {
             flexDirection: 'row',
           }}
         >
-          <TimelineItem colors={colors} />
+          <TimelineItem colors={colors} printFriendly={printFriendly} />
           <View
             style={{
               ...styles.hr,

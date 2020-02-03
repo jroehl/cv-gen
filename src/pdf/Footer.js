@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link, View, Text, Image } from '@react-pdf/renderer';
 
-const Portal = ({ circleSize = 24, url, icon, colors }) => {
+const Portal = ({ circleSize = 24, printFriendly, url, icon, colors }) => {
   return (
     <View
       style={{
@@ -32,7 +32,7 @@ const Portal = ({ circleSize = 24, url, icon, colors }) => {
 
       <Link
         style={{
-          color: colors.lightest,
+          color: printFriendly ? colors.darkest : colors.lightest,
           fontSize: 8,
         }}
         href={url}
@@ -43,7 +43,7 @@ const Portal = ({ circleSize = 24, url, icon, colors }) => {
   );
 };
 
-const Footer = ({ config: { colors }, contact }) => {
+const Footer = ({ config: { colors, printFriendly }, contact }) => {
   const styles = {
     footer: {
       position: 'absolute',
@@ -52,7 +52,7 @@ const Footer = ({ config: { colors }, contact }) => {
       right: 0,
     },
     links: {
-      color: colors.light,
+      color: printFriendly ? colors.dark : colors.light,
       fontSize: 9.5,
       margin: '0 2',
     },
@@ -62,7 +62,9 @@ const Footer = ({ config: { colors }, contact }) => {
       flexWrap: 'wrap',
       justifyContent: 'space-around',
       padding: '12 48',
-      backgroundColor: colors.dark,
+      backgroundColor: printFriendly ? '#FFF' : colors.dark,
+      border: printFriendly ? `1pt solid ${colors.dark}` : 'none',
+      borderBottom: 'none',
     },
     bottom: {
       display: 'flex',
@@ -70,7 +72,8 @@ const Footer = ({ config: { colors }, contact }) => {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '6 24',
-      backgroundColor: colors.darkest,
+      backgroundColor: printFriendly ? '#FFF' : colors.darkest,
+      border: printFriendly ? `1pt solid ${colors.darkest}` : 'none',
     },
   };
 
@@ -83,7 +86,7 @@ const Footer = ({ config: { colors }, contact }) => {
       {portals && (
         <View style={styles.top}>
           {portals.map(portal => (
-            <Portal {...portal} key={portal.url} colors={colors} />
+            <Portal {...portal} key={portal.url} colors={colors} printFriendly={printFriendly} />
           ))}
         </View>
       )}

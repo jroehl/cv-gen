@@ -3,6 +3,7 @@ export default (colors, circleColors) => ({
     leftColumnWidth: 40,
     pageNumberText: 'RESUME',
     romanizedPageNumbers: true,
+    printFriendly: false,
     font: {
       family: 'Roboto',
       src: 'https://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf',

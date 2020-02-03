@@ -6,7 +6,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { Renderers, TYPES, RendererPropTypes } from './renderer';
 
-const getStyles = ({ font, colors, leftColumnWidth: leftWidth = 40 }) => {
+const getStyles = ({ font, colors, leftColumnWidth: leftWidth = 40, printFriendly }) => {
   const rightWidth = 100 - leftWidth;
 
   return {
@@ -21,17 +21,21 @@ const getStyles = ({ font, colors, leftColumnWidth: leftWidth = 40 }) => {
     left: {
       //column
       width: `${leftWidth}%`,
-      backgroundColor: colors.lightest,
+      backgroundColor: printFriendly ? '#FFF' : colors.lightest,
+      borderLeft: printFriendly ? `1pt solid ${colors.mid}` : 'none',
     },
     right: {
       //column
       width: `${rightWidth}%`,
-      backgroundColor: colors.light,
+      backgroundColor: printFriendly ? '#FFF' : colors.light,
+      border: printFriendly ? `1pt solid ${colors.mid}` : 'none',
+      borderTop: 'none',
+      borderBottom: 'none',
     },
     hr: {
       flexGrow: 1,
       marginTop: 3,
-      borderBottom: `1 solid ${colors.light}`,
+      borderBottom: `1 solid ${printFriendly ? colors.mid : colors.light}`,
     },
     heading: {
       color: colors.dark,
@@ -118,6 +122,7 @@ const configShape = PropTypes.shape({
   leftColumnWidth: PropTypes.number,
   pageNumberText: PropTypes.string,
   romanizedPageNumbers: PropTypes.bool,
+  printFriendly: PropTypes.bool,
   font: PropTypes.shape({
     family: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,

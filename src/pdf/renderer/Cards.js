@@ -7,7 +7,7 @@ import Default from './Default';
 export const Cards = props => {
   const {
     styles,
-    config: { colors },
+    config: { colors, printFriendly },
   } = props;
 
   return (
@@ -20,6 +20,7 @@ export const Cards = props => {
             style={{
               position: 'relative',
               backgroundColor: colors.lightest,
+              border: printFriendly ? `1pt solid ${colors.light}` : 'none',
               borderRadius: 2,
               padding: 12,
               marginBottom: 12,

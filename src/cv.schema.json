@@ -256,6 +256,11 @@
           "title": "The Romanizedpagenumbers Schema",
           "examples": [true]
         },
+        "printFriendly": {
+          "type": "boolean",
+          "title": "The PrintFriendly Schema",
+          "examples": [true]
+        },
         "font": {
           "type": "object",
           "title": "The Font Schema",

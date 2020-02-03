@@ -6,7 +6,7 @@ import Default from './Default';
 
 export const ProgressCircles = props => {
   const {
-    config: { colors },
+    config: { colors, printFriendly },
   } = props;
 
   const size = 50;
@@ -46,7 +46,7 @@ export const ProgressCircles = props => {
               paint
                 .circle(centerX, centerY, radius)
                 .lineWidth(lineWidth)
-                .strokeColor(color || colors.dark)
+                .strokeColor(color || (printFriendly ? colors.mid : colors.dark))
                 .stroke();
 
               paint

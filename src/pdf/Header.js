@@ -43,7 +43,7 @@ function romanize(num) {
   return Array(+digits.join('') + 1).join('M') + roman;
 }
 
-const Header = ({ config: { pageNumberText = 'RESUME', colors, romanizedPageNumbers }, contact }) => {
+const Header = ({ config: { pageNumberText = 'RESUME', colors, romanizedPageNumbers, printFriendly }, contact }) => {
   const imageSize = 60;
   const styles = {
     image: {
@@ -52,7 +52,7 @@ const Header = ({ config: { pageNumberText = 'RESUME', colors, romanizedPageNumb
       borderRadius: imageSize,
     },
     pageNumbers: {
-      color: colors.light,
+      color: printFriendly ? colors.dark : colors.light,
       marginRight: 6,
       fontSize: 10,
     },
@@ -60,7 +60,8 @@ const Header = ({ config: { pageNumberText = 'RESUME', colors, romanizedPageNumb
       display: 'flex',
       flexDirection: 'row',
       padding: '6 24',
-      backgroundColor: colors.darkest,
+      backgroundColor: printFriendly ? '#FFF' : colors.darkest,
+      border: printFriendly ? `1pt solid ${colors.darkest}` : 'none',
     },
     bottom: {
       display: 'flex',
@@ -68,10 +69,12 @@ const Header = ({ config: { pageNumberText = 'RESUME', colors, romanizedPageNumb
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: '18 24',
-      backgroundColor: colors.dark,
+      backgroundColor: printFriendly ? '#FFF' : colors.dark,
+      border: printFriendly ? `1pt solid ${colors.dark}` : 'none',
+      borderTop: 'none',
     },
     title: {
-      color: colors.light,
+      color: printFriendly ? colors.dark : colors.light,
       fontSize: 30,
     },
   };

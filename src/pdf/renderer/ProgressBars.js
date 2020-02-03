@@ -7,8 +7,9 @@ import Default from './Default';
 export const ProgressBars = props => {
   const {
     styles,
-    config: { colors },
+    config: { colors, printFriendly },
   } = props;
+
   return (
     <Default
       {...props}
@@ -27,7 +28,7 @@ export const ProgressBars = props => {
               style={{
                 width: `${proficiency}%`,
                 height: '100%',
-                backgroundColor: color || colors.dark,
+                backgroundColor: color || (printFriendly ? colors.mid : colors.dark),
               }}
             ></View>
             <View

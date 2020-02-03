@@ -90,6 +90,7 @@ class App extends Component {
   render() {
     const { json, error } = this.state;
     if (!json && !error) return <Loader></Loader>;
+
     return (
       <div className={styles.body}>
         <section className={styles.editor}>
