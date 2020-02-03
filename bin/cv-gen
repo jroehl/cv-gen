@@ -11,6 +11,21 @@ const logError = err => {
   console.error(err.message || err);
 };
 
+const createPDF = async (absolutePath, printFriendly = false) => {
+  const { cwd } = process;
+  const pdfName = resolve(cwd(), `${basename(absolutePath).replace('.json', '')}${printFriendly ? '-print' : ''}.pdf`);
+
+  const json = require(absolutePath);
+  json.config.printFriendly = printFriendly;
+
+  const ajv = new Ajv({ allErrors: true, verbose: true });
+  const valid = ajv.validate(require(resolve(__dirname, '..', 'src', 'cv.schema.json')), json);
+  if (!valid) throw new Error(`Validation failed\n${ajv.errors.map(({ dataPath, message }) => `  - "${dataPath}" - ${message}`).join('\n')}`);
+
+  await require(resolve(__dirname, '..', 'server')).run(json, pdfName);
+  console.log(`Stored CV "${pdfName}"`);
+};
+
 const run = async () => {
   const { argv, cwd } = process;
   try {
@@ -18,16 +33,8 @@ const run = async () => {
     const absolutePath = file.startsWith('/') ? file : resolve(cwd(), ...file.split('/').filter(x => x !== '.'));
     console.log(`Generating CV based on "${absolutePath}"`);
     if (!existsSync(absolutePath)) throw new Error(`File "${absolutePath}" not found`);
-    const pdfName = resolve(cwd(), `${basename(absolutePath).replace('.json', '')}.pdf`);
-
-    const json = require(absolutePath);
-
-    const ajv = new Ajv({ allErrors: true, verbose: true });
-    const valid = ajv.validate(require(resolve(__dirname, '..', 'src', 'cv.schema.json')), json);
-    if (!valid) throw new Error(`Validation failed\n${ajv.errors.map(({ dataPath, message }) => `  - "${dataPath}" - ${message}`).join('\n')}`);
-
-    await require(resolve(__dirname, '..', 'server')).run(json, pdfName);
-    console.log(`Stored CV "${pdfName}"`);
+    await createPDF(absolutePath);
+    await createPDF(absolutePath, true);
   } catch (err) {
     logError(err);
   }

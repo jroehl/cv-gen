@@ -35,7 +35,7 @@ const getStyles = ({ font, colors, leftColumnWidth: leftWidth = 40, printFriendl
     hr: {
       flexGrow: 1,
       marginTop: 3,
-      borderBottom: `1 solid ${printFriendly ? colors.mid : colors.light}`,
+      borderBottom: `1 solid ${colors.light}`,
     },
     heading: {
       color: colors.dark,

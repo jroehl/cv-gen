@@ -11,54 +11,6 @@ import Loader from './Loader';
 import getDefaultJSON from './pdf/initial-json';
 import cvSchema from './cv.schema.json';
 
-const randomRGB = brightness => {
-  // Six levels of brightness from 0 to 5, 0 being the darkest
-  const rgb = [Math.random() * 256, Math.random() * 256, Math.random() * 256];
-  const mix = [brightness * 51, brightness * 51, brightness * 51]; //51 => 255/5
-  const mixedrgb = [rgb[0] + mix[0], rgb[1] + mix[1], rgb[2] + mix[2]].map(x => Math.round(x / 2.0));
-  return 'rgb(' + mixedrgb.join(',') + ')';
-};
-
-const fetchColors = async seedColor => {
-  const res = await fetch(`https://www.thecolorapi.com/scheme?rgb=${seedColor}&mode=monochrome&count=3`);
-  const { colors } = await res.json();
-  const [
-    {
-      hex: { value: darkest },
-    },
-    {
-      hex: { value: dark },
-    },
-    {
-      hex: { value: mid },
-    },
-  ] = colors;
-  return {
-    darkest,
-    dark,
-    mid,
-    light: '#EFEEEE',
-    lightest: '#FFF',
-  };
-};
-
-const fetchCircleColors = async seedColor => {
-  const res = await fetch(`https://www.thecolorapi.com/scheme?rgb=${seedColor}&mode=analogic-complement&count=3`);
-  const { colors } = await res.json();
-  const [
-    {
-      hex: { value: first },
-    },
-    {
-      hex: { value: second },
-    },
-    {
-      hex: { value: third },
-    },
-  ] = colors;
-  return [first, second, third];
-};
-
 const renderError = error => {
   const errors = Array.isArray(error) ? error : [error];
   return (
@@ -74,12 +26,14 @@ const renderError = error => {
 const ajv = new Ajv({ allErrors: true, verbose: true });
 
 class App extends Component {
-  state = {};
-
-  async componentDidMount() {
-    const seedColor = randomRGB(1);
-    const [colors, circleColors] = await Promise.all([fetchColors(seedColor), fetchCircleColors(seedColor)]);
-    this.setValidatedJSON(getDefaultJSON(colors, circleColors));
+  constructor() {
+    super();
+    const json = getDefaultJSON();
+    ajv.validate(cvSchema, json);
+    this.state = {
+      json,
+      error: ajv.errors,
+    };
   }
 
   setValidatedJSON = json => {
