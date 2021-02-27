@@ -2,6 +2,8 @@
 
 JSON_FILE="${1}"
 
+echo "Creating pdf/index.html file"
+
 FILENAME=$(basename -- "${JSON_FILE}")
 extension="${FILENAME##*.}"
 FILENAME="${FILENAME%.*}"
@@ -14,6 +16,7 @@ GRAVATAR_HASH=$(curl -s  --location --request POST 'https://api.hashify.net/hash
 OUTPUT_JPG="${FILENAME}.jpg"
 
 # Merge PDF to one JPG
+echo "Converting \"public/${FILENAME}.pdf\" to \"public/pdf/${OUTPUT_JPG}\""
 convert -density 300 -quality 80 +append public/${FILENAME}.pdf public/pdf/${OUTPUT_JPG}
 
 RESULT=$(
