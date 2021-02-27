@@ -8,8 +8,8 @@
     <meta name="description" content="%DESCRIPTION%" />
     <meta property="og:title" content="%TITLE%" />
     <meta property="og:site_name" content="%TITLE%" />
-    <meta property="og:image" content="%OUTPUT_JPG%" />
-    <link rel="shortcut icon" href="%OUTPUT_JPG%" />
+    <meta property="og:image" content="./%OUTPUT_JPG%" />
+    <link rel="shortcut icon" href="./%OUTPUT_JPG%" />
     <link rel="apple-touch-icon" href="//www.gravatar.com/avatar/%GRAVATAR_HASH%?s=16&d=retro&r=g" />
     <title>%TITLE%</title>
     <script
