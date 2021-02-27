@@ -6,14 +6,14 @@ const Ajv = require('ajv');
 
 require('@babel/register');
 
-const logError = err => {
+const logError = (err) => {
   console.error('Error generating CV');
   console.error(err.message || err);
 };
 
 const createPDF = async (absolutePath, printFriendly = false) => {
   const { cwd } = process;
-  const pdfName = resolve(cwd(), `${basename(absolutePath).replace('.json', '')}${printFriendly ? '-print' : ''}.pdf`);
+  const pdfName = resolve(cwd(), 'public', `${basename(absolutePath).replace('.json', '')}${printFriendly ? '-print' : ''}.pdf`);
 
   const json = require(absolutePath);
   json.config.printFriendly = printFriendly;
@@ -30,7 +30,7 @@ const run = async () => {
   const { argv, cwd } = process;
   try {
     const [file] = argv.slice(2);
-    const absolutePath = file.startsWith('/') ? file : resolve(cwd(), ...file.split('/').filter(x => x !== '.'));
+    const absolutePath = file.startsWith('/') ? file : resolve(cwd(), ...file.split('/').filter((x) => x !== '.'));
     console.log(`Generating CV based on "${absolutePath}"`);
     if (!existsSync(absolutePath)) throw new Error(`File "${absolutePath}" not found`);
     await createPDF(absolutePath);

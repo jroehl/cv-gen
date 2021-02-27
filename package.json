@@ -5,9 +5,10 @@
   "main": "index.js",
   "bin": "bin/cv-gen",
   "scripts": {
+    "postinstall": "husky install",
     "start": "react-scripts start",
-    "cp": "cp cv-*.pdf public/",
-    "build": "npm run build:pdf && npm run cp && npm run build:convert && react-scripts build",
+    "build": "react-scripts build",
+    "build:commit": "npm run build:pdf && npm run build:convert",
     "build:pdf": "node bin/cv-gen ./src/cv-johannroehl.json",
     "build:convert": "bin/landing-page.sh ./src/cv-johannroehl.json",
     "test": "react-scripts test",
@@ -45,6 +46,7 @@
     "react-scripts": "3.3.0"
   },
   "devDependencies": {
+    "husky": "^5.1.1",
     "nodemon": "^2.0.2"
   },
   "eslintConfig": {

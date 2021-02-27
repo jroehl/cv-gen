@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="//www.gravatar.com/avatar/%GRAVATAR_HASH%?s=16&d=retro&r=g" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="%DESCRIPTION%" />
+    <meta property="og:title" content="%TITLE%" />
+    <meta property="og:site_name" content="%TITLE%" />
+    <meta property="og:image" content="%OUTPUT_JPG%" />
+    <link rel="shortcut icon" href="%OUTPUT_JPG%" />
+    <link rel="apple-touch-icon" href="//www.gravatar.com/avatar/%GRAVATAR_HASH%?s=16&d=retro&r=g" />
+    <title>%TITLE%</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.4/pdfobject.min.js"
+      integrity="sha512-mW7siBAOOJTkMl77cTke1Krn+Wz8DJrjMzlKaorrGeGecq0DPUq28KgMrX060xQQOGjcl7MSSep+/1FOprNltw=="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        height: 100%;
+      }
+      .pdfobject-container {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      PDFObject.embed('../%PDF%', '#root');
+    </script>
+  </body>
+</html>
