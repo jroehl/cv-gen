@@ -4,7 +4,7 @@ import { Text, View } from '@react-pdf/renderer';
 
 import Default from './Default';
 
-export const Cards = props => {
+export const Cards = (props) => {
   const {
     styles,
     config: { colors, printFriendly },
@@ -43,7 +43,7 @@ export const Cards = props => {
                 fontSize: 8,
               }}
             >
-              {Array.isArray(subHeading) ? subHeading.join(', ') : subHeading}
+              {Array.isArray(subHeading) ? subHeading.sort().join(', ') : subHeading}
             </Text>
             <Text
               style={{

@@ -1,14 +1,15 @@
 {
   "name": "cv-gen",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A CLI and web interface to dynamically generate a CV PDF based on values stored in JSON format",
   "main": "index.js",
   "bin": "bin/cv-gen",
   "scripts": {
     "start": "react-scripts start",
     "cp": "cp cv-*.pdf public/",
-    "build": "npm run build:pdf; npm run cp; react-scripts build",
+    "build": "npm run build:pdf && npm run cp && npm run build:convert && react-scripts build",
     "build:pdf": "node bin/cv-gen ./src/cv-johannroehl.json",
+    "build:convert": "bin/landing-page.sh ./src/cv-johannroehl.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev:cli": "nodemon bin/cv-gen ./cv-johannroehl.json",

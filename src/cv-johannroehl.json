@@ -22,8 +22,8 @@
     "mail": "mail@johannroehl.de",
     "website": "https://johannroehl.de",
     "address": {
-      "street": "Richardstraße 98",
-      "city": "12043 Berlin",
+      "street": "Altstadtblick 3",
+      "city": "14473 Potsdam",
       "country": "Germany"
     },
     "portals": [
@@ -99,16 +99,12 @@
             {
               "skill": "HTML5 / CSS3",
               "proficiency": 80
-            },
-            {
-              "skill": "SASS",
-              "proficiency": 70
             }
           ],
           [
             {
               "skill": "Amazon Web Services",
-              "proficiency": 80
+              "proficiency": 85
             },
             {
               "skill": "NoSQL DB",
@@ -152,42 +148,51 @@
           {
             "value": [
               "Agile",
-              "Apache",
-              "AWS Lambda",
-              "AWS DynamoDB",
-              "AWS Cloudformation",
-              "AWS RDS",
-              "AWS Route53",
+              "Amazon Web Services (AWS)",
+              "Application Programming Interfaces",
               "Bash",
               "Bitbucket",
-              "Chrome developer tools",
-              "CiCd",
-              "CircleCi",
-              "CMS",
-              "Contentful",
+              "Bootstrap",
               "CSV",
+              "Chrome Developer Tools",
+              "CircleCi",
+              "Content Management Systems (CMS)",
+              "Contentful",
+              "Continuous Integration and Continuous Delivery (CI/CD)",
+              "Cybersecurity",
               "Docker",
+              "Full-Stack Development",
               "GIT",
+              "GSuite",
+              "Git",
               "GitHub",
-              "GoogleCloud",
-              "Gsuite",
+              "Go",
+              "Google Cloud Platform (GCP)",
+              "HTML/CSS",
               "Holacracy",
               "JIRA",
               "JSON",
-              "JSX",
+              "JavaScript",
               "Kanban",
               "Kubernetes",
-              "Linux",
-              "Mac",
+              "Microsoft Visual Studio Code",
               "MongoDB",
+              "MySQL",
               "Netlify",
-              "OKRs",
+              "Node.js",
+              "Objectives and Key Results (OKRs)",
               "PostgreSQL",
-              "SASS",
+              "React.js",
+              "Responsive Webdesign",
+              "SQL",
+              "SVG",
               "Scrum",
-              "SCSS",
+              "Security Awareness",
+              "Shell-Scripting",
               "Slack",
-              "VSCode",
+              "Softwaredevelopment",
+              "TypeScript",
+              "Web Services",
               "XML",
               "Yaml"
             ]
@@ -361,7 +366,7 @@
           [
             {
               "heading": "Multilingual company website",
-              "subHeading": ["AWS Gateway", "AWS Lambda", "FlowFact API", "GatsbyJs", "IS24 API", "Netlify", "NodeJS", "ReactJs"],
+              "subHeading": ["AWS Gateway", "AWS Lambda", "FlowFact API", "GatsbyJs", "IS24 API", "Netlify", "NodeJS", "ReactJs", "Contentful"],
               "text": "Design and implementation of a multilingual website, with a serverless contact form and an individual solution for the display and synchronization of company real estate."
             },
             {
