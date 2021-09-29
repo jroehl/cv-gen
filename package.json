@@ -38,7 +38,7 @@
     "@testing-library/user-event": "^8.0.3",
     "ajv": "^6.10.2",
     "gravatar": "^1.8.0",
-    "jsoneditor": "^8.1.2",
+    "jsoneditor": "^9.5.6",
     "jsoneditor-react": "^3.0.0",
     "lodash.debounce": "^4.0.8",
     "react": "^16.12.0",
