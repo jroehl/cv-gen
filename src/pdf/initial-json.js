@@ -1,3 +1,3 @@
-const json = require('../cv-johannroehl.json');
+const json = require('../cv-johannemrich.json');
 
 export default () => json;

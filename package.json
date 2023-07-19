@@ -9,11 +9,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:commit": "npm run build:pdf && npm run build:convert",
-    "build:pdf": "node bin/cv-gen ./src/cv-johannroehl.json",
-    "build:convert": "bin/landing-page.sh ./src/cv-johannroehl.json",
+    "build:pdf": "node bin/cv-gen ./src/cv-johannemrich.json",
+    "build:convert": "bin/landing-page.sh ./src/cv-johannemrich.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev:cli": "nodemon bin/cv-gen ./cv-johannroehl.json",
+    "dev:cli": "nodemon bin/cv-gen ./cv-johannemrich.json",
     "dev:web": "npm start"
   },
   "keywords": [
