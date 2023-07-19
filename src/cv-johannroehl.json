@@ -17,10 +17,10 @@
     }
   },
   "contact": {
-    "name": "Johann Röhl",
+    "name": "Johann Emrich",
     "phone": "+49 (0)30 62937411‬",
     "mail": "mail@johannroehl.de",
-    "website": "https://johannroehl.de",
+    "website": "https://hinterland.software/",
     "address": {
       "street": "Altstadtblick 3",
       "city": "14473 Potsdam",
@@ -49,7 +49,7 @@
         "values": [
           {
             "key": "Name",
-            "value": "Johann Röhl"
+            "value": "Johann Emrich"
           },
           {
             "key": "Birthday",
@@ -204,7 +204,7 @@
         "type": "TEXT",
         "values": [
           {
-            "value": "From workflow diagrams to user interfaces I am passionate about crafting simple, clear and functional designed experiences. If I'm not sitting in front of the Mac - coding or pushing pixels, you'll find me in the mountains, behind the camera or at the wok."
+            "value": "As a CTO and experienced full-stack developer, I bring 8+ years of expertise in backend and frontend development, as well as DevOps with a primary focus on AWS. I am an organized and driven team player, blending logic with creativity to deliver results. My advanced proficiency in Node.js, Go, JavaScript (TypeScript), HTML5, CSS3, React.js, and Gatsby.js enables me to develop innovative and scalable solutions for complex challenges. Let's connect and explore how I can contribute to your next project."
           }
         ]
       }
@@ -281,8 +281,14 @@
             "website": "www.hinterland.software"
           },
           {
+            "heading": "Chief Technology Officer | HERMONE | Part-time Freelance",
+            "fromTo": "06/2019 - 03/2021",
+            "location": "Berlin",
+            "website": "hermone.health"
+          },
+          {
             "heading": "FullStack JS developer | Contentful GmbH",
-            "fromTo": "06/2019 - today",
+            "fromTo": "06/2019 - 03/2021",
             "location": "Berlin",
             "website": "www.contentful.com"
           },
@@ -318,19 +324,41 @@
         ]
       },
       {
-        "heading": "Experience abroad",
-        "type": "TIMELINE",
+        "heading": "Selected projects - freelance",
+        "type": "CARD",
         "values": [
-          {
-            "heading": "Canada",
-            "fromTo": "09/2018 - 05/2009",
-            "location": "Work and Travel YMP"
-          },
-          {
-            "heading": "Venezuela - Caracas",
-            "fromTo": "06/2006 - 08/2006",
-            "location": "Student exchange Colegio Humboldt"
-          }
+          [
+            {
+              "heading": "CMS Migration Project",
+              "subHeading": ["Contentful", "React.js", "TypeScript", "Node.js", "AWS", "Terraform", "GitHub Actions"],
+              "text": "Migration of a legacy CMS to Contentful for a large news company. This includes content migration, creating custom frontend apps in React.js and TypeScript, backend apps in Node.js and TypeScript, AWS Terraform for infrastructure, and leveraging GitHub Actions for CI/CD."
+            },
+            {
+              "heading": "Interim Chief Technology Officer",
+              "subHeading": [
+                "AWS AppSync",
+                "Docker",
+                "Serverless",
+                "CDK",
+                "GitHub Actions",
+                "Contentful",
+                "React Native",
+                "Architecture",
+                "Project Management"
+              ],
+              "text": "Served as Interim CTO for a Femtech company, where I was responsible for planning and implementing AWS serverless infrastructure, developing a React Native app, providing strategic consulting, and managing the project."
+            },
+            {
+              "heading": "Multilingual company website",
+              "subHeading": ["AWS Gateway", "AWS Lambda", "FlowFact API", "GatsbyJs", "IS24 API", "Netlify", "NodeJS", "ReactJs", "Contentful"],
+              "text": "Design and implementation of a multilingual website, with a serverless contact form and an individual solution for the display and synchronization of company real estate."
+            },
+            {
+              "heading": "Twitter Project",
+              "subHeading": ["AngularJS", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
+              "text": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
+            }
+          ]
         ]
       },
       {
@@ -355,24 +383,6 @@
               "heading": "Warehouse API",
               "subHeading": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
               "text": "Design and implementation of an API automating the label prints in the warehouse."
-            }
-          ]
-        ]
-      },
-      {
-        "heading": "Selected projects - freelance",
-        "type": "CARD",
-        "values": [
-          [
-            {
-              "heading": "Multilingual company website",
-              "subHeading": ["AWS Gateway", "AWS Lambda", "FlowFact API", "GatsbyJs", "IS24 API", "Netlify", "NodeJS", "ReactJs", "Contentful"],
-              "text": "Design and implementation of a multilingual website, with a serverless contact form and an individual solution for the display and synchronization of company real estate."
-            },
-            {
-              "heading": "Twitter Project",
-              "subHeading": ["AngularJS", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
-              "text": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
             }
           ]
         ]
