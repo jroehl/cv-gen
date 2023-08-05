@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Text, View } from '@react-pdf/renderer';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Default from './Default';
 
@@ -13,7 +13,7 @@ export const Cards = (props) => {
   return (
     <Default
       {...props}
-      render={({ heading, text, subHeading }) => {
+      render={({ heading, text, subHeading, duration }) => {
         return (
           <View
             key={heading}
@@ -27,15 +27,23 @@ export const Cards = (props) => {
               width: '100%',
             }}
           >
-            <Text
-              style={{
-                ...styles.subheading,
-                paddingBottom: 3,
-                fontSize: 10,
-              }}
-            >
-              {heading}
-            </Text>
+            <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <Text
+                style={{
+                  ...styles.subheading,
+                  paddingBottom: 3,
+                  fontSize: 10,
+                }}
+              >
+                {heading}
+              </Text>
+              {duration && <Text style={{
+                ...styles.paragraph,
+                paddingLeft: 6,
+                color: colors.mid,
+                fontSize: 6,
+              }}>({duration})</Text>}
+            </View>
             <Text
               style={{
                 ...styles.paragraph,
@@ -53,7 +61,7 @@ export const Cards = (props) => {
             >
               {text}
             </Text>
-          </View>
+          </View >
         );
       }}
     />

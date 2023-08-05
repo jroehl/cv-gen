@@ -89,12 +89,12 @@
               "proficiency": 90
             },
             {
-              "skill": "Gatsby.Js",
-              "proficiency": 85
+              "skill": "ReactJs",
+              "proficiency": 90
             },
             {
-              "skill": "React.Js",
-              "proficiency": 90
+              "skill": "GatsbyJs",
+              "proficiency": 85
             },
             {
               "skill": "HTML5 / CSS3",
@@ -182,7 +182,7 @@
               "Node.js",
               "Objectives and Key Results (OKRs)",
               "PostgreSQL",
-              "React.js",
+              "ReactJs",
               "Responsive Webdesign",
               "SQL",
               "SVG",
@@ -204,7 +204,7 @@
         "type": "TEXT",
         "values": [
           {
-            "value": "As a CTO and experienced full-stack developer, I bring 8+ years of expertise in backend and frontend development, as well as DevOps with a primary focus on AWS. I am an organized and driven team player, blending logic with creativity to deliver results. My advanced proficiency in Node.js, Go, JavaScript (TypeScript), HTML5, CSS3, React.js, and Gatsby.js enables me to develop innovative and scalable solutions for complex challenges. Let's connect and explore how I can contribute to your next project."
+            "value": "As a CTO and experienced full-stack developer, I bring 8+ years of expertise in backend and frontend development, as well as DevOps with a primary focus on AWS. I am an organized and driven team player, blending logic with creativity to deliver results. My advanced proficiency in Node.js, Go, JavaScript (TypeScript), HTML5, CSS3, ReactJs, and Gatsby.js enables me to develop innovative and scalable solutions for complex challenges. Let's connect and explore how I can contribute to your next project."
           }
         ]
       }
@@ -330,32 +330,57 @@
           [
             {
               "heading": "CMS Migration Project",
-              "subHeading": ["Contentful", "React.js", "TypeScript", "Node.js", "AWS", "Terraform", "GitHub Actions"],
-              "text": "Migration of a legacy CMS to Contentful for a large news company. This includes content migration, creating custom frontend apps in React.js and TypeScript, backend apps in Node.js and TypeScript, AWS Terraform for infrastructure, and leveraging GitHub Actions for CI/CD."
+              "duration": "approx. 1.5 years",
+              "subHeading": ["Contentful", "ReactJs", "TypeScript", "Node.js", "AWS", "Terraform", "GitHub Actions"],
+              "text": "Migration of a legacy CMS to Contentful for a large news company. This includes content migration, creating custom frontend apps in ReactJs and TypeScript, backend apps in Node.js and TypeScript, AWS Terraform for infrastructure, and leveraging GitHub Actions for CI/CD."
             },
             {
               "heading": "Interim Chief Technology Officer",
+              "duration": "approx. 1.5 years - ongoing",
               "subHeading": [
+                "AWS API Gateway",
                 "AWS AppSync",
-                "Docker",
-                "Serverless",
-                "CDK",
-                "GitHub Actions",
-                "Contentful",
-                "React Native",
+                "AWS CloudFront",
+                "AWS DynamoDB",
+                "AWS ECS",
+                "AWS Fargate",
+                "AWS Lambda",
+                "AWS S3",
                 "Architecture",
-                "Project Management"
+                "CDK",
+                "Contentful",
+                "Docker",
+                "GitHub Actions",
+                "GraphQL",
+                "Project Management",
+                "React Native",
+                "Serverless"
               ],
               "text": "Served as Interim CTO for a Femtech company, where I was responsible for planning and implementing AWS serverless infrastructure, developing a React Native app, providing strategic consulting, and managing the project."
             },
             {
-              "heading": "Multilingual company website",
-              "subHeading": ["AWS Gateway", "AWS Lambda", "FlowFact API", "GatsbyJs", "IS24 API", "Netlify", "NodeJS", "ReactJs", "Contentful"],
-              "text": "Design and implementation of a multilingual website, with a serverless contact form and an individual solution for the display and synchronization of company real estate."
+              "heading": "Website for Research Institute",
+              "duration": "approx. 8 months - ongoing",
+              "subHeading": [
+                "AWS API Gateway",
+                "AWS CloudFront",
+                "AWS ECS",
+                "AWS Fargate",
+                "AWS Lambda",
+                "Docker",
+                "GatsbyJs",
+                "NodeJs",
+                "Pure API",
+                "ReactJs",
+                "Serverless",
+                "TypeScript"
+              ],
+              "text": "Conception and development of a fail-safe website linked with a research information system. Data is automatically fed into a CMS, manually enriched, and displayed on the website, utilizing technologies such as GatsbyJs, ReactJs, TypeScript, AWS services, and Docker."
             },
             {
               "heading": "Twitter Project",
-              "subHeading": ["AngularJS", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
+              "duration": "approx. 1 year",
+              "subHeading": ["AngularJs", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
               "text": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
             }
           ]
@@ -370,17 +395,26 @@
         "values": [
           [
             {
+              "heading": "Migration of Legacy AngularJS to ReactJS",
+              "duration": "approx. 1 year",
+              "subHeading": ["TypeScript", "ReactJs", "Angular"],
+              "text": "Migration of a substantial legacy AngularJS codebase to ReactJS, utilizing TypeScript and modern development practices to enhance maintainability and performance."
+            },
+            {
               "heading": "CiCd process Netsuite",
+              "duration": "approx. 6 months",
               "subHeading": ["Bash", "CircleCi", "Go", "Netsuite", "NodeJs", "SuiteTalk"],
               "text": "Conception and implementation of a CiCd workflow to allow adopting modern development practices in Netsuite. Implementation of an open source cli for useful file handling features in Netsuite."
             },
             {
               "heading": "ECS, EKS setup and integration",
+              "duration": "approx. 3 months",
               "subHeading": ["AWS", "Bash", "Docker", "Kubernetes"],
               "text": "Setup of a cloud container orchestration service (EKS and ECS) and migration of existing APIs."
             },
             {
               "heading": "Warehouse API",
+              "duration": "approx. 8 months",
               "subHeading": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
               "text": "Design and implementation of an API automating the label prints in the warehouse."
             }
