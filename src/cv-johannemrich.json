@@ -275,56 +275,69 @@
         },
         "values": [
           {
-            "heading": "Software developer & Web designer | Freelance",
-            "fromTo": "03/2014 - today",
+            "heading": "Software developer & Web designer",
+            "linkTo": "cards_selected-projects-freelance_0",
+            "fromTo": "03/2021 - today",
+            "type": "Freelance | Full-time",
             "location": "Berlin",
             "website": "www.hinterland.software"
           },
           {
-            "heading": "Chief Technology Officer | HERMONE | Part-time Freelance",
-            "fromTo": "06/2019 - 03/2021",
+            "heading": "Chief Technology Officer | HERMONE",
+            "linkTo": "cards_selected-projects-freelance_1",
+            "fromTo": "06/2022 - today",
+            "type": "Freelance | Part-time",
             "location": "Berlin",
             "website": "hermone.health"
           },
           {
             "heading": "FullStack JS developer | Contentful GmbH",
+            "linkTo": "cards_selected-projects-employed_0",
             "fromTo": "06/2019 - 03/2021",
+            "type": "Employed | Full-time",
             "location": "Berlin",
             "website": "www.contentful.com"
           },
           {
             "heading": "Software developer | MYCS GmbH",
+            "linkTo": "cards_selected-projects-employed_1",
             "fromTo": "01/2018 - 06/2019",
+            "type": "Employed | Full-time",
             "location": "Berlin",
             "website": "www.mycs.com"
           },
           {
             "heading": "Working student | MYCS GmbH",
             "fromTo": "01/2017 - 01/2018",
+            "type": "Employed | Part-time",
             "location": "Berlin",
             "website": "www.mycs.com"
           },
           {
             "heading": "Working student | GIGA",
             "fromTo": "08/2015 - 01/2018",
+            "type": "Employed | Part-time",
             "location": "Hamburg",
             "website": "www.giga-hamburg.de"
           },
           {
-            "heading": "Photographer | adP Photostudios GmbH",
-            "fromTo": "02/2014 - 04/2014",
-            "location": "Hamburg",
-            "website": "www.adp-photostudios.de"
+            "heading": "Software developer & Web designer",
+            "fromTo": "04/2014 - 03/2021",
+            "type": "Freelance | Part-time",
+            "location": "Berlin",
+            "website": "www.hinterland.software"
           },
           {
-            "heading": "Employee IT administration | ZVS GmbH",
-            "fromTo": "06/2009 - 05/2010",
-            "location": "Hamburg"
+            "heading": "Photographer | adP Photostudios GmbH",
+            "fromTo": "02/2014 - 04/2014",
+            "type": "Employed | Full-time",
+            "location": "Hamburg",
+            "website": "www.adp-photostudios.de"
           }
         ]
       },
       {
-        "heading": "Selected projects - freelance",
+        "heading": "Selected projects - Freelance",
         "type": "CARD",
         "values": [
           [
@@ -387,7 +400,7 @@
         ]
       },
       {
-        "heading": "Selected projects - employed",
+        "heading": "Selected projects - Employed",
         "type": "CARD",
         "reactPdfProps": {
           "break": true

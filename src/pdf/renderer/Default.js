@@ -1,5 +1,5 @@
-import React from 'react';
 import { Text, View } from '@react-pdf/renderer';
+import React from 'react';
 
 const Default = ({ heading, type, values, row, styles, render, reactPdfProps = {}, ...rest }) => {
   return (
@@ -26,7 +26,7 @@ const Default = ({ heading, type, values, row, styles, render, reactPdfProps = {
           const key = `block_${i}_${heading.replace(/ /g, '').toLowerCase()}`;
           return (
             <View key={key} style={{ paddingBottom: isArray ? 12 : 0 }}>
-              {blocks.map(block => render({ styles, ...block, ...rest }))}
+              {blocks.map((block, i) => render({ styles, ...block, ...rest }, i))}
             </View>
           );
         })}

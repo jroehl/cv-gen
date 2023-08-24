@@ -12,8 +12,15 @@
 
 .editor,
 .viewer {
-  width: 50%;
   min-height: 100%;
+}
+
+.editor {
+  width: 30%;
+}
+
+.viewer {
+  width: 70%;
 }
 
 .editor > div,

@@ -1,6 +1,6 @@
-import React from 'react';
+import { Link, Text, View } from '@react-pdf/renderer';
 import PropTypes from 'prop-types';
-import { Text, View, Link } from '@react-pdf/renderer';
+import React from 'react';
 
 import Default from './Default';
 
@@ -65,9 +65,10 @@ export const Timelines = props => {
   return (
     <Default
       {...props}
-      render={({ heading, fromTo, location, website }) => (
+      render={({ heading, fromTo, type, location, website, linkTo }, i) => (
         <View
           key={heading}
+          id={`timeline_${props.heading.toLowerCase()}_${i}`}
           style={{
             paddingBottom: 3,
             display: 'flex',
@@ -84,15 +85,18 @@ export const Timelines = props => {
             }}
           >
             <Text style={smallParagraph}>{fromTo}</Text>
-            <Text
-              style={{
-                ...styles.paragraph,
-                fontSize: 11,
-                padding: '3 0',
-              }}
-            >
-              {heading}
-            </Text>
+            <Link href={`#${linkTo}`}>
+              <Text
+                style={{
+                  ...styles.paragraph,
+                  fontSize: 11,
+                  padding: '3 0',
+                }}
+              >
+                {heading}
+              </Text>
+            </Link>
+            {type && <Text style={smallParagraph}>{type}</Text>}
             <View style={{ display: 'flex', flexDirection: 'row' }}>
               <Text style={smallParagraph}>{website ? `${location}, ` : location}</Text>
               {website ? (

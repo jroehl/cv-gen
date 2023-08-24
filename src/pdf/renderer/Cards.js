@@ -4,6 +4,10 @@ import React from 'react';
 
 import Default from './Default';
 
+function snakeCase(str) {
+  return str.toLowerCase().replace(/ /g, '-').replace(/-+/g, '-');
+}
+
 export const Cards = (props) => {
   const {
     styles,
@@ -13,10 +17,11 @@ export const Cards = (props) => {
   return (
     <Default
       {...props}
-      render={({ heading, text, subHeading, duration }) => {
+      render={({ heading, text, subHeading, duration }, i) => {
         return (
           <View
             key={heading}
+            id={`cards_${snakeCase(props.heading)}_${i}`}
             style={{
               position: 'relative',
               backgroundColor: colors.lightest,
