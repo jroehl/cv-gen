@@ -1,50 +1,11 @@
-import React, { Fragment } from 'react';
-import { Link, View, Text, Image } from '@react-pdf/renderer';
+import ReactPDF, { Image, Link, Text, View } from '@react-pdf/renderer';
+import { Fragment } from 'react';
+import { CV, Portal as CVPortal, Config } from '../types';
 
-const Portal = ({ circleSize = 24, printFriendly, url, icon, colors }) => {
-  return (
-    <View
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
-      <View
-        style={{
-          height: circleSize,
-          width: circleSize,
-          borderRadius: circleSize,
-          marginBottom: 4,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: colors.darkest,
-        }}
-      >
-        <Image
-          style={{
-            height: circleSize / 2,
-            width: circleSize / 2,
-          }}
-          src={icon}
-        ></Image>
-      </View>
+type Props = Pick<CV, 'contact' | 'config'>;
 
-      <Link
-        style={{
-          color: printFriendly ? colors.darkest : colors.lightest,
-          fontSize: 8,
-        }}
-        href={url}
-      >
-        {url}
-      </Link>
-    </View>
-  );
-};
-
-const Footer = ({ config: { colors, printFriendly }, contact }) => {
-  const styles = {
+export function Footer({ contact, config: { colors, printFriendly } }: Props) {
+  const styles: ReactPDF.Styles = {
     footer: {
       position: 'absolute',
       bottom: 0,
@@ -85,7 +46,7 @@ const Footer = ({ config: { colors, printFriendly }, contact }) => {
     <View fixed style={styles.footer}>
       {portals && (
         <View style={styles.top}>
-          {portals.map(portal => (
+          {portals.map((portal) => (
             <Portal {...portal} key={portal.url} colors={colors} printFriendly={printFriendly} />
           ))}
         </View>
@@ -95,7 +56,7 @@ const Footer = ({ config: { colors, printFriendly }, contact }) => {
         {phone && (
           <Fragment>
             <Text style={styles.links}>|</Text>
-            <Link href={`tel:${phone.replace(/( |\(0\))/g, '')}`} style={styles.links}>
+            <Link src={`tel:${phone.replace(/( |\(0\))/g, '')}`} style={styles.links}>
               {phone}
             </Link>
           </Fragment>
@@ -103,7 +64,7 @@ const Footer = ({ config: { colors, printFriendly }, contact }) => {
         {mail && (
           <Fragment>
             <Text style={styles.links}>|</Text>
-            <Link href={`mailto:${mail}`} style={styles.links}>
+            <Link src={`mailto:${mail}`} style={styles.links}>
               {mail}
             </Link>
           </Fragment>
@@ -111,7 +72,7 @@ const Footer = ({ config: { colors, printFriendly }, contact }) => {
         {website && (
           <Fragment>
             <Text style={styles.links}>|</Text>
-            <Link href={website} style={styles.links}>
+            <Link src={website} style={styles.links}>
               {website}
             </Link>
           </Fragment>
@@ -119,6 +80,50 @@ const Footer = ({ config: { colors, printFriendly }, contact }) => {
       </View>
     </View>
   );
-};
+}
 
-export default Footer;
+interface PortalProps extends Pick<Config, 'colors' | 'printFriendly'>, CVPortal {
+  circleSize?: number;
+}
+
+function Portal({ circleSize = 24, printFriendly, url, icon, colors }: PortalProps) {
+  return (
+    <View
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <View
+        style={{
+          height: circleSize,
+          width: circleSize,
+          borderRadius: circleSize,
+          marginBottom: 4,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: colors.darkest,
+        }}
+      >
+        <Image
+          style={{
+            height: circleSize / 2,
+            width: circleSize / 2,
+          }}
+          src={icon}
+        ></Image>
+      </View>
+
+      <Link
+        style={{
+          color: printFriendly ? colors.darkest : colors.lightest,
+          fontSize: 8,
+        }}
+        src={url}
+      >
+        {url}
+      </Link>
+    </View>
+  );
+}

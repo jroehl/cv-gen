@@ -1,51 +1,12 @@
-import React from 'react';
-import { View, Text, Image } from '@react-pdf/renderer';
+import ReactPDF, { Image, Text, View } from '@react-pdf/renderer';
 import gravatar from 'gravatar';
+import { CV } from '../types';
 
-function romanize(num) {
-  if (isNaN(num)) return NaN;
-  var digits = String(+num).split(''),
-    key = [
-      '',
-      'C',
-      'CC',
-      'CCC',
-      'CD',
-      'D',
-      'DC',
-      'DCC',
-      'DCCC',
-      'CM',
-      '',
-      'X',
-      'XX',
-      'XXX',
-      'XL',
-      'L',
-      'LX',
-      'LXX',
-      'LXXX',
-      'XC',
-      '',
-      'I',
-      'II',
-      'III',
-      'IV',
-      'V',
-      'VI',
-      'VII',
-      'VIII',
-      'IX',
-    ],
-    roman = '',
-    i = 3;
-  while (i--) roman = (key[+digits.pop() + i * 10] || '') + roman;
-  return Array(+digits.join('') + 1).join('M') + roman;
-}
+type Props = Pick<CV, 'contact' | 'config'>;
 
-const Header = ({ config: { pageNumberText = 'RESUME', colors, romanizedPageNumbers, printFriendly }, contact }) => {
+export function Header({ contact, config: { pageNumberText = 'RESUME', colors, romanizedPageNumbers, printFriendly } }: Props) {
   const imageSize = 60;
-  const styles = {
+  const styles: ReactPDF.Styles = {
     image: {
       height: imageSize,
       width: imageSize,
@@ -93,10 +54,49 @@ const Header = ({ config: { pageNumberText = 'RESUME', colors, romanizedPageNumb
       </View>
       <View style={styles.bottom}>
         <Text style={styles.title}>{contact.name}</Text>
-        <Image style={styles.image} src={gravatar.url(contact.mail, { s: '400', d: 'retro', r: 'g' }, true)}></Image>
+        <Image style={styles.image} src={gravatar.url(contact.mail, { s: '400', d: 'retro', r: 'g' }, true)} />
       </View>
     </View>
   );
-};
+}
 
-export default Header;
+function romanize(num: number) {
+  if (isNaN(num)) return NaN;
+  const digits = String(+num).split('');
+  const key = [
+    '',
+    'C',
+    'CC',
+    'CCC',
+    'CD',
+    'D',
+    'DC',
+    'DCC',
+    'DCCC',
+    'CM',
+    '',
+    'X',
+    'XX',
+    'XXX',
+    'XL',
+    'L',
+    'LX',
+    'LXX',
+    'LXXX',
+    'XC',
+    '',
+    'I',
+    'II',
+    'III',
+    'IV',
+    'V',
+    'VI',
+    'VII',
+    'VIII',
+    'IX',
+  ];
+  let roman = '';
+  let i = 3;
+  while (i--) roman = (key[+digits.pop()! + i * 10] || '') + roman;
+  return Array(+digits.join('') + 1).join('M') + roman;
+}

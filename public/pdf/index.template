@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="//www.gravatar.com/avatar/%GRAVATAR_HASH%?s=16&d=retro&r=g" />
     <title>%TITLE%</title>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.4/pdfobject.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.12/pdfobject.min.js"
       integrity="sha512-mW7siBAOOJTkMl77cTke1Krn+Wz8DJrjMzlKaorrGeGecq0DPUq28KgMrX060xQQOGjcl7MSSep+/1FOprNltw=="
       crossorigin="anonymous"
     ></script>

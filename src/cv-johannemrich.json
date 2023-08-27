@@ -276,7 +276,7 @@
         "values": [
           {
             "heading": "Software developer & Web designer",
-            "linkTo": "cards_selected-projects-freelance_0",
+            "linkTo": "card_selected_projects_freelance_0",
             "fromTo": "03/2021 - today",
             "type": "Freelance | Full-time",
             "location": "Berlin",
@@ -284,7 +284,7 @@
           },
           {
             "heading": "Chief Technology Officer | HERMONE",
-            "linkTo": "cards_selected-projects-freelance_1",
+            "linkTo": "card_selected_projects_freelance_1",
             "fromTo": "06/2022 - today",
             "type": "Freelance | Part-time",
             "location": "Berlin",
@@ -292,7 +292,7 @@
           },
           {
             "heading": "FullStack JS developer | Contentful GmbH",
-            "linkTo": "cards_selected-projects-employed_0",
+            "linkTo": "card_selected_projects_employed_0",
             "fromTo": "06/2019 - 03/2021",
             "type": "Employed | Full-time",
             "location": "Berlin",
@@ -300,7 +300,7 @@
           },
           {
             "heading": "Software developer | MYCS GmbH",
-            "linkTo": "cards_selected-projects-employed_1",
+            "linkTo": "card_selected_projects_employed_1",
             "fromTo": "01/2018 - 06/2019",
             "type": "Employed | Full-time",
             "location": "Berlin",
@@ -340,63 +340,61 @@
         "heading": "Selected projects - Freelance",
         "type": "CARD",
         "values": [
-          [
-            {
-              "heading": "CMS Migration Project",
-              "duration": "approx. 1.5 years",
-              "subHeading": ["Contentful", "ReactJs", "TypeScript", "Node.js", "AWS", "Terraform", "GitHub Actions"],
-              "text": "Migration of a legacy CMS to Contentful for a large news company. This includes content migration, creating custom frontend apps in ReactJs and TypeScript, backend apps in Node.js and TypeScript, AWS Terraform for infrastructure, and leveraging GitHub Actions for CI/CD."
-            },
-            {
-              "heading": "Interim Chief Technology Officer",
-              "duration": "approx. 1.5 years - ongoing",
-              "subHeading": [
-                "AWS API Gateway",
-                "AWS AppSync",
-                "AWS CloudFront",
-                "AWS DynamoDB",
-                "AWS ECS",
-                "AWS Fargate",
-                "AWS Lambda",
-                "AWS S3",
-                "Architecture",
-                "CDK",
-                "Contentful",
-                "Docker",
-                "GitHub Actions",
-                "GraphQL",
-                "Project Management",
-                "React Native",
-                "Serverless"
-              ],
-              "text": "Served as Interim CTO for a Femtech company, where I was responsible for planning and implementing AWS serverless infrastructure, developing a React Native app, providing strategic consulting, and managing the project."
-            },
-            {
-              "heading": "Website for Research Institute",
-              "duration": "approx. 8 months - ongoing",
-              "subHeading": [
-                "AWS API Gateway",
-                "AWS CloudFront",
-                "AWS ECS",
-                "AWS Fargate",
-                "AWS Lambda",
-                "Docker",
-                "GatsbyJs",
-                "NodeJs",
-                "Pure API",
-                "ReactJs",
-                "Serverless",
-                "TypeScript"
-              ],
-              "text": "Conception and development of a fail-safe website linked with a research information system. Data is automatically fed into a CMS, manually enriched, and displayed on the website, utilizing technologies such as GatsbyJs, ReactJs, TypeScript, AWS services, and Docker."
-            },
-            {
-              "heading": "Twitter Project",
-              "duration": "approx. 1 year",
-              "subHeading": ["AngularJs", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
-              "text": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
-            }
-          ]
+          {
+            "heading": "CMS Migration Project",
+            "duration": "approx. 1.5 years",
+            "subheading": ["Contentful", "ReactJs", "TypeScript", "Node.js", "AWS", "Terraform", "GitHub Actions"],
+            "text": "Migration of a legacy CMS to Contentful for a large news company. This includes content migration, creating custom frontend apps in ReactJs and TypeScript, backend apps in Node.js and TypeScript, AWS Terraform for infrastructure, and leveraging GitHub Actions for CI/CD."
+          },
+          {
+            "heading": "Interim Chief Technology Officer",
+            "duration": "approx. 1.5 years - ongoing",
+            "subheading": [
+              "AWS API Gateway",
+              "AWS AppSync",
+              "AWS CloudFront",
+              "AWS DynamoDB",
+              "AWS ECS",
+              "AWS Fargate",
+              "AWS Lambda",
+              "AWS S3",
+              "Architecture",
+              "CDK",
+              "Contentful",
+              "Docker",
+              "GitHub Actions",
+              "GraphQL",
+              "Project Management",
+              "React Native",
+              "Serverless"
+            ],
+            "text": "Served as Interim CTO for a Femtech company, where I was responsible for planning and implementing AWS serverless infrastructure, developing a React Native app, providing strategic consulting, and managing the project."
+          },
+          {
+            "heading": "Website for Research Institute",
+            "duration": "approx. 8 months - ongoing",
+            "subheading": [
+              "AWS API Gateway",
+              "AWS CloudFront",
+              "AWS ECS",
+              "AWS Fargate",
+              "AWS Lambda",
+              "Docker",
+              "GatsbyJs",
+              "NodeJs",
+              "Pure API",
+              "ReactJs",
+              "Serverless",
+              "TypeScript"
+            ],
+            "text": "Conception and development of a fail-safe website linked with a research information system. Data is automatically fed into a CMS, manually enriched, and displayed on the website, utilizing technologies such as GatsbyJs, ReactJs, TypeScript, AWS services, and Docker."
+          },
+          {
+            "heading": "Twitter Project",
+            "duration": "approx. 1 year",
+            "subheading": ["AngularJs", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
+            "text": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
+          }
         ]
       },
       {
@@ -406,32 +404,30 @@
           "break": true
         },
         "values": [
-          [
-            {
-              "heading": "Migration of Legacy AngularJS to ReactJS",
-              "duration": "approx. 1 year",
-              "subHeading": ["TypeScript", "ReactJs", "Angular"],
-              "text": "Migration of a substantial legacy AngularJS codebase to ReactJS, utilizing TypeScript and modern development practices to enhance maintainability and performance."
-            },
-            {
-              "heading": "CiCd process Netsuite",
-              "duration": "approx. 6 months",
-              "subHeading": ["Bash", "CircleCi", "Go", "Netsuite", "NodeJs", "SuiteTalk"],
-              "text": "Conception and implementation of a CiCd workflow to allow adopting modern development practices in Netsuite. Implementation of an open source cli for useful file handling features in Netsuite."
-            },
-            {
-              "heading": "ECS, EKS setup and integration",
-              "duration": "approx. 3 months",
-              "subHeading": ["AWS", "Bash", "Docker", "Kubernetes"],
-              "text": "Setup of a cloud container orchestration service (EKS and ECS) and migration of existing APIs."
-            },
-            {
-              "heading": "Warehouse API",
-              "duration": "approx. 8 months",
-              "subHeading": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
-              "text": "Design and implementation of an API automating the label prints in the warehouse."
-            }
-          ]
+          {
+            "heading": "Migration of Legacy AngularJS to ReactJS",
+            "duration": "approx. 1 year",
+            "subheading": ["TypeScript", "ReactJs", "Angular"],
+            "text": "Migration of a substantial legacy AngularJS codebase to ReactJS, utilizing TypeScript and modern development practices to enhance maintainability and performance."
+          },
+          {
+            "heading": "CiCd process Netsuite",
+            "duration": "approx. 6 months",
+            "subheading": ["Bash", "CircleCi", "Go", "Netsuite", "NodeJs", "SuiteTalk"],
+            "text": "Conception and implementation of a CiCd workflow to allow adopting modern development practices in Netsuite. Implementation of an open source cli for useful file handling features in Netsuite."
+          },
+          {
+            "heading": "ECS, EKS setup and integration",
+            "duration": "approx. 3 months",
+            "subheading": ["AWS", "Bash", "Docker", "Kubernetes"],
+            "text": "Setup of a cloud container orchestration service (EKS and ECS) and migration of existing APIs."
+          },
+          {
+            "heading": "Warehouse API",
+            "duration": "approx. 8 months",
+            "subheading": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
+            "text": "Design and implementation of an API automating the label prints in the warehouse."
+          }
         ]
       }
     ]
