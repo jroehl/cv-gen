@@ -22,19 +22,39 @@
             ],
             "type": "object"
         },
+        "AllColumnItemTypes": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/TableColumnItem"
+                },
+                {
+                    "$ref": "#/definitions/ProgressBarColumnItem"
+                },
+                {
+                    "$ref": "#/definitions/ProgressCircleColumnItem"
+                },
+                {
+                    "$ref": "#/definitions/TextColumnItem"
+                },
+                {
+                    "$ref": "#/definitions/TimelineColumnItem"
+                },
+                {
+                    "$ref": "#/definitions/CardColumnItem"
+                }
+            ]
+        },
         "CardColumnItem": {
             "additionalProperties": false,
             "properties": {
-                "heading": {
-                    "type": "string"
-                },
                 "reactPdfProps": {
                     "$ref": "#/definitions/ReactPdfProps"
                 },
+                "title": {
+                    "type": "string"
+                },
                 "type": {
-                    "enum": [
-                        "CARD"
-                    ],
+                    "const": "CARD",
                     "type": "string"
                 },
                 "values": {
@@ -45,7 +65,7 @@
                 }
             },
             "required": [
-                "heading",
+                "title",
                 "type",
                 "values"
             ],
@@ -57,10 +77,7 @@
                 "duration": {
                     "type": "string"
                 },
-                "heading": {
-                    "type": "string"
-                },
-                "subheading": {
+                "skills": {
                     "anyOf": [
                         {
                             "items": {
@@ -85,13 +102,19 @@
                             "type": "string"
                         }
                     ]
+                },
+                "title": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
                 }
             },
             "required": [
                 "duration",
-                "heading",
-                "subheading",
-                "text"
+                "skills",
+                "text",
+                "title"
             ],
             "type": "object"
         },
@@ -128,51 +151,13 @@
             "properties": {
                 "left": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/definitions/TableColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/ProgressBarColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/ProgressCircleColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/TextColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/TimelineColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/CardColumnItem"
-                            }
-                        ]
+                        "$ref": "#/definitions/AllColumnItemTypes"
                     },
                     "type": "array"
                 },
                 "right": {
                     "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/definitions/TableColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/ProgressBarColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/ProgressCircleColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/TextColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/TimelineColumnItem"
-                            },
-                            {
-                                "$ref": "#/definitions/CardColumnItem"
-                            }
-                        ]
+                        "$ref": "#/definitions/AllColumnItemTypes"
                     },
                     "type": "array"
                 }
@@ -282,19 +267,122 @@
             ],
             "type": "object"
         },
+        "Proficiency": {
+            "enum": [
+                1,
+                10,
+                100,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                2,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                3,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                4,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                5,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                6,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                7,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                8,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                9,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99
+            ],
+            "type": "number"
+        },
         "ProgressBarColumnItem": {
             "additionalProperties": false,
             "properties": {
-                "heading": {
-                    "type": "string"
-                },
                 "reactPdfProps": {
                     "$ref": "#/definitions/ReactPdfProps"
                 },
+                "title": {
+                    "type": "string"
+                },
                 "type": {
-                    "enum": [
-                        "PROGRESS_BAR"
-                    ],
+                    "const": "PROGRESS_BAR",
                     "type": "string"
                 },
                 "values": {
@@ -308,7 +396,7 @@
                 }
             },
             "required": [
-                "heading",
+                "title",
                 "type",
                 "values"
             ],
@@ -317,16 +405,14 @@
         "ProgressCircleColumnItem": {
             "additionalProperties": false,
             "properties": {
-                "heading": {
-                    "type": "string"
-                },
                 "reactPdfProps": {
                     "$ref": "#/definitions/ReactPdfProps"
                 },
+                "title": {
+                    "type": "string"
+                },
                 "type": {
-                    "enum": [
-                        "PROGRESS_CIRCLE"
-                    ],
+                    "const": "PROGRESS_CIRCLE",
                     "type": "string"
                 },
                 "values": {
@@ -337,7 +423,7 @@
                 }
             },
             "required": [
-                "heading",
+                "title",
                 "type",
                 "values"
             ],
@@ -350,109 +436,7 @@
                     "type": "string"
                 },
                 "proficiency": {
-                    "enum": [
-                        1,
-                        10,
-                        100,
-                        11,
-                        12,
-                        13,
-                        14,
-                        15,
-                        16,
-                        17,
-                        18,
-                        19,
-                        2,
-                        20,
-                        21,
-                        22,
-                        23,
-                        24,
-                        25,
-                        26,
-                        27,
-                        28,
-                        29,
-                        3,
-                        30,
-                        31,
-                        32,
-                        33,
-                        34,
-                        35,
-                        36,
-                        37,
-                        38,
-                        39,
-                        4,
-                        40,
-                        41,
-                        42,
-                        43,
-                        44,
-                        45,
-                        46,
-                        47,
-                        48,
-                        49,
-                        5,
-                        50,
-                        51,
-                        52,
-                        53,
-                        54,
-                        55,
-                        56,
-                        57,
-                        58,
-                        59,
-                        6,
-                        60,
-                        61,
-                        62,
-                        63,
-                        64,
-                        65,
-                        66,
-                        67,
-                        68,
-                        69,
-                        7,
-                        70,
-                        71,
-                        72,
-                        73,
-                        74,
-                        75,
-                        76,
-                        77,
-                        78,
-                        79,
-                        8,
-                        80,
-                        81,
-                        82,
-                        83,
-                        84,
-                        85,
-                        86,
-                        87,
-                        88,
-                        89,
-                        9,
-                        90,
-                        91,
-                        92,
-                        93,
-                        94,
-                        95,
-                        96,
-                        97,
-                        98,
-                        99
-                    ],
-                    "type": "number"
+                    "$ref": "#/definitions/Proficiency"
                 },
                 "skill": {
                     "type": "string"
@@ -500,16 +484,14 @@
         "TableColumnItem": {
             "additionalProperties": false,
             "properties": {
-                "heading": {
-                    "type": "string"
-                },
                 "reactPdfProps": {
                     "$ref": "#/definitions/ReactPdfProps"
                 },
+                "title": {
+                    "type": "string"
+                },
                 "type": {
-                    "enum": [
-                        "TABLE"
-                    ],
+                    "const": "TABLE",
                     "type": "string"
                 },
                 "values": {
@@ -520,7 +502,7 @@
                 }
             },
             "required": [
-                "heading",
+                "title",
                 "type",
                 "values"
             ],
@@ -545,16 +527,14 @@
         "TextColumnItem": {
             "additionalProperties": false,
             "properties": {
-                "heading": {
-                    "type": "string"
-                },
                 "reactPdfProps": {
                     "$ref": "#/definitions/ReactPdfProps"
                 },
+                "title": {
+                    "type": "string"
+                },
                 "type": {
-                    "enum": [
-                        "TEXT"
-                    ],
+                    "const": "TEXT",
                     "type": "string"
                 },
                 "values": {
@@ -565,7 +545,7 @@
                 }
             },
             "required": [
-                "heading",
+                "title",
                 "type",
                 "values"
             ],
@@ -596,16 +576,14 @@
         "TimelineColumnItem": {
             "additionalProperties": false,
             "properties": {
-                "heading": {
-                    "type": "string"
-                },
                 "reactPdfProps": {
                     "$ref": "#/definitions/ReactPdfProps"
                 },
+                "title": {
+                    "type": "string"
+                },
                 "type": {
-                    "enum": [
-                        "TIMELINE"
-                    ],
+                    "const": "TIMELINE",
                     "type": "string"
                 },
                 "values": {
@@ -616,7 +594,7 @@
                 }
             },
             "required": [
-                "heading",
+                "title",
                 "type",
                 "values"
             ],
@@ -625,16 +603,16 @@
         "TimelineValues": {
             "additionalProperties": false,
             "properties": {
-                "fromTo": {
-                    "type": "string"
-                },
-                "heading": {
+                "duration": {
                     "type": "string"
                 },
                 "linkTo": {
                     "type": "string"
                 },
                 "location": {
+                    "type": "string"
+                },
+                "title": {
                     "type": "string"
                 },
                 "type": {
@@ -645,14 +623,17 @@
                 }
             },
             "required": [
-                "fromTo",
-                "heading",
-                "location"
+                "duration",
+                "location",
+                "title"
             ],
             "type": "object"
         }
     },
     "properties": {
+        "$schema": {
+            "type": "string"
+        },
         "columns": {
             "$ref": "#/definitions/Columns"
         },

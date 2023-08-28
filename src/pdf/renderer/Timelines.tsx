@@ -1,69 +1,75 @@
-import ReactPDF, { Link, Text, View } from '@react-pdf/renderer';
+import { Link, Text, View } from '@react-pdf/renderer';
 
-import snakeCase from 'lodash/snakeCase';
-import { Config, TimelineColumnItem } from '../../types';
+import { Bookmark } from '@react-pdf/types/bookmark';
+import { Config, TimelineRendererProps } from '../../types';
 import Default from './Default';
+import { buildId } from './utils';
 
-interface Props extends TimelineColumnItem {
-  styles: ReactPDF.Styles;
-  config: Config;
-}
-
-export function Timelines({ heading: timelineHeading, type: timelineType, values, reactPdfProps, styles, config: { colors, printFriendly } }: Props) {
-  const smallParagraph = {
-    ...styles.paragraph,
-    color: colors.mid,
-    fontSize: 9,
-  };
-
+export function Timelines({
+  title: timelineHeading,
+  values,
+  reactPdfProps,
+  styles,
+  config: { colors, printFriendly },
+  index,
+  alignment,
+}: TimelineRendererProps) {
   return (
-    <Default heading={timelineHeading} reactPdfProps={reactPdfProps} styles={styles}>
-      {values.map(({ heading, fromTo, type, location, website, linkTo }, i) => (
-        <View
-          key={heading}
-          id={snakeCase(`${timelineType} ${timelineHeading} ${i}`)}
-          style={{
-            paddingBottom: 3,
-            display: 'flex',
-            flexDirection: 'row',
-          }}
-        >
-          <TimelineItem colors={colors} printFriendly={printFriendly} />
+    <Default title={timelineHeading} reactPdfProps={reactPdfProps} styles={styles}>
+      {values.map(({ title, duration, type, location, website, linkTo }, i) => {
+        const bookmark = {
+          bookmark: {
+            title,
+          } as Bookmark,
+        };
+
+        return (
           <View
+            {...bookmark}
+            key={title}
+            id={buildId({ blockIndex: index, itemIndex: i, alignment })}
             style={{
-              ...styles.hr,
-              paddingBottom: 6,
-              marginBottom: 6,
-              borderColor: colors.mid,
+              paddingBottom: 3,
+              display: 'flex',
+              flexDirection: 'row',
             }}
           >
-            <Text style={smallParagraph}>{fromTo}</Text>
-            {wrapInLink(heading, linkTo)}
-            {type && <Text style={smallParagraph}>{type}</Text>}
-            <View style={{ display: 'flex', flexDirection: 'row' }}>
-              <Text style={smallParagraph}>{website ? `${location}, ` : location}</Text>
-              {website ? (
-                <Link style={smallParagraph} src={website}>
-                  {website}
-                </Link>
-              ) : null}
+            <TimelineItem colors={colors} printFriendly={printFriendly} />
+            <View
+              style={{
+                ...styles.hr,
+                paddingBottom: 6,
+                marginBottom: 6,
+                borderColor: colors.mid,
+              }}
+            >
+              <Text style={styles.smallParagraph}>{duration}</Text>
+              {wrapInLink(title, linkTo)}
+              {type && <Text style={styles.smallParagraph}>{type}</Text>}
+              <View style={{ display: 'flex', flexDirection: 'row' }}>
+                <Text style={styles.smallParagraph}>{website ? `${location}, ` : location}</Text>
+                {website && (
+                  <Link style={styles.smallParagraph} src={website}>
+                    {website}
+                  </Link>
+                )}
+              </View>
             </View>
           </View>
-        </View>
-      ))}
+        );
+      })}
     </Default>
   );
 
-  function wrapInLink(heading: string, linkTo?: string) {
+  function wrapInLink(title: string, linkTo?: string) {
     const children = (
       <Text
         style={{
-          ...styles.paragraph,
-          fontSize: 11,
+          ...styles.title,
           padding: '3 0',
         }}
       >
-        {heading}
+        {title}
       </Text>
     );
     if (!linkTo) return children;
@@ -79,11 +85,14 @@ function TimelineItem({ circleSize = 20, colors, printFriendly }: TimelineItemPr
   const innerCircleSize = circleSize * 0.5;
   return (
     <View
+      wrap={false}
+      break={false}
       style={{
         paddingRight: 6,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        flexShrink: 0,
       }}
     >
       <View

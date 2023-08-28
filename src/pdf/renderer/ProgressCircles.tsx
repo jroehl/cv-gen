@@ -1,26 +1,28 @@
-import ReactPDF, { Canvas, View } from '@react-pdf/renderer';
+import { Canvas, View } from '@react-pdf/renderer';
 
-import snakeCase from 'lodash/snakeCase';
-import { Config, ProgressCircleColumnItem } from '../../types';
+import { Bookmark } from '@react-pdf/types/bookmark';
+import { ProgressCircleRendererProps } from '../../types';
 import Default from './Default';
+import { buildId } from './utils';
 
-interface Props extends ProgressCircleColumnItem {
-  styles: ReactPDF.Styles;
-  config: Config;
-}
-
-export function ProgressCircles({ heading, type, values, reactPdfProps, config: { colors, printFriendly }, styles }: Props) {
+export function ProgressCircles({ title, values, reactPdfProps, config: { colors, printFriendly }, styles, index, alignment }: ProgressCircleRendererProps) {
   const size = 50;
   const lineWidth = 3;
 
   return (
-    <Default heading={heading} reactPdfProps={reactPdfProps} flexDirection="row" styles={styles}>
+    <Default title={title} reactPdfProps={reactPdfProps} flexDirection="row" styles={styles}>
       <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between', gap: 6 }}>
         {values.map(({ color, proficiency, skill }, i) => {
+          const bookmark = {
+            bookmark: {
+              title: skill,
+            } as Bookmark,
+          };
           return (
             <View
+              {...bookmark}
               key={proficiency}
-              id={snakeCase(`${type} ${heading} ${i}`)}
+              id={buildId({ blockIndex: index, itemIndex: i, alignment })}
               style={{
                 paddingBottom: 6,
                 position: 'relative',

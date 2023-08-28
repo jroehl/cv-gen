@@ -1,4 +1,5 @@
 {
+  "$schema": "./cv.schema.json",
   "config": {
     "leftColumnWidth": 40,
     "pageNumberText": "RESUME",
@@ -13,14 +14,14 @@
       "dark": "#36474F",
       "mid": "#546E7B",
       "light": "#EFEEEE",
-      "lightest": "#FFF"
+      "lightest": "#FFFFFF"
     }
   },
   "contact": {
     "name": "Johann Emrich",
     "phone": "+49 (0)30 62937411‬",
     "mail": "mail@johannemrich.de",
-    "website": "http://johannemrich.de/",
+    "website": "https://johannemrich.de/",
     "address": {
       "street": "Altstadtblick 3",
       "city": "14473 Potsdam",
@@ -44,12 +45,12 @@
   "columns": {
     "left": [
       {
-        "heading": "Personal",
+        "title": "Personal",
         "type": "TABLE",
         "values": [
           {
             "key": "Name",
-            "value": "Johann Emrich"
+            "value": "Johann Emrich (née Röhl)"
           },
           {
             "key": "Birthday",
@@ -66,12 +67,12 @@
         ]
       },
       {
-        "heading": "Skills",
+        "title": "Skills",
         "type": "PROGRESS_BAR",
         "values": [
           [
             {
-              "skill": "Node.Js",
+              "skill": "NodeJs",
               "proficiency": 90
             },
             {
@@ -118,7 +119,7 @@
         ]
       },
       {
-        "heading": "Languages",
+        "title": "Languages",
         "type": "PROGRESS_CIRCLE",
         "reactPdfProps": {
           "break": true
@@ -142,7 +143,7 @@
         ]
       },
       {
-        "heading": "Tools, methods, frameworks",
+        "title": "Tools, methods, frameworks",
         "type": "TEXT",
         "values": [
           {
@@ -179,7 +180,7 @@
               "MongoDB",
               "MySQL",
               "Netlify",
-              "Node.js",
+              "NodeJs",
               "Objectives and Key Results (OKRs)",
               "PostgreSQL",
               "ReactJs",
@@ -200,136 +201,137 @@
         ]
       },
       {
-        "heading": "About me",
+        "title": "About me",
         "type": "TEXT",
         "values": [
           {
-            "value": "As a CTO and experienced full-stack developer, I bring 8+ years of expertise in backend and frontend development, as well as DevOps with a primary focus on AWS. I am an organized and driven team player, blending logic with creativity to deliver results. My advanced proficiency in Node.js, Go, JavaScript (TypeScript), HTML5, CSS3, ReactJs, and Gatsby.js enables me to develop innovative and scalable solutions for complex challenges. Let's connect and explore how I can contribute to your next project."
+            "value": "As a CTO and experienced full-stack developer, I bring 8+ years of expertise in backend and frontend development, as well as DevOps with a primary focus on AWS. I am an organized and driven team player, blending logic with creativity to deliver results. My advanced proficiency in NodeJs, Go, JavaScript (TypeScript), HTML5, CSS3, React.js, and Gatsby.js enables me to develop innovative and scalable solutions for complex challenges. Let's connect and explore how I can contribute to your next project."
           }
         ]
       }
     ],
     "right": [
       {
-        "heading": "Education",
+        "title": "Education",
         "type": "TIMELINE",
         "values": [
           {
-            "heading": "Studies of media informatics - BA",
-            "fromTo": "10/2014 - 10/2017",
+            "title": "Studies of media informatics - BA",
+            "duration": "10/2014 - 10/2017",
             "location": "Beuth University of Applied Sciences, Berlin"
           },
           {
-            "heading": "Education photographer - Journeyman",
-            "fromTo": "08/2011 - 01/2014",
+            "title": "Education photographer - Journeyman",
+            "duration": "08/2011 - 01/2014",
             "location": "adP Photostudios GmbH, Hamburg"
           },
           {
-            "heading": "Training rescue paramedic",
-            "fromTo": "08/2010 - 01/2011",
+            "title": "Training rescue paramedic",
+            "duration": "08/2010 - 01/2011",
             "location": "ASB Hamburg, Hamburg"
           },
           {
-            "heading": "Abitur (equivalent to A-levels)",
-            "fromTo": "08/1997 - 08/2008",
+            "title": "Abitur (equivalent to A-levels)",
+            "duration": "08/1997 - 08/2008",
             "location": "Baltic Gesamtschule / Johanneum zu Lübeck, Lübeck"
           }
         ]
       },
       {
-        "heading": "Certificates and qualifications",
+        "title": "Certificates and qualifications",
         "type": "TIMELINE",
         "values": [
           {
-            "heading": "Cloud Architecture with Google Cloud Specialization",
-            "fromTo": "04/2020",
+            "title": "Cloud Architecture with Google Cloud Specialization",
+            "duration": "04/2020",
             "location": "Coursera"
           },
           {
-            "heading": "Contentful Certified Professional",
-            "fromTo": "03/2020 - 03/2022",
+            "title": "Contentful Certified Professional",
+            "duration": "03/2020 - 03/2022",
             "location": "Contentful"
           },
           {
-            "heading": "Grundlagen des Onlinemarketings",
-            "fromTo": "11/2019",
+            "title": "Grundlagen des Onlinemarketings",
+            "duration": "11/2019",
             "location": "Google"
           },
           {
-            "heading": "AWS Certified Solutions Architect - Associate",
-            "fromTo": "11/2018",
+            "title": "AWS Certified Solutions Architect - Associate",
+            "duration": "11/2018",
             "location": "Amazon Web Services"
           },
           {
-            "heading": "Machine Learning",
-            "fromTo": "02/2018",
+            "title": "Machine Learning",
+            "duration": "02/2018",
             "location": "Coursera / Andrew Ng"
           }
         ]
       },
       {
-        "heading": "Work",
+        "title": "Work",
         "type": "TIMELINE",
         "reactPdfProps": {
-          "break": true
+          "break": true,
+          "wrap": true
         },
         "values": [
           {
-            "heading": "Software developer & Web designer",
-            "linkTo": "card_selected_projects_freelance_0",
-            "fromTo": "03/2021 - today",
+            "title": "Software developer & Web designer",
+            "linkTo": "right-3-0",
+            "duration": "03/2021 - Present",
             "type": "Freelance | Full-time",
             "location": "Berlin",
             "website": "www.hinterland.software"
           },
           {
-            "heading": "Chief Technology Officer | HERMONE",
-            "linkTo": "card_selected_projects_freelance_1",
-            "fromTo": "06/2022 - today",
+            "title": "Chief Technology Officer | HERMONE",
+            "linkTo": "right-3-1",
+            "duration": "06/2022 - Present",
             "type": "Freelance | Part-time",
             "location": "Berlin",
             "website": "hermone.health"
           },
           {
-            "heading": "FullStack JS developer | Contentful GmbH",
-            "linkTo": "card_selected_projects_employed_0",
-            "fromTo": "06/2019 - 03/2021",
+            "title": "FullStack JS developer | Contentful GmbH",
+            "linkTo": "right-3-3",
+            "duration": "06/2019 - 03/2021",
             "type": "Employed | Full-time",
             "location": "Berlin",
             "website": "www.contentful.com"
           },
           {
-            "heading": "Software developer | MYCS GmbH",
-            "linkTo": "card_selected_projects_employed_1",
-            "fromTo": "01/2018 - 06/2019",
+            "title": "Software developer | MYCS GmbH",
+            "linkTo": "right-3-4",
+            "duration": "01/2018 - 06/2019",
             "type": "Employed | Full-time",
             "location": "Berlin",
             "website": "www.mycs.com"
           },
           {
-            "heading": "Working student | MYCS GmbH",
-            "fromTo": "01/2017 - 01/2018",
+            "title": "Working student | MYCS GmbH",
+            "duration": "01/2017 - 01/2018",
             "type": "Employed | Part-time",
             "location": "Berlin",
             "website": "www.mycs.com"
           },
           {
-            "heading": "Working student | GIGA",
-            "fromTo": "08/2015 - 01/2018",
+            "title": "Working student | GIGA",
+            "duration": "08/2015 - 01/2018",
             "type": "Employed | Part-time",
             "location": "Hamburg",
             "website": "www.giga-hamburg.de"
           },
           {
-            "heading": "Software developer & Web designer",
-            "fromTo": "04/2014 - 03/2021",
+            "title": "Software developer & Web designer",
+            "duration": "04/2014 - 03/2021",
             "type": "Freelance | Part-time",
             "location": "Berlin",
             "website": "www.hinterland.software"
           },
           {
-            "heading": "Photographer | adP Photostudios GmbH",
-            "fromTo": "02/2014 - 04/2014",
+            "title": "Photographer | adP Photostudios GmbH",
+            "duration": "02/2014 - 04/2014",
             "type": "Employed | Full-time",
             "location": "Hamburg",
             "website": "www.adp-photostudios.de"
@@ -337,19 +339,22 @@
         ]
       },
       {
-        "heading": "Selected projects - Freelance",
+        "title": "Selected projects",
         "type": "CARD",
+        "reactPdfProps": {
+          "break": true,
+          "wrap": true
+        },
         "values": [
           {
-            "heading": "CMS Migration Project",
-            "duration": "approx. 1.5 years",
-            "subheading": ["Contentful", "ReactJs", "TypeScript", "Node.js", "AWS", "Terraform", "GitHub Actions"],
-            "text": "Migration of a legacy CMS to Contentful for a large news company. This includes content migration, creating custom frontend apps in ReactJs and TypeScript, backend apps in Node.js and TypeScript, AWS Terraform for infrastructure, and leveraging GitHub Actions for CI/CD."
+            "skills": ["Contentful", "ReactJs", "TypeScript", "NodeJs", "AWS", "Terraform", "GitHub Actions"],
+            "title": "CMS Migration Project",
+            "type": "Freelance | Full-time",
+            "duration": "2021 - 2023",
+            "text": "Successfully migrated a prominent news organization from a legacy CMS to Contentful. The comprehensive project involved transferring vast content, developing custom frontend applications, and crafting backend solutions. Additionally, the project leveraged AWS Terraform for infrastructure management and integrated GitHub Actions to establish a streamlined CI/CD pipeline."
           },
           {
-            "heading": "Interim Chief Technology Officer",
-            "duration": "approx. 1.5 years - ongoing",
-            "subheading": [
+            "skills": [
               "AWS API Gateway",
               "AWS AppSync",
               "AWS CloudFront",
@@ -368,12 +373,13 @@
               "React Native",
               "Serverless"
             ],
+            "title": "Interim Chief Technology Officer",
+            "type": "Freelance | Part-time",
+            "duration": "06/2022 - Present",
             "text": "Served as Interim CTO for a Femtech company, where I was responsible for planning and implementing AWS serverless infrastructure, developing a React Native app, providing strategic consulting, and managing the project."
           },
           {
-            "heading": "Website for Research Institute",
-            "duration": "approx. 8 months - ongoing",
-            "subheading": [
+            "skills": [
               "AWS API Gateway",
               "AWS CloudFront",
               "AWS ECS",
@@ -387,46 +393,45 @@
               "Serverless",
               "TypeScript"
             ],
+            "title": "Website for Research Institute",
+            "type": "Freelance | Full-time",
+            "duration": "06/2021 - 01/2022",
             "text": "Conception and development of a fail-safe website linked with a research information system. Data is automatically fed into a CMS, manually enriched, and displayed on the website, utilizing technologies such as GatsbyJs, ReactJs, TypeScript, AWS services, and Docker."
           },
           {
-            "heading": "Twitter Project",
-            "duration": "approx. 1 year",
-            "subheading": ["AngularJs", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
-            "text": "Development of tools for the collection of Tweets from Twitter APIs, and processing of these data for network analyses for a social science research project on the linkages of Arab Islamists on Twitter."
-          }
-        ]
-      },
-      {
-        "heading": "Selected projects - Employed",
-        "type": "CARD",
-        "reactPdfProps": {
-          "break": true
-        },
-        "values": [
+            "skills": ["AngularJs", "GraphQL", "MongoDB", "Python", "TwitterAPI"],
+            "title": "Twitter Data Collection for Network Analysis",
+            "type": "Freelance | Part-time",
+            "duration": "01/2015 - 06/2015",
+            "text": "For a social science study on Arab Islamists' connections on Twitter, developed tools to harness tweets using Twitter's Streaming and REST-APIs. Data was stored and subsequently processed to facilitate in-depth network analyses."
+          },
           {
-            "heading": "Migration of Legacy AngularJS to ReactJS",
-            "duration": "approx. 1 year",
-            "subheading": ["TypeScript", "ReactJs", "Angular"],
+            "skills": ["TypeScript", "ReactJs", "Angular"],
+            "title": "Migration of Legacy AngularJS to ReactJS",
+            "type": "Employed | Full-time",
+            "duration": "03/2020 - 03/2021",
             "text": "Migration of a substantial legacy AngularJS codebase to ReactJS, utilizing TypeScript and modern development practices to enhance maintainability and performance."
           },
           {
-            "heading": "CiCd process Netsuite",
-            "duration": "approx. 6 months",
-            "subheading": ["Bash", "CircleCi", "Go", "Netsuite", "NodeJs", "SuiteTalk"],
-            "text": "Conception and implementation of a CiCd workflow to allow adopting modern development practices in Netsuite. Implementation of an open source cli for useful file handling features in Netsuite."
+            "skills": ["Bash", "CircleCi", "Go", "Netsuite", "NodeJs", "SuiteTalk"],
+            "title": "CI/CD process NetSuite",
+            "type": "Employed | Full-time",
+            "duration": "01/2018 - 06/2018",
+            "text": "Conceived and successfully implemented a workflow for Netsuite, facilitating the adoption of modern development practices. Additionally, developed an open-source CLI, enhancing file handling capabilities within Netsuite."
           },
           {
-            "heading": "ECS, EKS setup and integration",
-            "duration": "approx. 3 months",
-            "subheading": ["AWS", "Bash", "Docker", "Kubernetes"],
-            "text": "Setup of a cloud container orchestration service (EKS and ECS) and migration of existing APIs."
+            "skills": ["AWS", "Bash", "Docker", "Kubernetes"],
+            "title": "Cloud Container Orchestration Integration",
+            "type": "Employed | Full-time",
+            "duration": "03/2018 - 07/2018",
+            "text": "Established and integrated both EKS and ECS cloud container orchestration services, streamlining the migration of existing APIs. This initiative enhanced the scalability and reliability of our system infrastructure."
           },
           {
-            "heading": "Warehouse API",
-            "duration": "approx. 8 months",
-            "subheading": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
-            "text": "Design and implementation of an API automating the label prints in the warehouse."
+            "skills": ["AWS", "CircleCi", "Go", "IoT", "NodeJs", "PostgreSQL"],
+            "title": "Automated Label Printing through API Design",
+            "type": "Employed | Full-time",
+            "duration": "01/2019 - 03/2019",
+            "text": "Designed and implemented a specialized API to enhance warehouse operations. This system streamlined the label printing process, integrating seamlessly with existing management systems. As a result, manual interventions were minimized and errors reduced in order processing."
           }
         ]
       }

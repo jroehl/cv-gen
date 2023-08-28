@@ -2,16 +2,22 @@ import Editor, { useMonaco } from '@monaco-editor/react';
 import Ajv, { ErrorObject } from 'ajv';
 import debounce from 'lodash/debounce';
 import { useCallback, useEffect, useState } from 'react';
+import { columns, config, contact } from '../cv-johannemrich.json';
+import cvSchema from '../cv.schema.json';
 import { Errors } from './Errors';
 import { PDFViewer } from './PDFClient';
-import defaultJson from './cv-johannemrich.json';
-import cvSchema from './cv.schema.json';
 import { CV } from './types';
 
 const ajv = new Ajv({
   allErrors: true,
   verbose: true,
 });
+
+const cv = {
+  config,
+  columns,
+  contact,
+} as CV;
 
 type State =
   | {
@@ -24,7 +30,7 @@ type State =
     };
 
 function App() {
-  const [{ json, errors }, setValidated] = useState<State>({ errors: null, json: defaultJson as CV });
+  const [{ json, errors }, setValidated] = useState<State>({ errors: null, json: cv });
 
   const monaco = useMonaco();
 
@@ -34,8 +40,8 @@ function App() {
         validate: true,
         schemas: [
           {
-            uri: 'http://hinterland-software/cv.schema.json', // id of the first schema
-            fileMatch: ['*'], // associate with our model
+            uri: '',
+            fileMatch: ['*'],
             schema: cvSchema,
           },
         ],
@@ -60,7 +66,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    validateAndSetJson(defaultJson as CV);
+    validateAndSetJson(cv);
   }, [validateAndSetJson]);
 
   if (!errors && !json) return <div>... loading</div>;

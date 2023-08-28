@@ -6,7 +6,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { basename, resolve } from 'node:path';
 import { cwd } from 'node:process';
 import React from 'react';
-import cvSchema from '../src/cv.schema.json';
+import cvSchema from '../cv.schema.json';
 import { Pdf } from '../src/pdf/Document';
 import { CV } from '../src/types';
 

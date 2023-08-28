@@ -7,6 +7,10 @@ export interface CV {
   columns: Columns;
 }
 
+export interface SchemaCV extends CV {
+  $schema?: string;
+}
+
 export interface Config {
   leftColumnWidth: number;
   pageNumberText: string;
@@ -72,7 +76,7 @@ type Values<TType extends ColumnType> = TType extends 'TABLE'
   : never;
 
 export interface ColumnDefault {
-  heading: string;
+  title: string;
   reactPdfProps?: ReactPdfProps;
 }
 
@@ -82,6 +86,20 @@ export type ProgressCircleColumnItem = ColumnItem<'PROGRESS_CIRCLE'>;
 export type TextColumnItem = ColumnItem<'TEXT'>;
 export type TimelineColumnItem = ColumnItem<'TIMELINE'>;
 export type CardColumnItem = ColumnItem<'CARD'>;
+
+interface DefaultRendererProps {
+  index: number;
+  alignment: Alignment;
+  styles: ReactPDF.Styles;
+  config: Config;
+}
+
+export type TableRendererProps = ColumnItem<'TABLE'> & DefaultRendererProps;
+export type ProgressBarRendererProps = ColumnItem<'PROGRESS_BAR'> & DefaultRendererProps;
+export type ProgressCircleRendererProps = ColumnItem<'PROGRESS_CIRCLE'> & DefaultRendererProps;
+export type TextRendererProps = ColumnItem<'TEXT'> & DefaultRendererProps;
+export type TimelineRendererProps = ColumnItem<'TIMELINE'> & DefaultRendererProps;
+export type CardRendererProps = ColumnItem<'CARD'> & DefaultRendererProps;
 
 export interface ColumnItem<TType extends ColumnType> extends ColumnDefault {
   type: TType;
@@ -103,20 +121,21 @@ interface ProgressValues {
   color?: string;
 }
 
-interface TimelineValues {
-  heading: string;
-  fromTo: string;
+interface ValuesExtended {
+  title: string;
+  type?: string;
+  duration: string;
+}
+
+interface TimelineValues extends ValuesExtended {
   location: string;
   linkTo?: string;
-  type?: string;
   website?: string;
 }
 
-interface CardValues {
-  heading: string;
-  subheading: string | string[];
+interface CardValues extends ValuesExtended {
+  skills: string | string[];
   text: string | string[];
-  duration: string;
 }
 
 export type ReactPdfProps = Omit<ReactPDF.ViewProps, 'style'>;

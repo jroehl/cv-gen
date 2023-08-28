@@ -8,7 +8,7 @@ FILENAME=$(basename -- "${JSON_FILE}")
 FILENAME="${FILENAME%.*}"
 
 TITLE="Curriculum Vitae - $(cat ${JSON_FILE} | jq -r '.contact.name')"
-DESCRIPTION=$(cat ${JSON_FILE} | jq -r '.columns.left[] | select( .heading == "About me").values[0].value')
+DESCRIPTION=$(cat ${JSON_FILE} | jq -r '.columns.left[] | select( .title == "About me").values[0].value')
 EMAIL=$(cat ${JSON_FILE} | jq -r '.contact.mail')
 GRAVATAR_HASH=$(curl -s --location --request POST 'https://api.hashify.net/hash/md5/hex' --data-raw "${EMAIL}" | jq -r '.Digest')
 

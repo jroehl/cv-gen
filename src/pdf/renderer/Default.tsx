@@ -1,28 +1,34 @@
 import ReactPDF, { Text, View } from '@react-pdf/renderer';
+import { Bookmark } from '@react-pdf/types/bookmark';
 import { PropsWithChildren } from 'react';
 import { ColumnDefault } from '../../types';
-
 interface Props extends ColumnDefault {
   flexDirection?: 'row' | 'column';
   styles: ReactPDF.Styles;
 }
 
-function Default({ heading, flexDirection = 'column', reactPdfProps = {}, children, styles }: PropsWithChildren<Props>) {
+function Default({ title, flexDirection = 'column', reactPdfProps = {}, children, styles }: PropsWithChildren<Props>) {
+  const bookmark = {
+    bookmark: {
+      title,
+    } as Bookmark,
+  };
   return (
     <View
+      {...bookmark}
       wrap={false}
       {...reactPdfProps}
-      key={heading}
+      key={title}
       style={{
         padding: '14 30 0 24',
+        maxWidth: '100%',
       }}
     >
-      <Text style={styles.heading}>{heading}</Text>
+      <Text style={styles.title}>{title}</Text>
       <View
         style={{
           flexDirection,
           display: 'flex',
-          flexWrap: 'wrap',
           paddingLeft: 12,
         }}
       >

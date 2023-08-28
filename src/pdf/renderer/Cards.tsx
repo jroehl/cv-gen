@@ -1,72 +1,58 @@
-import ReactPDF, { Text, View } from '@react-pdf/renderer';
-import snakeCase from 'lodash/snakeCase';
-
-import { CardColumnItem, Config } from '../../types';
+import { Text, View } from '@react-pdf/renderer';
+import { Bookmark } from '@react-pdf/types/bookmark';
+import { CardRendererProps } from '../../types';
 import Default from './Default';
+import { buildId, sortByDuration } from './utils';
 
-interface Props extends CardColumnItem {
-  styles: ReactPDF.Styles;
-  config: Config;
-}
-
-export function Cards({ heading: cardHeading, reactPdfProps, values, type, styles, config: { colors, printFriendly } }: Props) {
+export function Cards({ title: cardHeading, reactPdfProps, values, styles, config: { colors, printFriendly }, index, alignment }: CardRendererProps) {
   return (
-    <Default heading={cardHeading} reactPdfProps={reactPdfProps} styles={styles}>
-      {values.map(({ duration, heading, subheading, text }, i) => {
+    <Default title={cardHeading} reactPdfProps={reactPdfProps} styles={styles}>
+      {values.sort(sortByDuration).map(({ duration, title, skills, text, type }, i) => {
+        const bookmark = {
+          bookmark: {
+            title,
+          } as Bookmark,
+        };
         return (
           <View
-            key={heading}
-            id={snakeCase(`${type} ${cardHeading} ${i}`)}
+            {...bookmark}
+            wrap
+            break={false}
+            minPresenceAhead={150}
+            key={title}
+            id={buildId({ blockIndex: index, itemIndex: i, alignment })}
             style={{
               position: 'relative',
               backgroundColor: colors.lightest,
               border: printFriendly ? `1pt solid ${colors.light}` : 'none',
               borderRadius: 2,
               padding: 12,
-              marginBottom: 12,
+              marginTop: i > 0 ? 12 : 0,
               width: '100%',
             }}
           >
-            <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Text
-                style={{
-                  ...styles.subheading,
-                  paddingBottom: 3,
-                  fontSize: 10,
-                }}
-              >
-                {heading}
-              </Text>
-              {duration && (
-                <Text
-                  style={{
-                    ...styles.paragraph,
-                    paddingLeft: 6,
-                    color: colors.mid,
-                    fontSize: 6,
-                  }}
-                >
-                  ({duration})
-                </Text>
-              )}
+            <Text
+              style={{
+                ...styles.title,
+                paddingBottom: 3,
+              }}
+            >
+              {title}
+            </Text>
+            <View style={{ display: 'flex', flexDirection: 'row', paddingBottom: 3 }}>
+              <Text style={styles.smallParagraph}>{duration ? `${duration}, ` : duration}</Text>
+              {type && <Text style={styles.smallParagraph}>{type}</Text>}
             </View>
             <Text
               style={{
                 ...styles.paragraph,
-                paddingBottom: 6,
-                fontSize: 8,
-              }}
-            >
-              {Array.isArray(subheading) ? subheading.sort().join(', ') : subheading}
-            </Text>
-            <Text
-              style={{
-                ...styles.paragraph,
                 textAlign: 'justify',
+                paddingBottom: 3,
               }}
             >
               {text}
             </Text>
+            <Text style={styles.smallParagraph}>{Array.isArray(skills) ? skills.sort().join(', ') : skills}</Text>
           </View>
         );
       })}

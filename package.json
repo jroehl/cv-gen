@@ -7,10 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "gen:schema": "npx typescript-json-schema --noExtraProps --skipLibCheck --tsNodeRegister --esModuleInterop --required src/types.ts CV --out src/cv.schema.json",
+    "gen:schema": "npx typescript-json-schema --noExtraProps --skipLibCheck --tsNodeRegister --esModuleInterop --required src/types.ts SchemaCV --out cv.schema.json",
     "build:commit": "npm run build:pdf && npm run build:convert",
-    "build:pdf": "npx tsx bin/cv-gen.tsx src/cv-johannemrich.json",
-    "build:convert": "bin/landing-page.sh src/cv-johannemrich.json",
+    "build:pdf": "npx tsx bin/cv-gen.tsx cv-johannemrich.json",
+    "build:convert": "bin/landing-page.sh cv-johannemrich.json",
     "preview": "vite preview",
     "prepare": "husky install"
   },
@@ -18,6 +18,7 @@
     "@monaco-editor/react": "^4.5.2",
     "@react-pdf/renderer": "^3.1.12",
     "ajv": "^8.12.0",
+    "date-fns": "^2.30.0",
     "gravatar": "^1.8.2",
     "husky": "^8.0.3",
     "lodash": "^4.17.21",
@@ -37,10 +38,10 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "husky": "^8.0.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.2",
     "typescript-json-schema": "^0.60.0",
-    "vite": "^4.4.5",
-    "husky": "^8.0.0"
+    "vite": "^4.4.5"
   }
 }

@@ -1,21 +1,16 @@
-import ReactPDF, { Text, View } from '@react-pdf/renderer';
+import { Text, View } from '@react-pdf/renderer';
 
-import snakeCase from 'lodash/snakeCase';
-import { Config, TextColumnItem } from '../../types';
+import { TextRendererProps } from '../../types';
 import Default from './Default';
+import { buildId } from './utils';
 
-interface Props extends TextColumnItem {
-  styles: ReactPDF.Styles;
-  config: Config;
-}
-
-export function Texts({ heading, type, values, reactPdfProps, styles }: Props) {
+export function Texts({ title, values, reactPdfProps, styles, index, alignment }: TextRendererProps) {
   return (
-    <Default heading={heading} reactPdfProps={reactPdfProps} styles={styles}>
+    <Default title={title} reactPdfProps={reactPdfProps} styles={styles}>
       {values.map((props, i) => {
-        const value = Array.isArray(props.value) ? props.value.join(', ') : props.value;
+        const value = Array.isArray(props.value) ? props.value.sort((a, b) => a.localeCompare(b)).join(', ') : props.value;
         return (
-          <View key={value} id={snakeCase(`${type} ${heading} ${i}`)} style={{ paddingBottom: 6 }}>
+          <View key={value} id={buildId({ blockIndex: index, itemIndex: i, alignment })} style={{ paddingBottom: 6 }}>
             <Text
               style={{
                 ...styles.paragraph,
