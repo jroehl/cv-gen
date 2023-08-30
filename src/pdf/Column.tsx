@@ -25,24 +25,24 @@ export const Column = ({ alignment, parts, styles, config }: Props) => {
   return (
     <View style={columnStyle}>
       {parts.map((part, i) => {
-        const defaultProps = { key: `${alignment}_${i}`, styles, config, alignment, index: i };
+        const defaultProps = { styles, config, alignment, index: i };
         if (isCardColumn(part)) {
-          return <Cards {...defaultProps} {...part} />;
+          return <Cards key={part.title} {...defaultProps} {...part} />;
         }
         if (isProgressBarColumn(part)) {
-          return <ProgressBars {...defaultProps} {...part} />;
+          return <ProgressBars key={part.title} {...defaultProps} {...part} />;
         }
         if (isProgressCircleColumn(part)) {
-          return <ProgressCircles {...defaultProps} {...part} />;
+          return <ProgressCircles key={part.title} {...defaultProps} {...part} />;
         }
         if (isTableColumn(part)) {
-          return <Tables {...defaultProps} {...part} />;
+          return <Tables key={part.title} {...defaultProps} {...part} />;
         }
         if (isTextColumn(part)) {
-          return <Texts {...defaultProps} {...part} />;
+          return <Texts key={part.title} {...defaultProps} {...part} />;
         }
         if (isTimelineColumn(part)) {
-          return <Timelines {...defaultProps} {...part} />;
+          return <Timelines key={part.title} {...defaultProps} {...part} />;
         }
         console.error(`No Renderer set up for`, part);
         return null;

@@ -23,3 +23,7 @@ export function isTimelineColumn(column: AllColumnItemTypes): column is ColumnIt
 export function isCardColumn(column: AllColumnItemTypes): column is ColumnItem<'CARD'> {
   return column.type === 'CARD';
 }
+
+export function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
+  return value !== null && value !== undefined;
+}

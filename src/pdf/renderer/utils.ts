@@ -1,22 +1,8 @@
 import ReactPDF from '@react-pdf/renderer';
-import parse from 'date-fns/parse';
 import { Alignment, Config } from '../../types';
 
 export function buildId({ alignment, blockIndex, itemIndex }: { alignment: Alignment; blockIndex: number; itemIndex: number }) {
   return `${alignment}-${blockIndex}-${itemIndex}`.toLowerCase();
-}
-
-export function sortByDuration(a: { duration: string }, b: { duration: string }): number {
-  if (a.duration.toLowerCase().includes('present')) {
-    return -1; // a comes before b
-  }
-  if (b.duration.toLowerCase().includes('present')) {
-    return 1; // b comes before a
-  }
-  // extract the end date from the duration string
-  const aEndDate = parse(a.duration.split(' - ').pop() as string, 'MM/yyyy', new Date());
-  const bEndDate = parse(b.duration.split(' - ').pop() as string, 'MM/yyyy', new Date());
-  return bEndDate.getTime() - aEndDate.getTime();
 }
 
 export function getStyles({ font, colors, leftColumnWidth: leftWidth = 40, printFriendly }: Config): ReactPDF.Styles {

@@ -2,12 +2,12 @@ import { Text, View } from '@react-pdf/renderer';
 import { Bookmark } from '@react-pdf/types/bookmark';
 import { CardRendererProps } from '../../types';
 import Default from './Default';
-import { buildId, sortByDuration } from './utils';
+import { buildId } from './utils';
 
 export function Cards({ title: cardHeading, reactPdfProps, values, styles, config: { colors, printFriendly }, index, alignment }: CardRendererProps) {
   return (
     <Default title={cardHeading} reactPdfProps={reactPdfProps} styles={styles}>
-      {values.sort(sortByDuration).map(({ duration, title, skills, text, type }, i) => {
+      {values.map(({ duration, title, skills, text, type }, i) => {
         const bookmark = {
           bookmark: {
             title,

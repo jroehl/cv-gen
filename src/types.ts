@@ -38,14 +38,8 @@ export interface Contact {
   phone: string;
   mail: string;
   website: string;
-  address: Address;
+  address: string;
   portals: Portal[];
-}
-
-export interface Address {
-  street: string;
-  city: string;
-  country: string;
 }
 
 export interface Portal {
@@ -106,34 +100,34 @@ export interface ColumnItem<TType extends ColumnType> extends ColumnDefault {
   values: Values<TType>;
 }
 
-interface TextValues {
+export interface TextValues {
   value: string | string[];
 }
 
-interface TableValues {
+export interface TableValues {
   key: string;
   value: string;
 }
 
-interface ProgressValues {
+export interface ProgressValues {
   skill: string;
   proficiency: Proficiency;
   color?: string;
 }
 
-interface ValuesExtended {
+export interface ValuesExtended {
   title: string;
   type?: string;
   duration: string;
 }
 
-interface TimelineValues extends ValuesExtended {
+export interface TimelineValues extends ValuesExtended {
   location: string;
   linkTo?: string;
   website?: string;
 }
 
-interface CardValues extends ValuesExtended {
+export interface CardValues extends ValuesExtended {
   skills: string | string[];
   text: string | string[];
 }

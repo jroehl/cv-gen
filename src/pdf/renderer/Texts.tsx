@@ -8,7 +8,7 @@ export function Texts({ title, values, reactPdfProps, styles, index, alignment }
   return (
     <Default title={title} reactPdfProps={reactPdfProps} styles={styles}>
       {values.map((props, i) => {
-        const value = Array.isArray(props.value) ? props.value.sort((a, b) => a.localeCompare(b)).join(', ') : props.value;
+        const value = Array.isArray(props.value) ? props.value.join(', ') : props.value;
         return (
           <View key={value} id={buildId({ blockIndex: index, itemIndex: i, alignment })} style={{ paddingBottom: 6 }}>
             <Text

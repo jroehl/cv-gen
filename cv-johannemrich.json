@@ -22,11 +22,7 @@
     "phone": "+49 (0)30 62937411‬",
     "mail": "mail@johannemrich.de",
     "website": "https://johannemrich.de/",
-    "address": {
-      "street": "Altstadtblick 3",
-      "city": "14473 Potsdam",
-      "country": "Germany"
-    },
+    "address": "Potsdam, Brandenburg, Germany",
     "portals": [
       {
         "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAApVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+4/eNVAAAANnRSTlMAAQIDBQYHCQsSExQVHiAjJygtMzg/QEdJX2FkaHh+g4WGiJWXm6OvtLzFys7a4ubo9ff5+/2JyqqEAAAAuUlEQVQ4y9XS2Q6CMBQE0CLgjrjgvituaF1Q7v9/mtJpjKStvmmcp2k5Ib1NGSstj/uRzYzxKM3BMoKtABQYwQVgYAQ7gLYR1MV3/uaUjYjiRZ59O44ftLwceh9TFB8VLWTOXJRk4upBgZPMqZwFiWibiJ45OxlwIyUzA+CxLImrAz2LWR3ZmxrQFdONsRi+gisOhvEr2J+qf1gD2NhfqSCUt0mSK/fwW0D/C6qBSPpC0WoSYOV/fOB3aV1kKMnUK6QAAAAASUVORK5CYII=",
@@ -90,7 +86,7 @@
               "proficiency": 90
             },
             {
-              "skill": "ReactJs",
+              "skill": "React.js",
               "proficiency": 90
             },
             {
