@@ -1,22 +1,13 @@
 import { useMonaco } from '@monaco-editor/react';
-import Ajv, { ErrorObject, Schema } from 'ajv';
+import { ErrorObject, Schema } from 'ajv';
+import omit from 'lodash/omit';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { columns, config, contact } from '../cv-johannemrich.json';
 import cvSchema from '../cv.schema.json';
-import { useContentfulData } from './data';
+import { fetchContentfulData } from './contentful';
 import { mapLinkedInDataToCV } from './data/map';
-import { CV } from './types';
-
-const DEFAULT_CV = {
-  config,
-  columns,
-  contact,
-} as CV;
-
-const ajv = new Ajv({
-  allErrors: true,
-  verbose: true,
-});
+import { PhantomBusterLinkedInScrape } from './data/types';
+import { CV, SchemaCV } from './types';
+import { validateSchema } from './utils';
 
 type State =
   | {
@@ -50,7 +41,16 @@ export function useEditorSchema(schema: Schema) {
 
 export function useMappedContentfulData() {
   const data = useContentfulData();
-  const mapped = mapLinkedInDataToCV(data, DEFAULT_CV);
+  const [defaultCv, setDefaultCv] = useState<CV | undefined>(undefined);
+  useEffect(() => {
+    (async () => {
+      const res = await fetch('/cv-johannemrich.json');
+      const cv = (await res.json()) as SchemaCV;
+      setDefaultCv(omit(cv, '$schema'));
+    })();
+  }, []);
+
+  const mapped = data && defaultCv ? mapLinkedInDataToCV(data, defaultCv) : undefined;
   const key = JSON.stringify(mapped);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   return useMemo(() => mapped, [key]);
@@ -60,19 +60,8 @@ export function useValidatedJson(data?: CV) {
   const [validated, setValidated] = useState<State>(null);
   const validateAndSetJson = useCallback((json?: CV) => {
     if (!json) return;
-    const validate = ajv.compile(cvSchema);
-    const isValid = validate(json);
-    setValidated(
-      isValid
-        ? {
-            errors: null,
-            json,
-          }
-        : {
-            errors: validate.errors as ErrorObject[],
-            json: null,
-          }
-    );
+    const { isValid, errors } = validateSchema(cvSchema, json);
+    setValidated(isValid ? { errors: null, json } : { errors, json: null });
   }, []);
 
   useEffect(() => {
@@ -80,4 +69,22 @@ export function useValidatedJson(data?: CV) {
   }, [data, validateAndSetJson]);
 
   return [validated, validateAndSetJson] as const;
+}
+
+export function useContentfulData() {
+  const [data, setData] = useState<PhantomBusterLinkedInScrape | undefined>();
+  useEffect(() => {
+    (async () => {
+      const data = await fetchContentfulData(
+        {
+          space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
+          accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+        },
+        import.meta.env.VITE_CONTENTFUL_ENTRY_ID
+      );
+      setData(data);
+    })();
+  }, []);
+
+  return data;
 }

@@ -16,23 +16,28 @@ function Default({ title, flexDirection = 'column', reactPdfProps = {}, children
   return (
     <View
       {...bookmark}
-      wrap={false}
+      wrap
       {...reactPdfProps}
       key={title}
       style={{
         padding: '14 30 0 24',
-        maxWidth: '100%',
       }}
     >
-      <Text style={styles.title}>{title}</Text>
-      <View
-        style={{
-          flexDirection,
-          display: 'flex',
-          paddingLeft: 12,
-        }}
-      >
-        {children}
+      <View wrap={true}>
+        <Text minPresenceAhead={109} style={styles.title}>
+          {title}
+        </Text>
+        <View
+          wrap
+          style={{
+            flexDirection,
+            display: 'flex',
+            paddingLeft: 12,
+            flex: '1 0 auto',
+          }}
+        >
+          {children}
+        </View>
       </View>
     </View>
   );

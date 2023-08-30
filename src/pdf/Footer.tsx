@@ -7,7 +7,7 @@ type Props = Pick<CV, 'contact' | 'config'>;
 export function Footer({ contact, config: { colors, printFriendly } }: Props) {
   const styles: ReactPDF.Styles = {
     footer: {
-      position: 'absolute',
+      position: 'relative',
       bottom: 0,
       left: 0,
       right: 0,

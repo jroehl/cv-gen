@@ -16,7 +16,7 @@ export function Pdf({ contact, config, columns }: CV) {
     <Document author={contact.name} title={`Curriculum Vitae ${contact.name}`} keywords={`CV ${config.pageNumberText} ${contact.name}`}>
       <Page size="A4" wrap style={styles.page}>
         <Header contact={contact} config={config} />
-        <View style={styles.body}>
+        <View style={styles.body} >
           {ALIGNMENTS.map((alignment) => (
             <Column key={alignment} parts={columns[alignment]} alignment={alignment} styles={styles} config={config} />
           ))}

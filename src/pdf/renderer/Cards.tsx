@@ -16,13 +16,12 @@ export function Cards({ title: cardHeading, reactPdfProps, values, styles, confi
         return (
           <View
             {...bookmark}
-            wrap
+            wrap={false}
             break={false}
-            minPresenceAhead={150}
+            minPresenceAhead={109}
             key={title}
             id={buildId({ blockIndex: index, itemIndex: i, alignment })}
             style={{
-              position: 'relative',
               backgroundColor: colors.lightest,
               border: printFriendly ? `1pt solid ${colors.light}` : 'none',
               borderRadius: 2,
@@ -39,8 +38,12 @@ export function Cards({ title: cardHeading, reactPdfProps, values, styles, confi
             >
               {title}
             </Text>
-            <View style={{ display: 'flex', flexDirection: 'row', paddingBottom: 3 }}>
-              <Text style={styles.smallParagraph}>{duration ? `${duration}, ` : duration}</Text>
+            <View
+              style={{
+                paddingBottom: 3,
+              }}
+            >
+              {duration && <Text style={styles.smallParagraph}>{duration}</Text>}
               {type && <Text style={styles.smallParagraph}>{type}</Text>}
             </View>
             <Text

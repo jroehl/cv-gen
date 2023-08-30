@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+
 JSON_FILE="${1}"
 
 echo "Creating pdf/index.html file"
+mkdir -p "dist/pdf"
 
 FILENAME=$(basename -- "${JSON_FILE}")
 FILENAME="${FILENAME%.*}"
@@ -15,8 +17,8 @@ GRAVATAR_HASH=$(curl -s --location --request POST 'https://api.hashify.net/hash/
 OUTPUT_JPG="${FILENAME}.jpg"
 
 # Merge PDF to one JPG
-echo "Converting \"public/${FILENAME}.pdf\" to \"public/pdf/${OUTPUT_JPG}\""
-convert -density 300 -quality 80 +append public/${FILENAME}.pdf public/pdf/${OUTPUT_JPG}
+echo "Converting \"dist/${FILENAME}.pdf\" to \"dist/pdf/${OUTPUT_JPG}\""
+convert -density 300 -quality 80 +append "dist/${FILENAME}.pdf" "dist/pdf/${OUTPUT_JPG}"
 
 RESULT=$(
   sed -e "s/%TITLE%/${TITLE}/g" \
@@ -24,7 +26,7 @@ RESULT=$(
     -e "s/%GRAVATAR_HASH%/${GRAVATAR_HASH}/g" \
     -e "s/%OUTPUT_JPG%/${OUTPUT_JPG}/g" \
     -e "s|%PDF%|${FILENAME}.pdf|g" \
-    "public/pdf/index.template"
+    "src/index.template.html"
 )
 
-echo "$RESULT" >public/pdf/index.html
+echo "$RESULT" >dist/pdf/index.html

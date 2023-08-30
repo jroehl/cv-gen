@@ -26,12 +26,16 @@ export function Timelines({
         return (
           <View
             {...bookmark}
+            wrap={false}
+            break={false}
+            minPresenceAhead={109}
             key={title}
             id={buildId({ blockIndex: index, itemIndex: i, alignment })}
             style={{
               paddingBottom: 3,
               display: 'flex',
               flexDirection: 'row',
+              flex: '1 0 auto'
             }}
           >
             <TimelineItem colors={colors} printFriendly={printFriendly} />
@@ -85,8 +89,6 @@ function TimelineItem({ circleSize = 20, colors, printFriendly }: TimelineItemPr
   const innerCircleSize = circleSize * 0.5;
   return (
     <View
-      wrap={false}
-      break={false}
       style={{
         paddingRight: 6,
         display: 'flex',

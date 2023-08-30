@@ -8,9 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "gen:schema": "npx typescript-json-schema --noExtraProps --skipLibCheck --tsNodeRegister --esModuleInterop --required src/types.ts SchemaCV --out cv.schema.json",
-    "build:commit": "npm run build:pdf && npm run build:convert",
-    "build:pdf": "npx tsx bin/cv-gen.tsx cv-johannemrich.json",
-    "build:convert": "bin/landing-page.sh cv-johannemrich.json",
+    "build:pdf": "npx tsx bin/cv-gen.tsx public/cv-johannemrich.json",
+    "build:convert": "bin/landing-page.sh public/cv-johannemrich.json",
     "preview": "vite preview",
     "prepare": "husky install"
   },

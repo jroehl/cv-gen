@@ -23,7 +23,7 @@ export const Column = ({ alignment, parts, styles, config }: Props) => {
   }
 
   return (
-    <View style={columnStyle}>
+    <View style={columnStyle} wrap>
       {parts.map((part, i) => {
         const defaultProps = { styles, config, alignment, index: i };
         if (isCardColumn(part)) {
