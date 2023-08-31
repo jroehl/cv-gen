@@ -1,5 +1,4 @@
 import ReactPDF, { Image, Text, View } from '@react-pdf/renderer';
-import gravatar from 'gravatar';
 import { CV } from '../types';
 
 type Props = Pick<CV, 'contact' | 'config'>;
@@ -54,7 +53,7 @@ export function Header({ contact, config: { pageNumberText = 'RESUME', colors, r
       </View>
       <View style={styles.bottom}>
         <Text style={styles.title}>{contact.name}</Text>
-        <Image style={styles.image} src={gravatar.url(contact.mail, { s: '400', d: 'retro', r: 'g' }, true)} />
+        <Image style={styles.image} src={contact.image} />
       </View>
     </View>
   );

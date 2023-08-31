@@ -186,6 +186,12 @@
                 "address": {
                     "type": "string"
                 },
+                "description": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
                 "mail": {
                     "type": "string"
                 },
@@ -207,6 +213,8 @@
             },
             "required": [
                 "address",
+                "description",
+                "image",
                 "mail",
                 "name",
                 "phone",

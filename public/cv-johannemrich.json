@@ -1,5 +1,5 @@
 {
-  "$schema": "./cv.schema.json",
+  "$schema": "../cv.schema.json",
   "config": {
     "leftColumnWidth": 40,
     "pageNumberText": "RESUME",
@@ -20,8 +20,10 @@
   "contact": {
     "name": "Johann Emrich",
     "phone": "+49 (0)30 62937411‬",
+    "description": "As a CTO and experienced full-stack developer, I bring 8+ years of expertise in backend and frontend development, as well as DevOps with a primary focus on AWS. I am an organized and driven team player, blending logic with creativity to deliver results. My advanced proficiency in Node.js, Go, JavaScript (TypeScript), HTML5, CSS3, React.js, and Gatsby.js enables me to develop innovative and scalable solutions for complex challenges. Let's connect and explore how I can contribute to your next project.",
     "mail": "mail@johannemrich.de",
     "website": "https://johannemrich.de/",
+    "image": "https://media.licdn.com/dms/image/C5603AQHmXa4jy2hB7g/profile-displayphoto-shrink_800_800/0/1517065786955?e=1698883200&v=beta&t=k1Uqk4JhqiRA7yWcM-JHv1d78iBRE2qgdh6GeicB5PA",
     "address": "Potsdam, Brandenburg, Germany",
     "portals": [
       {

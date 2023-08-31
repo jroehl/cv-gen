@@ -40,7 +40,7 @@ export function Footer({ contact, config: { colors, printFriendly } }: Props) {
 
   const { name, phone, mail, website, portals, address } = contact;
 
-  const contactString = [name.split('(')[0].trim(), ...address.split(',')].filter(Boolean).join(', ');
+  const contactString = [name.split('(')[0].trim(), ...address.split(',').map((x) => x.trim())].filter(Boolean).join(', ');
 
   return (
     <View fixed style={styles.footer}>

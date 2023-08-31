@@ -40,6 +40,8 @@ export interface Contact {
   website: string;
   address: string;
   portals: Portal[];
+  image: string;
+  description: string;
 }
 
 export interface Portal {

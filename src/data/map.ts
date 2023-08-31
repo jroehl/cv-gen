@@ -10,12 +10,14 @@ export function mapLinkedInDataToCV({ general, details, skills, schools, licence
   const cv: CV = {
     config: defaults.config,
     contact: {
+      image: general?.imgUrl || defaults.contact.image,
       name: general?.fullName || defaults.contact.name,
       phone: details?.phone || defaults.contact.phone,
       mail: details?.mail || defaults.contact.mail,
-      website: details?.websites || defaults.contact.website,
+      website: defaults.contact.website,
       address: general?.location || defaults.contact.address,
       portals: defaults.contact.portals,
+      description: general?.description || defaults.contact.description,
     },
     columns: {
       left: [
