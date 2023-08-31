@@ -1,9 +1,9 @@
 import ReactPDF from '@react-pdf/renderer';
 import { default as contentful } from 'contentful';
-import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, isAbsolute, join, resolve } from 'node:path';
 import { cwd } from 'node:process';
+import { convert } from 'pdf-img-convert';
 import React from 'react';
 import cvSchema from '../cv.schema.json';
 import { mapLinkedInDataToCV } from '../src/data/map';
@@ -46,7 +46,7 @@ async function run() {
         },
       },
     });
-    generateLandingPage({
+    await generateLandingPage({
       path: absolutePath,
       data,
     });
@@ -77,7 +77,7 @@ async function fetchCvData(path: string) {
   return mapped;
 }
 
-function generateLandingPage({ path, data }: { path: string; data: CV }) {
+async function generateLandingPage({ path, data }: { path: string; data: CV }) {
   if (!existsSync(PDF_DIR)) {
     mkdirSync(PDF_DIR, { recursive: true });
   }
@@ -86,7 +86,8 @@ function generateLandingPage({ path, data }: { path: string; data: CV }) {
   const pdfFilename = `${filename}.pdf`;
 
   console.log(`Generating landing page for "${filename}"`);
-  execSync(`convert -density 300 -quality 80 +append "${join(DIST_DIR, pdfFilename)}" "${join(PDF_DIR, jpgFilename)}"`, { stdio: 'inherit' });
+  const [output] = await convert(join(DIST_DIR, pdfFilename), { height: 3508 });
+  writeFileSync(join(PDF_DIR, jpgFilename), output);
 
   const title = `Curriculum Vitae - ${data.contact.name}`;
   const description = data.contact.description;
