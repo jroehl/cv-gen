@@ -46,8 +46,25 @@ export function mapLinkedInDataToCV({ general, details, skills, schools, licence
       ],
       right: [
         {
+          title: 'Work',
+          type: 'TIMELINE',
+          values: jobs?.map(({ dateRange, jobTitle, companyName, location, companyUrl }) => {
+            const linkTo = projectsByCompanyUrl?.[getCompanyIdFromUrl(companyUrl) as string]?.i;
+            return {
+              title: companyName,
+              duration: dateRange,
+              type: jobTitle,
+              location,
+              linkTo: linkTo !== undefined ? `right-3-${linkTo}` : undefined,
+            };
+          }),
+        } as TimelineColumnItem,
+        {
           title: 'Education',
           type: 'TIMELINE',
+          reactPdfProps: {
+            break: true,
+          },
           values: schools?.slice(0, 2).map(({ dateRange, schoolName, degree }) => {
             return {
               title: degree,
@@ -64,23 +81,6 @@ export function mapLinkedInDataToCV({ general, details, skills, schools, licence
               title: name,
               duration: date,
               location: companyName,
-            };
-          }),
-        } as TimelineColumnItem,
-        {
-          title: 'Work',
-          type: 'TIMELINE',
-          reactPdfProps: {
-            break: true,
-          },
-          values: jobs?.map(({ dateRange, jobTitle, companyName, location, companyUrl }) => {
-            const linkTo = projectsByCompanyUrl?.[getCompanyIdFromUrl(companyUrl) as string]?.i;
-            return {
-              title: companyName,
-              duration: dateRange,
-              type: jobTitle,
-              location,
-              linkTo: linkTo !== undefined ? `right-3-${linkTo}` : undefined,
             };
           }),
         } as TimelineColumnItem,
