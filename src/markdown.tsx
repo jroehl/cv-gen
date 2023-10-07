@@ -30,8 +30,14 @@ description: ${data.contact.description}
 | **Mail** | [${data.contact.mail}](mailto:${data.contact.mail}) |
 | **Website** | [${data.contact.website.replace(/^http[s]?:\/\//, '')}](${data.contact.website}) |
 | **Address** | ${data.contact.address} |
-| | |
-${data.contact.portals.map(({ icon, url }) => `| <img src="${icon}" alt="icon" width="16"/> | [${url.replace(/^http[s]?:\/\//, '')}](${url}) |`).join('\n')}
+${data.contact.portals
+  .map(({ url }) => ({
+    name: url.includes('github') ? 'GitHub' : url.includes('xing') ? 'Xing' : url.includes('linkedin') ? 'LinkedIn' : undefined,
+    url,
+  }))
+  .filter(({ name }) => name)
+  .map(({ name, url }) => `| **${name}** | [${url.replace(/^http[s]?:\/\//, '')}](${url}) |`)
+  .join('\n')}
 
 ---
 ${data.columns.left.map(formatColumnItemToMarkdown).join('\n\n')}

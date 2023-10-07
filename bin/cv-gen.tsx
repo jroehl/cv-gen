@@ -12,6 +12,7 @@ import { Pdf } from '../src/pdf/Document';
 import { CV } from '../src/types';
 import { validateSchema } from '../src/utils';
 import { generateMarkdown } from '../src/markdown';
+import { execSync } from 'node:child_process';
 
 const DIST_DIR = resolve(cwd(), 'dist');
 const SRC_DIR = resolve(cwd(), 'src');
@@ -27,7 +28,7 @@ async function run() {
     if (!existsSync(absolutePath)) throw new Error(`File "${absolutePath}" not found`);
     const data = await fetchCvData(absolutePath);
 
-    await createPDF({
+    await createPdf({
       path: absolutePath,
       data: {
         ...data,
@@ -37,7 +38,7 @@ async function run() {
         },
       },
     });
-    await createPDF({
+    await createPdf({
       path: absolutePath,
       data: {
         ...data,
@@ -48,7 +49,7 @@ async function run() {
       },
     });
 
-    await createMD({ path: absolutePath, data });
+    await createMdAndDocx({ path: absolutePath, data });
 
     await generateLandingPage({
       path: absolutePath,
@@ -59,19 +60,35 @@ async function run() {
   }
 }
 
-async function createPDF({ path, data }: { path: string; data: CV }) {
+async function createPdf({ path, data }: { path: string; data: CV }) {
   const suffix = data.config.printFriendly ? '-print' : '';
   const pdfName = join(DIST_DIR, `${basename(path).replace('.json', '')}${suffix}.pdf`);
   await ReactPDF.render(<Pdf {...data} />, pdfName);
   console.log(`Stored CV "${pdfName}"`);
 }
 
-async function createMD({ path, data }: { path: string; data: CV }) {
+async function createMdAndDocx({ path, data }: { path: string; data: CV }) {
   const mdName = join(DIST_DIR, `${basename(path).replace('.json', '')}.md`);
 
   const md = generateMarkdown(data);
 
   writeFileSync(mdName, md, 'utf-8');
+  console.log(`Stored CV "${mdName}"`);
+
+  // if pandoc is not installed return
+  try {
+    execSync('pandoc -v');
+  } catch (e) {
+    console.log('pandoc is not installed. Skipping docx and rtf generation.');
+    return;
+  }
+
+  const rtfName = join(DIST_DIR, `${basename(path).replace('.json', '')}.rtf`);
+  execSync(`pandoc -o ${rtfName} -f markdown -s ${mdName}`, { cwd: DIST_DIR });
+  console.log(`Stored CV "${rtfName}"`);
+
+  const docxName = join(DIST_DIR, `${basename(path).replace('.json', '')}.docx`);
+  execSync(`pandoc -o ${docxName} -f markdown -s ${mdName}`, { cwd: DIST_DIR });
   console.log(`Stored CV "${mdName}"`);
 }
 
