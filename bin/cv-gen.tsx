@@ -11,6 +11,7 @@ import { PhantomBusterLinkedInScrape } from '../src/data/types';
 import { Pdf } from '../src/pdf/Document';
 import { CV } from '../src/types';
 import { validateSchema } from '../src/utils';
+import { generateMarkdown } from '../src/markdown';
 
 const DIST_DIR = resolve(cwd(), 'dist');
 const SRC_DIR = resolve(cwd(), 'src');
@@ -46,6 +47,9 @@ async function run() {
         },
       },
     });
+
+    await createMD({ path: absolutePath, data });
+
     await generateLandingPage({
       path: absolutePath,
       data,
@@ -62,6 +66,15 @@ async function createPDF({ path, data }: { path: string; data: CV }) {
   console.log(`Stored CV "${pdfName}"`);
 }
 
+async function createMD({ path, data }: { path: string; data: CV }) {
+  const mdName = join(DIST_DIR, `${basename(path).replace('.json', '')}.md`);
+
+  const md = generateMarkdown(data);
+
+  writeFileSync(mdName, md, 'utf-8');
+  console.log(`Stored CV "${mdName}"`);
+}
+
 async function fetchCvData(path: string) {
   const data = await fetchContentfulData(
     { space: process.env.VITE_CONTENTFUL_SPACE_ID as string, accessToken: process.env.VITE_CONTENTFUL_ACCESS_TOKEN as string },
@@ -74,6 +87,7 @@ async function fetchCvData(path: string) {
     throw new Error(`Validation failed\n${errors?.map(({ instancePath, message }) => `  - "${instancePath}" - ${message}`).join('\n')}`);
   }
 
+  writeFileSync(join(DIST_DIR, basename(path)), JSON.stringify(mapped, null, 2), 'utf-8');
   return mapped;
 }
 
@@ -89,7 +103,7 @@ async function generateLandingPage({ path, data }: { path: string; data: CV }) {
   const [output] = await convert(join(DIST_DIR, pdfFilename), { height: 3508 });
   writeFileSync(join(PDF_DIR, jpgFilename), output);
 
-  const title = `Curriculum Vitae - ${data.contact.name}`;
+  const title = `Curriculum Vitae | ${data.contact.name}`;
   const description = data.contact.description;
   const imageUrl = data.contact.image;
 
@@ -100,7 +114,7 @@ async function generateLandingPage({ path, data }: { path: string; data: CV }) {
     .replace(/%DESCRIPTION%/g, description)
     .replace(/%IMAGE_URL%/g, imageUrl)
     .replace(/%OUTPUT_JPG%/g, jpgFilename)
-    .replace(/%PDF%/g, pdfFilename);
+    .replace(/%OUTPUT_PDF%/g, pdfFilename);
 
   const indexHtml = join(PDF_DIR, 'index.html');
   console.log(`Writing landing page to "${indexHtml}"`);

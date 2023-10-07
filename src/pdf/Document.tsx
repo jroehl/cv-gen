@@ -13,10 +13,10 @@ export function Pdf({ contact, config, columns }: CV) {
   const styles = getStyles(config);
 
   return (
-    <Document author={contact.name} title={`Curriculum Vitae ${contact.name}`} keywords={`CV ${config.pageNumberText} ${contact.name}`}>
+    <Document author={contact.name} title={`Curriculum Vitae ${contact.name}`} keywords={`CV ${config.pageNumberText} ${contact.name}`} language="en-GB">
       <Page size="A4" wrap style={styles.page}>
         <Header contact={contact} config={config} />
-        <View style={styles.body} >
+        <View style={styles.body}>
           {ALIGNMENTS.map((alignment) => (
             <Column key={alignment} parts={columns[alignment]} alignment={alignment} styles={styles} config={config} />
           ))}
