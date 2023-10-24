@@ -92,7 +92,6 @@
             },
             "required": [
                 "duration",
-                "skills",
                 "text",
                 "title"
             ],
@@ -168,6 +167,12 @@
                 },
                 "romanizedPageNumbers": {
                     "type": "boolean"
+                },
+                "slices": {
+                    "additionalProperties": {
+                        "type": "number"
+                    },
+                    "type": "object"
                 }
             },
             "required": [

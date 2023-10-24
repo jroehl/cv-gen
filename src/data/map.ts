@@ -3,7 +3,7 @@ import { notEmpty } from '../utils';
 import { PhantomBusterLinkedInScrape } from './types';
 
 export function mapLinkedInDataToCV({ general, details, skills, schools, licences, jobs, accomplishments }: PhantomBusterLinkedInScrape, defaults: CV) {
-  const projects = accomplishments?.projects?.slice(0, 6);
+  const projects = accomplishments?.projects?.slice(0, defaults.config.slices?.['Selected projects']);
   const projectsByCompanyUrl = keyByCompanyId(projects);
   const jobsByCompanyUrl = keyByCompanyId(jobs);
 
@@ -23,18 +23,6 @@ export function mapLinkedInDataToCV({ general, details, skills, schools, licence
       left: [
         ...defaults.columns.left,
         {
-          title: 'Tools, methods, frameworks',
-          type: 'TEXT',
-          values: [
-            {
-              value: skills
-                ?.filter((skill) => !skill?.name?.includes('maximum'))
-                .map((skill) => skill.name)
-                .filter(notEmpty),
-            },
-          ],
-        } as TextColumnItem,
-        {
           title: 'About me',
           type: 'TEXT',
           values: [
@@ -43,12 +31,27 @@ export function mapLinkedInDataToCV({ general, details, skills, schools, licence
             },
           ],
         } as TextColumnItem,
+        {
+          title: 'Tools, methods, frameworks',
+          reactPdfProps: {
+            break: true,
+          },
+          type: 'TEXT',
+          values: [
+            {
+              value: skills
+                ?.filter((skill) => !skill?.name?.toLowerCase()?.includes('maximum'))
+                .map((skill) => skill.name)
+                .filter(notEmpty),
+            },
+          ],
+        } as TextColumnItem,
       ],
       right: [
         {
           title: 'Work',
           type: 'TIMELINE',
-          values: jobs?.map(({ dateRange, jobTitle, companyName, location, companyUrl }) => {
+          values: jobs?.slice(0, defaults.config.slices?.['Work']).map(({ dateRange, jobTitle, companyName, location, companyUrl }) => {
             const linkTo = projectsByCompanyUrl?.[getCompanyIdFromUrl(companyUrl) as string]?.i;
             return {
               title: companyName,
@@ -76,7 +79,7 @@ export function mapLinkedInDataToCV({ general, details, skills, schools, licence
         {
           title: 'Certificates and qualifications',
           type: 'TIMELINE',
-          values: licences?.map(({ name, date = '', companyName }) => {
+          values: licences?.slice(0, defaults.config.slices?.['Certificates and qualifications']).map(({ name, date = '', companyName }) => {
             return {
               title: name,
               duration: date,
@@ -90,9 +93,9 @@ export function mapLinkedInDataToCV({ general, details, skills, schools, licence
           reactPdfProps: {
             break: true,
           },
-          values: projects?.map(({ title, date, description, skills = '', companyUrl }) => {
+          values: projects?.map(({ title, date, description, companyUrl }) => {
             return {
-              skills,
+              // skills,
               title,
               text: description,
               duration: date,

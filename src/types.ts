@@ -18,6 +18,7 @@ export interface Config {
   printFriendly: boolean;
   font: Font;
   colors: Colors;
+  slices?: { [key: string]: number };
 }
 
 export interface Font {
@@ -130,7 +131,7 @@ export interface TimelineValues extends ValuesExtended {
 }
 
 export interface CardValues extends ValuesExtended {
-  skills: string | string[];
+  skills?: string | string[];
   text: string | string[];
 }
 

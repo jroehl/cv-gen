@@ -15,6 +15,10 @@
       "mid": "#546E7B",
       "light": "#EFEEEE",
       "lightest": "#FFFFFF"
+    },
+    "slices": {
+      "Education": 2,
+      "Selected projects": 3
     }
   },
   "contact": {
