@@ -149,11 +149,12 @@ function formatCardValues(values: CardValues[]): string {
   // Format and return the Markdown for CARD values
   return values
     .map((value) => {
+      const skills = value.skills ? `*${(Array.isArray(value.skills) ? value.skills.join(', ') : value.skills).replace(/^(\w+:)/, '**$1**')}*` : '';
       return `
 - **${value.title}** (${value.duration})  
 ${typeof value.text === 'string' ? value.text : value.text.join('\n')}  
 
-  *${(Array.isArray(value.skills) ? value.skills.join(', ') : value.skills).replace(/^(\w+:)/, '**$1**')}*`;
+  *${skills}`;
     })
     .join('\n');
 }

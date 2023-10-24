@@ -55,7 +55,7 @@ export function Cards({ title: cardHeading, reactPdfProps, values, styles, confi
             >
               {text}
             </Text>
-            <Text style={{ ...styles.smallParagraph, marginTop: 3 }}>{Array.isArray(skills) ? skills.sort().join(', ') : skills}</Text>
+            {skills && <Text style={{ ...styles.smallParagraph, marginTop: 3 }}>{Array.isArray(skills) ? skills.sort().join(', ') : skills}</Text>}
           </View>
         );
       })}
