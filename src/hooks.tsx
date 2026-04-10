@@ -25,7 +25,8 @@ export function useEditorSchema(schema: Schema) {
 
   useEffect(() => {
     if (monaco) {
-      monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (monaco.languages as any).json.jsonDefaults.setDiagnosticsOptions({
         validate: true,
         schemas: [
           {
