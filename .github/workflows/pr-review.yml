@@ -9,7 +9,7 @@ name: PR review
 
 on:
   pull_request:
-    types: [opened, synchronize, ready_for_review, reopened]
+    types: [opened, ready_for_review, reopened]
 
 permissions:
   contents: read
@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
 
       # SHA-pinned: this action receives OPENROUTER_API_KEY, and @main is mutable.
-      - uses: jroehl/gh-workflows@d3b20d5e314b6a3bcaf6fb6c5481bfd063dc2f84 # main
+      - uses: jroehl/gh-workflows@cdb2707b046e3aa74f22ee44c50ff3b61fdc05ec # main
         with:
           pr: ${{ github.event.pull_request.number }}
           openrouter-api-key: ${{ secrets.OPENROUTER_API_KEY }}
