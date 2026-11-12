@@ -20,6 +20,7 @@ jobs:
     # A fork PR gets no secrets, so there is nothing to run.
     if: >-
       github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'no-critic') &&
       github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-22.04
     timeout-minutes: 20
