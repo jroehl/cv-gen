@@ -31,8 +31,10 @@ jobs:
           fetch-depth: 0
 
       # SHA-pinned: this action receives OPENROUTER_API_KEY, and @main is mutable.
-      - uses: jroehl/gh-workflows@cdb2707b046e3aa74f22ee44c50ff3b61fdc05ec # main
+      - uses: jroehl/gh-workflows@eaf406b857ac93e98c098b48a1d2abc3e0335796 # v2.0.0
         with:
           pr: ${{ github.event.pull_request.number }}
           openrouter-api-key: ${{ secrets.OPENROUTER_API_KEY }}
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
